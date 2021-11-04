@@ -38,10 +38,12 @@
 
         //how to implement the addition of the scales
         //push_back the front of echo by delay
-        //add echo[i] to sample[i]
         for (int i = 0; i < delay; i++){ // adds 0 to the start of the array "delay" times
             echo.insert(echo.begin(), 0);
         }
+        
+        //add echo[i] to sample[i]
+        
        
 
 
