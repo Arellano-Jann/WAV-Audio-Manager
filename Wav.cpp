@@ -31,5 +31,9 @@ bool Wav::SetFile(const std::string& filename)
 
 void Wav::AnalyzeFile()
 {
-
+    std::ifstream f(file, std::ios::binary | std::ios::in)
+    if(f.is_op
+    {
+        
+    }
 }
