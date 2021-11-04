@@ -22,6 +22,7 @@
             sample[i] *= scale;
         }
     }
+    
     void echo(float scale, int delay){
         //Algo: Samples are copied, scaled, and 
         //added to later locations in the sample buffer to create an echo effect.
@@ -35,7 +36,10 @@
         //how to implement the addition of the scales
         //push_back the front of echo by delay
         //add echo[i] to sample[i]
+        //an echo is usually quieter than original so maybe 
+        //scale the scale so that it's lower than 1?
     }
+
     void gainAdjustment(float scale){
         
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
