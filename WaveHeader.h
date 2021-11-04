@@ -1,3 +1,6 @@
+// Created by Andrew Kalb
+// 11/4/2021
+
 struct WaveHeader
 {
     char riffHeader[4];

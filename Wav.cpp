@@ -1,3 +1,6 @@
+// Created by Andrew Kalb
+// 11/4/2021
+
 #include "Wav.h"
 #include <ios>
 #include <iostream>
@@ -28,5 +31,5 @@ bool Wav::SetFile(const std::string& filename)
 
 void Wav::AnalyzeFile()
 {
-    
+
 }
