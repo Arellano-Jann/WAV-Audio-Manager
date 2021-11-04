@@ -38,4 +38,11 @@
     }
     void gainAdjustment(float scale){
         
+        //Algo: Samples are multiplied by a scaling factor that raises or lowers 
+        //the overall amplitude of the wave file
+
+        std::vector<float> echo = sample;
+        for (int i = 0; i < sample.end(); i++){ // creates scaled echo vector
+            echo[i] = sample[i] * scale;
+        }
     }
