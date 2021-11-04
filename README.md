@@ -64,7 +64,7 @@ The basic level application presents the user with a console interface.
 
 The following pseudo-code shows the required application flow for the base level console version:
 
-Start: Present start menu  
+`Start: Present start menu  
 If user selects quit, exit program  
 Else  
  Request filename from user  
@@ -79,7 +79,7 @@ Else
  request output filename  
  run processor  
  save file  
- goto Start  
+ goto Start ` 
   
 
 **Start Menu**
