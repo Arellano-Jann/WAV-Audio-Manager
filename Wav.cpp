@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 // Name:
 
+=======
+// Created by Andrew Kalb
+// 11/4/2021
+>>>>>>> a9a42eedef958cc983c565f4ef40e3601d7d2162
 
 #include "Wav.h"
 #include <ios>
@@ -31,5 +36,5 @@ bool Wav::SetFile(const std::string& filename)
 
 void Wav::AnalyzeFile()
 {
-    
+
 }
