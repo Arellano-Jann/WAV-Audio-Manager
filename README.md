@@ -64,22 +64,23 @@ The basic level application presents the user with a console interface.
 
 The following pseudo-code shows the required application flow for the base level console version:
 
-```Start: Present start menu  
+```
+Start: Present start menu  
 If user selects quit, exit program  
 Else  
  Request filename from user  
  Open file specified by filename  
  If file does not exist or file is not wav file  
- display error message and goto start  
+  display error message and goto start  
  else  
- read file metadata  
-(1) display metadata to user  
- present user with processor menu  
- If user selects processor option  
- request output filename  
- run processor  
- save file  
- goto Start 
+  read file metadata  
+  (1) display metadata to user  
+  present user with processor menu  
+  If user selects processor option  
+    request output filename  
+    run processor  
+    save file  
+    goto Start 
  ``` 
   
 
