@@ -4,7 +4,10 @@
 class Wav
 {
 public:
-    Wav(std::string filename);
+    Wav();
+    // Returns false if the file is invalid
+    bool SetFile(const std::string& filename);
+    void AnalyzeFile();
 private:
     std::string file;
     unsigned int sampleRate;
