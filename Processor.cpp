@@ -12,7 +12,9 @@
         float max = 0;
         float scale = 0;
         int scaleMax = 255;
-        for (int i = 0; i < sample.end(); i++){ // find max in data sample
+        for (int i = 0; i < sample.end(); i++){ // find max in data sample 
+        // find absolute value of max (if this doesn't work)
+        // find the value that's closest to 0 or 255. recode this.
             if (sample[i] > max){
                 max = sample[i];
             }
@@ -21,6 +23,7 @@
         for (int i = 0; i < sample.end(); i++){ // scale data sample
             sample[i] *= scale;
         }
+        //check if any value is above 255 or 0
     }
     
     void echo(float scale, int delay){
@@ -36,6 +39,12 @@
         //how to implement the addition of the scales
         //push_back the front of echo by delay
         //add echo[i] to sample[i]
+        for (int i = 0; i < delay; i++){ // adds 0 to the start of the array "delay" times
+            echo.insert(echo.begin(), 0);
+        }
+       
+
+
         //an echo is usually quieter than original so maybe 
         //scale the scale so that it's lower than 1?
     }
