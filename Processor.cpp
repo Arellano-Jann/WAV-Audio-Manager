@@ -14,7 +14,7 @@
         int scaleMax = 255;
         for (int i = 0; i < sample.end(); i++){ // find max in data sample 
         // find absolute value of max (if this doesn't work)
-        // find the value that's closest to 0 or 255. recode this.
+        /// find the value that's closest to 0 or 255. recode this.
             if (sample[i] > max){
                 max = sample[i];
             }
@@ -23,7 +23,7 @@
         for (int i = 0; i < sample.end(); i++){ // scale data sample
             sample[i] *= scale;
         }
-        //check if any value is above 255 or 0
+        /// need check if any value is above 255 or 0???
     }
     
     void echo(float scale, int delay){
@@ -33,26 +33,25 @@
         //Takes in a float scale and delay. Copies a vector and combines both vectors.
         std::vector<float> echo = sample;
         for (int i = 0; i < sample.end(); i++){ // creates scaled echo vector
-            echo[i] = sample[i] * scale;
+            echo[i] = sample[i] * scale; /// add a check to see if it's more than 255
         }
 
-        //how to implement the addition of the scales
-        //push_back the front of echo by delay
+        //how to implement the addition of the scales??
         for (int i = 0; i < delay; i++){ // adds 0 to the start of the array "delay" times
-            echo.insert(echo.begin(), 0);
+            echo.insert(echo.begin(), 0); /// should i add 0 or 128?
+            sample.push_back(0);
         }
         
-        //add echo[i] to sample[i]
-        
-       
+        //add echo[i] to sample[i] to calculate total wavelength
+        for (int i = 0; i < echo.end(); i++){
+            echo[i] += sample[i]; /// does this work? hopefully.
+        }
 
-
-        //an echo is usually quieter than original so maybe 
-        //scale the scale so that it's lower than 1?
+        ///an echo is usually quieter than original so maybe 
+        ///scale the scale so that it's lower than 1?
     }
 
     void gainAdjustment(float scale){
-        
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
