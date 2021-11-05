@@ -8,16 +8,25 @@
         //This maximizes the amplitude of the final waveform.
         
         //Takes in a vector sample and normalizes it to max amplitude.
-        //How do we output? Does this need to be a void?
+        ///How do we output? Does this need to be a void?
         float max = 0;
+        float min = 255;
         float scale = 0;
-        int scaleMax = 255;
+        int scaleMax = 255; // this changes depending on bit depth 2^8 vs 2^16
         for (int i = 0; i < sample.end(); i++){ // find max in data sample 
-        // find absolute value of max (if this doesn't work)
-        /// find the value that's closest to 0 or 255. recode this.
+        /// find absolute value of max (if this doesn't work)
             if (sample[i] > max){
                 max = sample[i];
             }
+        }
+        for (int i = 0; i < sample.end(); i++){ // find min in data sample
+            if (sample[i] > min){
+                max = sample[i];
+            }
+        }
+        /// figure out if max or min is closer to cap
+        if (max - 255 > min){
+            scale = 0; /// fix this
         }
         scale = scaleMax/max; // finds scaleValue to normalize sample
         for (int i = 0; i < sample.end(); i++){ // scale data sample
