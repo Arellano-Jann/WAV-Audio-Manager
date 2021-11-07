@@ -4,7 +4,7 @@ wavman: main.cpp Processor.o Wav.o
 Processor.o: Processor.cpp Processor.h
 	g++ -c Processor.cpp
 
-Wav.o: Wav.cpp Wav.h
+Wav.o: Wav.cpp Wav.h WaveHeader.h
 	g++ -c Wav.cpp
 
 clean:

@@ -20,13 +20,17 @@ bool Wav::SetFile(const std::string& filename)
     f.open(filename, std::ios::binary | std::ios::in);
     if(f)
     {
-        f.read((char*)&header, sizeof(header));
+        if(filename.substr(filename.size() - 4) == "wav")
+        {
+            return true;
+        }
+        /*f.read((char*)&header, sizeof(header));
         f.close();
         if(header.riffHeader == "RIFF")
         {
             file = filename;
             return true;
-        }
+        }*/
     }
     return false;
 }
@@ -36,6 +40,6 @@ void Wav::AnalyzeFile()
     std::ifstream f(file, std::ios::binary | std::ios::in);
     if(f.is_open())
     {
-        f.read(header.riffHeader, )
+        f.read((char*)&header, sizeof(header));
     }
 }

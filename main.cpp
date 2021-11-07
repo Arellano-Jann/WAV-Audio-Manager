@@ -5,10 +5,11 @@
 int main()
 {
     Wav w;
-    if(w.SetFile("one_small_step.wav"))
+    if(!w.SetFile("one_small_step.wav"))
     {
-        "File doesn't exist or is not a .wav file.";
+        std::cout << "File doesn't exist or is not a .wav file.";
     }
+    
     
     return 0;
 }

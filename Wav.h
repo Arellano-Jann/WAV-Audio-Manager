@@ -2,6 +2,7 @@
 // 11/4/2021
 
 #include "WaveHeader.h"
+#include <iostream>
 #include <string>
 #include <vector>
 
