@@ -1,6 +1,7 @@
 // Created by Andrew Kalb
 // 11/4/2021
 
+#include "WaveHeader.h"
 #include <string>
 #include <vector>
 
@@ -14,5 +15,6 @@ public:
 private:
     std::string file;
     unsigned int sampleRate;
-    std::vector<char> data;
+    std::vector<float> samples;
+    WaveHeader header;
 };
