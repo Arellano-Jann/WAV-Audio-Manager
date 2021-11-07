@@ -5,7 +5,7 @@ struct WaveHeader
 {
     char riffHeader[4];
     int wavSize;
-    char waveHeader;
+    char waveHeader[4];
 
     char fmtHeader[4];
     int fmtChunkSize;
@@ -18,5 +18,6 @@ struct WaveHeader
 
     char dataHeader[4];
     int dataBytes;
+    //char data[dataBytes];
     // everything after is the actual data
 };
