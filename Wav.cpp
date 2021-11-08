@@ -9,7 +9,7 @@
 Wav::Wav()
     : file("")
     , sampleRate(0)
-    , samples()
+    , rawData(NULL)
     , header()
 {
 }
@@ -20,26 +20,27 @@ bool Wav::SetFile(const std::string& filename)
     f.open(filename, std::ios::binary | std::ios::in);
     if(f)
     {
-        if(filename.substr(filename.size() - 4) == "wav")
-        {
-            return true;
-        }
-        /*f.read((char*)&header, sizeof(header));
-        f.close();
-        if(header.riffHeader == "RIFF")
+        if(filename.substr(filename.size() - 4) == ".wav")
         {
             file = filename;
+            f.close();
             return true;
-        }*/
+        }
     }
+    f.close();
     return false;
 }
 
 void Wav::AnalyzeFile()
 {
-    std::ifstream f(file, std::ios::binary | std::ios::in);
-    if(f.is_open())
+    std::cout << "analyzing file";
+    std::ifstream f;
+    f.open(file, std::ios::binary | std::ios::in);
+    if(f)
     {
         f.read((char*)&header, sizeof(header));
+        rawData = new char[header.dataBytes];
+        f.read(rawData, sizeof(header.dataBytes));
     }
+    f.close();
 }

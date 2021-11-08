@@ -16,6 +16,6 @@ public:
 private:
     std::string file;
     unsigned int sampleRate;
-    std::vector<float> samples;
+    char* rawData;
     WaveHeader header;
 };

@@ -18,6 +18,5 @@ struct WaveHeader
 
     char dataHeader[4];
     int dataBytes;
-    //char data[dataBytes];
     // everything after is the actual data
 };

@@ -9,6 +9,7 @@ int main()
     {
         std::cout << "File doesn't exist or is not a .wav file.";
     }
+    w.AnalyzeFile();
     
     
     return 0;
