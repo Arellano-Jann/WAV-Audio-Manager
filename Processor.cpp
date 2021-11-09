@@ -79,8 +79,8 @@
         // find out if max or min is closer to cap
         float temp = max - 255;
         temp -= temp*2; // temp = temp - (temp*2)
-        if (temp > min){ scale == min; }
-        else { scale == max; }
+        if (temp > min){ scale = min; }
+        else { scale = max; }
         
         if (scale < 128) // ensures correct scaling to caps
             scale = 255 - scale;
