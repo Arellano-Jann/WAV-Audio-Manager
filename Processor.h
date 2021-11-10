@@ -13,6 +13,7 @@ public:
     void echo(float scale, int delay);
     void gainAdjustment(std::vector<float> &sample, float scale);
     void lowPassFilter(float max);
+    void compression(float pass, float increase, float max, int hold);
 
     //Helper Functions
     float findMax(float max);
