@@ -59,7 +59,20 @@
         }
     }
 
+    void Processor::lowPassFilter(float max){
+        //Algo: Remove components above a certain frequency specified.
+        //https://www.reddit.com/r/explainlikeimfive/comments/jm6lm/eli5_how_do_audio_lowpasshighpassetc_filters_work/
+        
+        for (auto &x : sample){// creates scaled echo vector
+            if (x > max){
+                x = max; // it says "remove" so i'm wondering 
+            } // if i should set it to 0 or max 
+        }
+    }
+
     
+
+
 
 
     // Helper Functions
