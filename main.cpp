@@ -20,6 +20,7 @@ int main()
 
     else {
         //Not sure which function I'm supposed to lead into. I think Andrew's?
+        std::cout << "Hi!" << std::endl;
     }
 
 return 0;
