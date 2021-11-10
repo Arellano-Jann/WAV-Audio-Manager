@@ -12,6 +12,7 @@ public:
     void normalization();
     void echo(float scale, int delay);
     void gainAdjustment(std::vector<float> &sample, float scale);
+    void lowPassFilter(float max);
 
     //Helper Functions
     float findMax(float max);
