@@ -14,7 +14,11 @@ public:
     // Returns false if the file is invalid
     bool SetFile(const std::string& filename);
     void AnalyzeFile();
-    bool IsStereo() { return header.numChannels - 1; }
+    std::string GetStereo();
+    std::string GetSampleRate();
+    std::string GetBitsPerSample();
+    std::string GetByteRate();
+    std::string GetBlockAlign();
     
 private:
     void FillFloatSamplesFromRawData();

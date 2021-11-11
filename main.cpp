@@ -1,16 +1,20 @@
-// Name:
+// Created by Alec Redera
 
-
+#include <iostream>
 #include "Wav.h"
+#include "UI.h"
+
 int main()
 {
-    Wav w;
-    if(!w.SetFile("one_small_step.wav"))
+    Wave w;
+    if(w.SetFile("one_small_step.wav"))
     {
-        std::cout << "File doesn't exist or is not a .wav file.";
+        w.AnalyzeFile();
     }
-    w.AnalyzeFile();
-    
-    
-    return 0;
+        /*
+    while() {
+        UI::UIStartMenu()
+        UI::InputQuitMenu()
+    }*/
+return 0;
 }
