@@ -1,0 +1,58 @@
+/*Useful sites: 
+Good Code Site - http://rogerchansdigitalworld.blogspot.com/2010/05/how-to-read-wav-format-file-in-c.html
+FRead - https://www.cplusplus.com/reference/cstdio/fread/
+Read - https://www.cplusplus.com/reference/istream/istream/read/
+
+*/
+
+// PASS CODE
+
+
+// Tim
+
+#include <fstream>
+wav::readFile(const std::string& filename){
+
+  std::ifstream file;
+  file.open(filename, ios::binary);
+  if (file.is_open()){
+  file >> wav_header.riff_header >>  wav_header.wav_size >> wav_header.fmt_header >> wav_header.fmt_chunk_size >> wav_header.audio_format >> wav_header.fmt_chunk_size;//etc.
+  while (!file.eof()) file >> buffer;//apparently wrong
+  }
+
+}
+
+
+/*
+char riff_header[4]; // Contains "RIFF"
+    int wav_size; // Size of the wav portion of the file, which follows the first 8 bytes. File size - 8
+    char wave_header[4]; // Contains "WAVE"
+
+    // Format Header
+    char fmt_header[4]; // Contains "fmt " (includes trailing space)
+    int fmt_chunk_size; // Should be 16 for PCM
+    short audio_format; // Should be 1 for PCM. 3 for IEEE Float
+    short num_channels;
+    int sample_rate;
+    int byte_rate; // Number of bytes per second. sample_rate * num_channels * Bytes Per Sample
+    short sample_alignment; // num_channels * Bytes Per Sample
+    short bit_depth; // Number of bits per sample
+
+    // Data
+    char data_header[4]; // Contains "data"
+    int data_bytes; // Number of bytes in data. Number of samples * num_channels * sample byte size
+
+    */
+
+
+//Zach
+    void readFile(const std::string &fileName) {
+	if(!fileName.is_open()){
+		std::cout << "File " << fileName << " could not be opened" << std::endl;
+		throw fileName;
+	}
+	else {
+		std::ifstream myFile(fileName, ios::binary);
+		
+	}
+}

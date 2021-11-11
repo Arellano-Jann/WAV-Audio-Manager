@@ -59,6 +59,57 @@
         }
     }
 
+    void Processor::lowPassFilter(float max){
+        //Algo: Remove components above a certain frequency specified.
+        //https://www.reddit.com/r/explainlikeimfive/comments/jm6lm/eli5_how_do_audio_lowpasshighpassetc_filters_work/
+        
+        for (auto &x : sample){// creates scaled echo vector
+            if (x > max){
+                x = max; // it says "remove" so i'm wondering 
+            } // if i should set it to 0 or max 
+        }
+    }
+
+    void Processor::compression(float pass, float increase, float max){
+        //Algo: For volume over a specified max, it is scaled by a ratio
+        // pass:increase. For every units passed, it increases from 
+        // max by "increase".
+        float overflow;
+        for (auto &x : sample){
+            if (x > max){
+                overflow = x - max; // overflow = nums past max
+                x = max + (pass/overflow) * increase; // compresses
+            }
+        }
+    }
+
+    void Processor::compression(float pass, float increase, float max, int hold){
+        // this overloads with int hold because it needs to be non linear
+        // only compresses for a certain time after first instance 
+        
+        // has to be non linear so setup how long compressor can hold
+        //https://www.reddit.com/r/explainlikeimfive/comments/1zfmew/eli5_compression_music_making/
+        float overflow;
+        int maxIndex;
+        for (int i = 0; i < sample.size(); i++){
+            // iterates through sample and finds first instance of anything over max
+            if (sample[i] > max){
+                maxIndex = i;
+                break; // breaks loop so maxindex does not change
+            }
+        }
+        
+        for (maxIndex; maxIndex < (maxIndex+hold); maxIndex++){ 
+            // iterates through first instance through the hold period
+            if (sample[maxIndex] > max){ // makes sure it doesn't compress under max
+                overflow = sample[maxIndex] - max;
+                sample[maxIndex] = max + (pass/overflow) * increase; // compresses
+            }
+        }
+    }
+
+
+
 
     // Helper Functions
     
@@ -79,8 +130,8 @@
         // find out if max or min is closer to cap
         float temp = max - 255;
         temp -= temp*2; // temp = temp - (temp*2)
-        if (temp > min){ scale == min; }
-        else { scale == max; }
+        if (temp > min){ scale = min; }
+        else { scale = max; }
         
         if (scale < 128) // ensures correct scaling to caps
             scale = 255 - scale;
