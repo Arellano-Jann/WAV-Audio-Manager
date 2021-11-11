@@ -1,8 +1,11 @@
 // Created by Alec Redera
 
 #include <iostream>
+#include <string>
 #include "Wav.h"
 #include "UI.h"
+
+std::string InputVariable;
 
 int main()
 {    
@@ -14,22 +17,11 @@ int main()
 
         if (InputVariable == "QUIT" || "Quit" || "quit") {
             UI::UIExitMenu()
+            break;
         }
 
         else {
-            Wav file;
-            if(!file.SetFile(InputVariable)) {
-                std::cout << "File doesn't exist or is not a .wav file.";
-            }
-            
-            else {
-                file.AnalyzeFile();
-                std::cout << "Reading File..." << std::endl;
-                file.GetFileName();
-                file.GetSampleRate();
-                file.GetBitsPerSample();
-                file.GetStereo();
-            }
+            UI::UIProgram()
         }
     }
 return 0;
