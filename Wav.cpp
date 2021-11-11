@@ -10,6 +10,7 @@ Wav::Wav()
     : file("")
     , sampleRate(0)
     , rawData(NULL)
+    , samples(NULL)
     , header()
 {
 }
@@ -38,9 +39,30 @@ void Wav::AnalyzeFile()
     f.open(file, std::ios::binary | std::ios::in);
     if(f)
     {
-        f.read((char*)&header, sizeof(header));
+        f.read((char*) &header, sizeof(header));
         rawData = new char[header.dataBytes];
-        f.read(rawData, sizeof(header.dataBytes));
+        samples = new float[header.dataBytes];
+        f.read(rawData, header.dataBytes);
+        FillFloatSamplesFromRawData();
     }
     f.close();
+}
+
+void Wav::FillFloatSamplesFromRawData()
+{
+    header.bitDepth;
+    for(size_t i = 0; i < header.dataBytes; i++)
+    {
+        float val = 1.0f * rawData[i] / sizeof(char);
+        samples[i] = val;
+        std::cout << samples[i] << std::endl;
+    }
+}
+
+
+
+Wav::~Wav()
+{
+    delete [] rawData;
+    delete [] samples;
 }
