@@ -5,6 +5,7 @@
 #include <ios>
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 Wav::Wav()
     : file("")
@@ -21,6 +22,7 @@ bool Wav::SetFile(const std::string& filename)
     f.open(filename, std::ios::binary | std::ios::in);
     if(f)
     {
+        // change to check to RIFF
         if(filename.substr(filename.size() - 4) == ".wav")
         {
             file = filename;
@@ -34,7 +36,6 @@ bool Wav::SetFile(const std::string& filename)
 
 void Wav::AnalyzeFile()
 {
-    std::cout << "analyzing file";
     std::ifstream f;
     f.open(file, std::ios::binary | std::ios::in);
     if(f)
@@ -50,13 +51,33 @@ void Wav::AnalyzeFile()
 
 void Wav::FillFloatSamplesFromRawData()
 {
-    header.bitDepth;
-    for(size_t i = 0; i < header.dataBytes; i++)
+    std::cout << "bit depth : " << header.bitDepth << std::endl;
+    std::cout << "bytes per floating point value : " << header.bitDepth / 8 << std::endl;
+    std::cout << "max size of a section of bytes this size : " << pow(2, header.bitDepth) / 2;
+    
+    for(size_t i = 0; i < header.dataBytes; i+=(header.bitDepth / 8))
     {
-        float val = 1.0f * rawData[i] / sizeof(char);
+        float val = 1.0f * rawData[i] / (pow(2, header.bitDepth) / 2);
         samples[i] = val;
-        std::cout << samples[i] << std::endl;
+        //std::cout << samples[i] << std::endl;
     }
+}
+
+std::string Wav::GetStereo()
+{
+    std::string numChannels = "Mono";
+    if(header.numChannels == 2)
+    {
+        numChannels = "Stereo";
+    }
+    return numChannels; 
+}
+
+std::string Wav::GetSampleRate(){ return header.sampleRate; }
+std::string Wav::GetBitsPerSample(){ return header.bitDepth; }
+std::string Wav::GetByteRate(){ return header. }
+std::string Wav::GetBlockAlign(){
+
 }
 
 
