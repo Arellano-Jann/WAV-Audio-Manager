@@ -14,6 +14,7 @@ public:
     void gainAdjustment(std::vector<float> &sample, float scale);
     void lowPassFilter(float max);
     void compression(float pass, float increase, float max, int hold);
+    void compression(float pass, float increase, float max);
 
     //Helper Functions
     float findMax(float max);

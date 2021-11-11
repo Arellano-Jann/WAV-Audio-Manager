@@ -70,7 +70,7 @@
         }
     }
 
-    void Processor::compression(float pass, float increase, float max, int hold){
+    void Processor::compression(float pass, float increase, float max){
         //Algo: For volume over a specified max, it is scaled by a ratio
         // pass:increase. For every units passed, it increases from 
         // max by "increase".
@@ -83,11 +83,30 @@
         float overflow;
         for (auto &x : sample){
             if (x > max){
-                overflow = x - max;
-                x = max + (pass/overflow) * increase;
+                overflow = x - max; // overflow = nums past max
+                x = max + (pass/overflow) * increase; // compresses
             }
         }
-    
+    }
+
+    void Processor::compression(float pass, float increase, float max, int hold){
+        float overflow;
+        int maxIndex;
+        for (int i = 0; i < sample.size(); i++){
+            // iterates through sample and finds first instance of anything over max
+            if (sample[i] > max){
+                maxIndex = i;
+                break; // breaks loop so maxindex does not change
+            }
+        }
+        
+        for (maxIndex; maxIndex < (maxIndex+hold); maxIndex++){ 
+            // iterates through first instance through the hold period
+            if (sample[maxIndex] > max){ // makes sure it doesn't compress under max
+                overflow = sample[maxIndex] - max;
+                sample[maxIndex] = max + (pass/overflow) * increase; // compresses
+            }
+        }
     }
 
 
