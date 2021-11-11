@@ -5,16 +5,32 @@
 #include "UI.h"
 
 int main()
-{
-    Wave w;
-    if(w.SetFile("one_small_step.wav"))
-    {
-        w.AnalyzeFile();
-    }
-        /*
+{    
     while() {
         UI::UIStartMenu()
-        UI::InputQuitMenu()
-    }*/
+
+        //UI::InputQuitMenu()
+        std::cin >> InputVariable;
+
+        if (InputVariable == "QUIT" || "Quit" || "quit") {
+            UI::UIExitMenu()
+        }
+
+        else {
+            Wav file;
+            if(!file.SetFile(InputVariable)) {
+                std::cout << "File doesn't exist or is not a .wav file.";
+            }
+            
+            else {
+                file.AnalyzeFile();
+                std::cout << "Reading File..." << std::endl;
+                file.GetFileName();
+                file.GetSampleRate();
+                file.GetBitsPerSample();
+                file.GetStereo();
+            }
+        }
+    }
 return 0;
 }

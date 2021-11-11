@@ -1,5 +1,4 @@
 // Created by Andrew Kalb
-// 11/4/2021
 
 #include "Wav.h"
 #include <ios>
@@ -59,7 +58,7 @@ void Wav::FillFloatSamplesFromRawData()
     {
         float val = 1.0f * rawData[i] / (pow(2, header.bitDepth) / 2);
         samples[i] = val;
-        //std::cout << samples[i] << std::endl;
+        std::cout << samples[i] << std::endl;
     }
 }
 
@@ -73,12 +72,10 @@ std::string Wav::GetStereo()
     return numChannels; 
 }
 
-std::string Wav::GetSampleRate(){ return header.sampleRate; }
-std::string Wav::GetBitsPerSample(){ return header.bitDepth; }
-std::string Wav::GetByteRate(){ return header. }
-std::string Wav::GetBlockAlign(){
-
-}
+int Wav::GetSampleRate(){ return header.sampleRate; }
+int Wav::GetByteRate(){ return header.byteRate; }
+short Wav::GetBitsPerSample(){ return header.bitDepth; }
+short Wav::GetBlockAlign(){ return header.sampleAlignment; }
 
 
 

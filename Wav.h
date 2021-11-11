@@ -1,5 +1,4 @@
 // Created by Andrew Kalb
-// 11/4/2021
 
 #include "WaveHeader.h"
 #include <iostream>
@@ -15,10 +14,10 @@ public:
     bool SetFile(const std::string& filename);
     void AnalyzeFile();
     std::string GetStereo();
-    std::string GetSampleRate();
-    std::string GetBitsPerSample();
-    std::string GetByteRate();
-    std::string GetBlockAlign();
+    int GetSampleRate();
+    int GetByteRate();
+    short GetBitsPerSample();
+    short GetBlockAlign();
     
 private:
     void FillFloatSamplesFromRawData();

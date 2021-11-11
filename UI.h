@@ -6,7 +6,7 @@ class UI {
 
 public:
     void UIStartMenu();
-    void UIInputQuitMenu();
     void UIExitMenu();
-    void UIProgram();
+    //void UIInputQuitMenu();
+    //void UIProgram();
 };
