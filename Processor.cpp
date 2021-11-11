@@ -74,12 +74,6 @@
         //Algo: For volume over a specified max, it is scaled by a ratio
         // pass:increase. For every units passed, it increases from 
         // max by "increase".
-
-        // has to be non linear so setup how long compressor can hold
-        //https://www.reddit.com/r/explainlikeimfive/comments/1zfmew/eli5_compression_music_making/
-        
-        // need to rewrite. find the first instance of sample going over max.
-        // after that. ratio it (pass:increase) for "hold" time.
         float overflow;
         for (auto &x : sample){
             if (x > max){
@@ -90,6 +84,11 @@
     }
 
     void Processor::compression(float pass, float increase, float max, int hold){
+        // this overloads with int hold because it needs to be non linear
+        // only compresses for a certain time after first instance 
+        
+        // has to be non linear so setup how long compressor can hold
+        //https://www.reddit.com/r/explainlikeimfive/comments/1zfmew/eli5_compression_music_making/
         float overflow;
         int maxIndex;
         for (int i = 0; i < sample.size(); i++){
