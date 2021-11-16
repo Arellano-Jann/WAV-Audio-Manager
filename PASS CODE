@@ -7,6 +7,14 @@ Read - https://www.cplusplus.com/reference/istream/istream/read/
 
 // PASS CODE
 
+// 11/16
+// Processor Abstract Class
+class Processor{
+
+  public:
+  virtual void processBuffer(unsigned char* buffer, int bufferSize) = 0;
+  // saves processor changes to the buffer/the array
+};
 
 // Tim
 
