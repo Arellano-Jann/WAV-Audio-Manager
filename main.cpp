@@ -6,23 +6,24 @@
 #include "UI.h"
 
 std::string InputVariable;
+UI ui;
 
 int main()
 {    
-    while() {
-        UI::UIStartMenu()
+    while(true) {
+        ui.UIStartMenu();
 
-        //UI::InputQuitMenu()
+        //UI::InputQuitMenu();
         std::cin >> InputVariable;
 
         if (InputVariable == "QUIT" || "Quit" || "quit") {
-            UI::UIExitMenu()
+            ui.UIExitMenu();
             break;
         }
 
         else {
-            UI::UIProgram()
-        }
+            ui.UIProgram();
+        };
     }
 return 0;
 }
