@@ -1,8 +1,11 @@
 // Name: Jann Arellano
 #include "Processor.h"
 
-//Steps: Convert all methods so that it doesn't take in params
+//Steps:
 // Convert all methods so that it only takes in the array
+// Double check all methods
+// Redo echo method so that it only takes in array
+// make sure it converts between -1 and 1
 
     void Processor::normalization(float sample[]){
         //Algo: The largest sample value in the data is found, and 
@@ -16,10 +19,10 @@
         max = findMax(max); // (max) is not needed here
         min = findMin(min); // but used to make code less lines
         scale = findScale(min, max, scale);
-        gainAdjustment(sample);
+        gainAdjustment(sample, scale);
     }
     
-    void Processor::echo(float sample[]){
+    void Processor::echo(float sample[]){ // this takes time. do this at home
         //Algo: Samples are copied, scaled, and 
         //added to later locations in the sample buffer to create an echo effect.
 
@@ -27,7 +30,7 @@
         float scale = ask(scale);
         float delay = (int) ask(delay);
 
-        std::vector<float> echo = sample;
+        float echo[] = sample;
         for (auto i = 0; i < sample.size(); i++){ // creates scaled echo vector
             echo[i] = sample[i] * scale; 
         }
@@ -48,7 +51,7 @@
         ///scale the scale so that it's lower than 1?
     }
 
-    void Processor::gainAdjustment(std::vector<float> &sample){
+    void Processor::gainAdjustment(float &sample[]){
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
@@ -63,7 +66,22 @@
         }
     }
 
-    void Processor::lowPassFilter(float sample[]){
+    void Processor::gainAdjustment(float &sample[], float scale){
+        //Algo: Samples are multiplied by a scaling factor that raises or lowers 
+        //the overall amplitude of the wave file
+
+        ///don't know if &sample is correct but we want to change sample here
+        for (auto &x : sample){// creates scaled echo vector
+            x *= scale;
+            if (x > scaleMax){ x = scaleMax; } // checks if value is above 255
+                            // scaleMax is in the h file. need to check for -1,1
+            if (x < 0){ x = 0; } // checks if value is below 0
+        }
+    }
+
+// CHALLENGE LEVEL
+
+    void Processor::lowPassFilter(float &sample[]){
         //Algo: Remove components above a certain frequency specified.
         //https://www.reddit.com/r/explainlikeimfive/comments/jm6lm/eli5_how_do_audio_lowpasshighpassetc_filters_work/
         float max = ask(max);
@@ -143,13 +161,13 @@
 
     float Processor::findScale(float min, float max, float scale){
         // find out if max or min is closer to cap
-        float temp = max - 255;
+        float temp = max - 255; // 255 needs to change depending on the bit depth
         temp -= temp*-1; // gives absolute value by multiplying by -1
         if (temp > min){ scale = min; }
         else { scale = max; }
         
         if (scale < 128) // ensures correct scaling to caps
-            scale = 255 - scale;
+            scale = 255 - scale; // 255 needs to change
         return scale /= scaleMax; // finds scaleValue to normalize sample
     }
 
