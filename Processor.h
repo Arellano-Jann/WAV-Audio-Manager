@@ -2,6 +2,7 @@
 
 #pragma once
 #define PROCESSOR_H
+#include <iostream>
 
 // possibly change all methods to take in a sample
 // i think this is because i intended to use vector.normalization()
@@ -27,4 +28,5 @@ public:
     float findMax(float max);
     float findMin(float min);
     float findScale(float min, float max, float scale);
+    float ask(std::string question);
 };

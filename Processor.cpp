@@ -3,13 +3,8 @@
 
 //Steps: Convert all methods so that it doesn't take in params
 // Convert all methods so that it only takes in the array
-// Extra method to call a cin
 
-    void Processor::normalization(){ 
-        // need to find out if i can do wavefile.normalization() and if that work
-        // or if i have to have a return type and pass in params
-        ///How do we output? Does this need to be a void?
-
+    void Processor::normalization(float sample[]){
         //Algo: The largest sample value in the data is found, and 
         //then the data is scaled so that that value is the maximum possible value. 
         //This maximizes the amplitude of the final waveform.
@@ -21,14 +16,17 @@
         max = findMax(max); // (max) is not needed here
         min = findMin(min); // but used to make code less lines
         scale = findScale(min, max, scale);
-        gainAdjustment(sample, scale);
+        gainAdjustment(sample);
     }
     
-    void Processor::echo(float scale, int delay){
+    void Processor::echo(float sample[]){
         //Algo: Samples are copied, scaled, and 
         //added to later locations in the sample buffer to create an echo effect.
 
         //Takes in a float scale and delay. Copies a vector and combines both vectors.
+        float scale = ask(scale);
+        float delay = (int) ask(delay);
+
         std::vector<float> echo = sample;
         for (auto i = 0; i < sample.size(); i++){ // creates scaled echo vector
             echo[i] = sample[i] * scale; 
@@ -50,12 +48,14 @@
         ///scale the scale so that it's lower than 1?
     }
 
-    void Processor::gainAdjustment(std::vector<float> &sample, float scale){
+    void Processor::gainAdjustment(std::vector<float> &sample){
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
         ///don't know if &sample is correct but we want to change sample here
 
+        float scale = ask(scale);
+        
         for (auto &x : sample){// creates scaled echo vector
             x *= scale;
             if (x > scaleMax){ x = scaleMax; } // checks if value is above 255
@@ -63,10 +63,10 @@
         }
     }
 
-    void Processor::lowPassFilter(float max){
+    void Processor::lowPassFilter(float sample[]){
         //Algo: Remove components above a certain frequency specified.
         //https://www.reddit.com/r/explainlikeimfive/comments/jm6lm/eli5_how_do_audio_lowpasshighpassetc_filters_work/
-        
+        float max = ask(max);
         for (auto &x : sample){// creates scaled echo vector
             if (x > max){
                 x = max; // it says "remove" so i'm wondering 
@@ -74,10 +74,15 @@
         }
     }
 
-    void Processor::compression(float pass, float increase, float max){
+    void Processor::compression(float sample[]){
         //Algo: For volume over a specified max, it is scaled by a ratio
         // pass:increase. For every units passed, it increases from 
         // max by "increase".
+        float pass = ask(pass); // maybe need to overload bc "What is the pass?" 
+                                // does not make too much sense
+        float increase = ask(increase);
+        float max = ask(max);
+
         float overflow;
         for (auto &x : sample){
             if (x > max){
@@ -87,12 +92,18 @@
         }
     }
 
-    void Processor::compression(float pass, float increase, float max, int hold){
+    void Processor::compression(){
         // this overloads with int hold because it needs to be non linear
         // only compresses for a certain time after first instance 
         
         // has to be non linear so setup how long compressor can hold
         //https://www.reddit.com/r/explainlikeimfive/comments/1zfmew/eli5_compression_music_making/
+        
+        float pass = ask(pass);
+        float increase = ask(increase);
+        float max = ask(max);
+        float hold = ask(hold);
+        
         float overflow;
         int maxIndex;
         for (int i = 0; i < sample.size(); i++){
@@ -133,7 +144,7 @@
     float Processor::findScale(float min, float max, float scale){
         // find out if max or min is closer to cap
         float temp = max - 255;
-        temp -= temp*2; // temp = temp - (temp*2)
+        temp -= temp*-1; // gives absolute value by multiplying by -1
         if (temp > min){ scale = min; }
         else { scale = max; }
         
@@ -142,7 +153,7 @@
         return scale /= scaleMax; // finds scaleValue to normalize sample
     }
 
-    float Processor::ask(std::string question){
+    float Processor::ask(std::string question){ // overload to have a second param?
         std::cout << "What is the " << question << "?" << std::endl;
         std::cin >> float answer >> std::endl;
         return answer;
