@@ -4,7 +4,7 @@
 //Steps:
 // Convert all methods so that it only takes in the array
 // Double check all methods
-// Redo echo method so that it only takes in array
+// Redo echo method so that it only takes in array//
 // make sure it converts between -1 and 1
 
     void Processor::normalization(float sample[]){
@@ -28,27 +28,27 @@
 
         //Takes in a float scale and delay. Copies a vector and combines both vectors.
         float scale = ask(scale);
-        float delay = (int) ask(delay);
+        int delay = (int) ask(delay);
 
-        float echo[] = sample;
-        for (auto i = 0; i < sample.size(); i++){ // creates scaled echo vector
-            echo[i] = sample[i] * scale; 
+        if (scale > 1){ scale = 1; }
+        float echo[] = sample; //Copies a vector 
+        for (auto i = delay; i < echo.size(); i++){ // creates scaled echo vector
+        // potential issue: if we start from index "not 0," does that mean that everything
+        // before index "not 0" would be null or 0?
+            echo[i] = sample[i - delay] * scale; 
         }
-
-        //expands arrays for addition
-        for (auto i = 0; i < delay; i++){ // adds 0 to the start of the array "delay" times
-            echo.insert(echo.begin(), 0); /// should i add 0 or 128?
-            sample.push_back(0);
-        }
+        // if the above does not work, we can do a simpler algo since we have two same arrays
+        // we can just move all the elements by delay and input 0 at the start "delay times"
         
         //add echo[i] to sample[i] to calculate total wavelength
         for (auto i = 0; i < echo.size(); i++){
             echo[i] += sample[i]; /// does this work? hopefully.
-        }/// add a check to see if it's more than 255
+            if (echo[i] > 255){ // change this so that it scales with -1 and 1
+                echo[i] = 255;
+            }
+        }
         /// do we do checks on both echo and final echo???
-
-        ///an echo is usually quieter than original so maybe 
-        ///scale the scale so that it's lower than 1?
+        // ^^ what the fuck does this mean. i forgot what this meant. was this talking about the 255 check????
     }
 
     void Processor::gainAdjustment(float &sample[]){
@@ -83,7 +83,10 @@
 
     void Processor::lowPassFilter(float &sample[]){
         //Algo: Remove components above a certain frequency specified.
+        // Isolate the frequencies and remove the high frequencies. Now add those frequencies back together.
+
         //https://www.reddit.com/r/explainlikeimfive/comments/jm6lm/eli5_how_do_audio_lowpasshighpassetc_filters_work/
+        // fix this. you are doing volum. not freq
         float max = ask(max);
         for (auto &x : sample){// creates scaled echo vector
             if (x > max){
@@ -113,6 +116,7 @@
     void Processor::compression(){
         // this overloads with int hold because it needs to be non linear
         // only compresses for a certain time after first instance 
+        //// schedule office hours so that you know what he means by nonlinear map of input to output
         
         // has to be non linear so setup how long compressor can hold
         //https://www.reddit.com/r/explainlikeimfive/comments/1zfmew/eli5_compression_music_making/
