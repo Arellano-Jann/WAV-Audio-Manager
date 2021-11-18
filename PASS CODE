@@ -9,12 +9,35 @@ Read - https://www.cplusplus.com/reference/istream/istream/read/
 
 // 11/16
 // Processor Abstract Class
-class Processor{
+class Limiter : public Processor{
+      //Algo: Remove components above a certain frequency specified.
+      //https://www.reddit.com/r/explainlikeimfive/comments/jm6lm/eli5_how_do_audio_lowpasshighpassetc_filters_work/
 
-  public:
+      int max = 255;
+
+      processBuffer(unsigned char* buffer, int bufferSize) override{
+        float scale = 0;
+        cin << "Enter scale here (%): " << scale; // so you have a processBuffer method 
+        // and then you have the user input something with validation?
+        // instead of passing a parameter to the method. it calls a cin which makes things simple.
+        scale = max*scale;
+        for (auto &x : buffer){// creates scaled echo vector
+          if (x > scale){ 
+              x = scale; // it says "remove" so i'm wondering 
+          }
+      }
+
+}
+
+class Processor{
   virtual void processBuffer(unsigned char* buffer, int bufferSize) = 0;
   // saves processor changes to the buffer/the array
-};
+  virtual float (std::string function){ // we could have an overloaded template
+    float fl;
+    cout << "Enter " << function << " here:" 
+    cin >> fl;
+  }
+}
 
 // Tim
 

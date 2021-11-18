@@ -1,6 +1,10 @@
 // Name: Jann Arellano
 #include "Processor.h"
 
+//Steps: Convert all methods so that it doesn't take in params
+// Convert all methods so that it only takes in the array
+// Extra method to call a cin
+
     void Processor::normalization(){ 
         // need to find out if i can do wavefile.normalization() and if that work
         // or if i have to have a return type and pass in params
@@ -136,4 +140,10 @@
         if (scale < 128) // ensures correct scaling to caps
             scale = 255 - scale;
         return scale /= scaleMax; // finds scaleValue to normalize sample
+    }
+
+    float Processor::ask(std::string question){
+        std::cout << "What is the " << question << "?" << std::endl;
+        std::cin >> float answer >> std::endl;
+        return answer;
     }
