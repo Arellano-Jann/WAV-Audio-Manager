@@ -51,11 +51,11 @@
         // ^^ what the fuck does this mean. i forgot what this meant. was this talking about the 255 check????
     }
 
-    void Processor::gainAdjustment(float &sample[]){
+    void Processor::gainAdjustment(float sample[]){
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
-        ///don't know if &sample is correct but we want to change sample here
+        ///don't know if ample is correct but we want to change sample here
 
         float scale = ask(scale);
         
@@ -66,7 +66,7 @@
         }
     }
 
-    void Processor::gainAdjustment(float &sample[], float scale){
+    void Processor::gainAdjustment(float sample[], float scale){
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
@@ -81,7 +81,7 @@
 
 // CHALLENGE LEVEL
 
-    void Processor::lowPassFilter(float &sample[]){
+    void Processor::lowPassFilter(float sample[]){
         //Algo: Remove components above a certain frequency specified.
         // Isolate the frequencies and remove the high frequencies. Now add those frequencies back together.
 
@@ -95,25 +95,25 @@
         }
     }
 
+    // void Processor::compression(float sample[]){
+    //     //Algo: For volume over a specified max, it is scaled by a ratio
+    //     // pass:increase. For every units passed, it increases from 
+    //     // max by "increase".
+    //     float pass = ask(pass); // maybe need to overload bc "What is the pass?" 
+    //                             // does not make too much sense
+    //     float increase = ask(increase);
+    //     float max = ask(max);
+
+    //     float overflow;
+    //     for (auto &x : sample){
+    //         if (x > max){
+    //             overflow = x - max; // overflow = nums past max
+    //             x = max + (pass/overflow) * increase; // compresses
+    //         }
+    //     }
+    // }
+
     void Processor::compression(float sample[]){
-        //Algo: For volume over a specified max, it is scaled by a ratio
-        // pass:increase. For every units passed, it increases from 
-        // max by "increase".
-        float pass = ask(pass); // maybe need to overload bc "What is the pass?" 
-                                // does not make too much sense
-        float increase = ask(increase);
-        float max = ask(max);
-
-        float overflow;
-        for (auto &x : sample){
-            if (x > max){
-                overflow = x - max; // overflow = nums past max
-                x = max + (pass/overflow) * increase; // compresses
-            }
-        }
-    }
-
-    void Processor::compression(){
         // this overloads with int hold because it needs to be non linear
         // only compresses for a certain time after first instance 
         //// schedule office hours so that you know what he means by nonlinear map of input to output
@@ -121,7 +121,8 @@
         // has to be non linear so setup how long compressor can hold
         //https://www.reddit.com/r/explainlikeimfive/comments/1zfmew/eli5_compression_music_making/
         
-        float pass = ask(pass);
+        float pass = ask(pass); // maybe need to overload bc "What is the pass?" 
+                                // does not make too much sense
         float increase = ask(increase);
         float max = ask(max);
         float hold = ask(hold);
