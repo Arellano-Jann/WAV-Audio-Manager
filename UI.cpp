@@ -27,7 +27,7 @@ void UI::UIInputQuitMenu() {
         }
 
         else {
-            ui.UIProgram();
+            ui.UIProgram(filename);
         }
 }
 
