@@ -4,34 +4,38 @@
 //Steps:
 // Convert all methods so that it only takes in the array
 // Double check all methods
-// Redo echo method so that it only takes in array//
-// make sure it converts between -1 and 1
+/// make sure it converts between -1 and 1
 
     void Processor::normalization(float sample[]){
         //Algo: The largest sample value in the data is found, and 
-        //then the data is scaled so that that value is the maximum possible value. 
+        //then the data is scaled so that that max value in the data is the maximum possible value. 
         //This maximizes the amplitude of the final waveform.
-        
         //Takes in a vector sample and normalizes it to max amplitude.
+        
         float max = 0;
         float min = 255;
         float scale = 0;
         max = findMax(max); // (max) is not needed here
+        // ^^ i think i need to pass in sample here
         min = findMin(min); // but used to make code less lines
         scale = findScale(min, max, scale);
         gainAdjustment(sample, scale);
     }
     
-    void Processor::echo(float sample[]){ // this takes time. do this at home
+    void Processor::echo(float sample[]){
         //Algo: Samples are copied, scaled, and 
         //added to later locations in the sample buffer to create an echo effect.
 
-        //Takes in a float scale and delay. Copies a vector and combines both vectors.
+        //Takes in a float scale and int delay. Copies a vector and combines both vectors.
         float scale = ask(scale);
         int delay = (int) ask(delay);
 
         if (scale > 1){ scale = 1; }
-        float echo[] = sample; //Copies a vector 
+
+        float echo[sample.size()];
+        // = sample; //Copies a vector // iterate through sample and copy sample to echo one by fucking one.
+        // ^^ for each loop
+
         for (auto i = delay; i < echo.size(); i++){ // creates scaled echo vector
         // potential issue: if we start from index "not 0," does that mean that everything
         // before index "not 0" would be null or 0?
@@ -57,7 +61,7 @@
 
         ///don't know if ample is correct but we want to change sample here
 
-        float scale = ask(scale);
+        float scale = ask("scale");
         
         for (auto &x : sample){// creates scaled echo vector
             x *= scale;
@@ -70,7 +74,6 @@
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
-        ///don't know if &sample is correct but we want to change sample here
         for (auto &x : sample){// creates scaled echo vector
             x *= scale;
             if (x > scaleMax){ x = scaleMax; } // checks if value is above 255
@@ -141,7 +144,7 @@
             // iterates through first instance through the hold period
             if (sample[maxIndex] > max){ // makes sure it doesn't compress under max
                 overflow = sample[maxIndex] - max;
-                sample[maxIndex] = max + (pass/overflow) * increase; // compresses
+                sample[maxIndex] = max + (overflow/pass) * increase; // compresses
             }
         }
     }
@@ -151,7 +154,7 @@
 
     // Helper Functions
     
-    float Processor::findMax(float max){
+    float Processor::findMax(float max){ // fix for array sample
         for (auto x : sample){ // find max in data sample 
             if (x > max){ max = x; }
         } /// find absolute value of max (if this doesn't work)
@@ -165,7 +168,7 @@
     }
 
     float Processor::findScale(float min, float max, float scale){
-        // find out if max or min is closer to cap
+        // find out if max or min is closer to mid
         float temp = max - 255; // 255 needs to change depending on the bit depth
         temp -= temp*-1; // gives absolute value by multiplying by -1
         if (temp > min){ scale = min; }
@@ -173,11 +176,12 @@
         
         if (scale < 128) // ensures correct scaling to caps
             scale = 255 - scale; // 255 needs to change
-        return scale /= scaleMax; // finds scaleValue to normalize sample
+        return scale /= 255; // finds scaleValue to normalize sample
     }
 
     float Processor::ask(std::string question){ // overload to have a second param?
+        float answer;
         std::cout << "What is the " << question << "?" << std::endl;
-        std::cin >> float answer >> std::endl;
+        std::cin >> answer;
         return answer;
     }
