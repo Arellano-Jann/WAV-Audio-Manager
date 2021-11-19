@@ -15,13 +15,15 @@
 class Processor{
     // processes a whole vector of samples
     int scaleMax = 255; // this changes depending on bit depth 2^8 vs 2^16
+    float sample[];
 public:
-    void normalization(float sample[]);
-    void echo(float sample[]);
-    void gainAdjustment(float sample[]);
-    void gainAdjustment(float sample[], float scale);
-    void lowPassFilter(float sample[]);
-    void compression(float sample[]);
+    Processor(float *sample[]);
+    void normalization();
+    void echo();
+    void gainAdjustment();
+    void gainAdjustment(float scale);
+    void lowPassFilter();
+    void compression();
 
     //Helper Functions
     float findMax(float max);

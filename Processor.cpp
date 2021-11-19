@@ -5,8 +5,12 @@
 // Convert all methods so that it only takes in the array
 // Double check all methods
 /// make sure it converts between -1 and 1
+// After tests to make sure that it's good, we can now 
 
-    void Processor::normalization(float sample[]){
+    Processor::Processor(float *sample[]) : sample(sample){}
+      
+    
+    void Processor::normalization(){
         //Algo: The largest sample value in the data is found, and 
         //then the data is scaled so that that max value in the data is the maximum possible value. 
         //This maximizes the amplitude of the final waveform.
@@ -19,10 +23,10 @@
         // ^^ i think i need to pass in sample here
         min = findMin(min); // but used to make code less lines
         scale = findScale(min, max, scale);
-        gainAdjustment(sample, scale);
+        gainAdjustment(scale);
     }
     
-    void Processor::echo(float sample[]){
+    void Processor::echo(){
         //Algo: Samples are copied, scaled, and 
         //added to later locations in the sample buffer to create an echo effect.
 
@@ -55,7 +59,7 @@
         // ^^ what the fuck does this mean. i forgot what this meant. was this talking about the 255 check????
     }
 
-    void Processor::gainAdjustment(float sample[]){
+    void Processor::gainAdjustment(){
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
@@ -70,7 +74,7 @@
         }
     }
 
-    void Processor::gainAdjustment(float sample[], float scale){
+    void Processor::gainAdjustment(float scale){
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
@@ -84,7 +88,7 @@
 
 // CHALLENGE LEVEL
 
-    void Processor::lowPassFilter(float sample[]){
+    void Processor::lowPassFilter(){
         //Algo: Remove components above a certain frequency specified.
         // Isolate the frequencies and remove the high frequencies. Now add those frequencies back together.
 
@@ -98,7 +102,7 @@
         }
     }
 
-    // void Processor::compression(float sample[]){
+    // void Processor::compression(){
     //     //Algo: For volume over a specified max, it is scaled by a ratio
     //     // pass:increase. For every units passed, it increases from 
     //     // max by "increase".
@@ -116,7 +120,7 @@
     //     }
     // }
 
-    void Processor::compression(float sample[]){
+    void Processor::compression(){
         // this overloads with int hold because it needs to be non linear
         // only compresses for a certain time after first instance 
         //// schedule office hours so that you know what he means by nonlinear map of input to output
