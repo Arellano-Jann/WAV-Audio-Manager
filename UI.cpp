@@ -42,6 +42,9 @@ void UI::UIProgram(std::string filename){
 
 //Pseudo ~
 /*
+// So what i kinda want you to do is separate all of these functions into
+// different functions. like how start menu and exit has it's own function
+// i will be marking what you can put in a function below
 
 //Complete
 Start: Present start menu
@@ -54,12 +57,14 @@ Else
 
 //Incomplete
   else
-    read file metadata
-(1) display metadata to user
-    present user with processor menu
-    If user selects processor option
-      request output filename
+    read file metadata // doable. write a function for the getters
+(1) display metadata to user // ^^ conjunction with above
+    present user with processor menu // create a function with some UI for calling my code.
+                                    // doesn't matter how you call my code
+                                    // you can even just put normalization(). should be fine
+    If user selects processor option // this running should be it's own function ex: run(normalization()) etc.
+      request output filename // the run command would do this and below
       run processor
-      save file
-      goto Start
+      save file // can't do this yet. just comment where this would go
+      goto Start // doable
 */
