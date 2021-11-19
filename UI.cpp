@@ -57,7 +57,7 @@ Else
 
 //Incomplete
   else
-    read file metadata // doable. write a function for the getters
+    read file metadata // doable. write a function to call the getters in wav.cpp
 (1) display metadata to user // ^^ conjunction with above
     present user with processor menu // create a function with some UI for calling my code.
                                     // doesn't matter how you call my code
