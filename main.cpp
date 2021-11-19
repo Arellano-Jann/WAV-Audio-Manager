@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include "Wav.h"
+//#include "Wav.h"
 #include "UI.h"
 
 std::string InputVariable;
@@ -22,7 +22,7 @@ int main()
         }
 
         else {
-            ui.UIProgram();
+            ui.UIProgram(InputVariable);
         };
     }
 return 0;

@@ -27,8 +27,8 @@
         //added to later locations in the sample buffer to create an echo effect.
 
         //Takes in a float scale and int delay. Copies a vector and combines both vectors.
-        float scale = ask(scale);
-        int delay = (int) ask(delay);
+        float scale = ask("scale");
+        int delay = (int) ask("delay");
 
         if (scale > 1){ scale = 1; }
 
@@ -90,7 +90,7 @@
 
         //https://www.reddit.com/r/explainlikeimfive/comments/jm6lm/eli5_how_do_audio_lowpasshighpassetc_filters_work/
         // fix this. you are doing volum. not freq
-        float max = ask(max);
+        float max = ask("max");
         for (auto &x : sample){// creates scaled echo vector
             if (x > max){
                 x = max; // it says "remove" so i'm wondering 
@@ -102,10 +102,10 @@
     //     //Algo: For volume over a specified max, it is scaled by a ratio
     //     // pass:increase. For every units passed, it increases from 
     //     // max by "increase".
-    //     float pass = ask(pass); // maybe need to overload bc "What is the pass?" 
+    //     float pass = ask("pass"); // maybe need to overload bc "What is the pass?" 
     //                             // does not make too much sense
-    //     float increase = ask(increase);
-    //     float max = ask(max);
+    //     float increase = ask("increase");
+    //     float max = ask("max");
 
     //     float overflow;
     //     for (auto &x : sample){
@@ -124,11 +124,11 @@
         // has to be non linear so setup how long compressor can hold
         //https://www.reddit.com/r/explainlikeimfive/comments/1zfmew/eli5_compression_music_making/
         
-        float pass = ask(pass); // maybe need to overload bc "What is the pass?" 
+        float pass = ask("pass"); // maybe need to overload bc "What is the pass?" 
                                 // does not make too much sense
-        float increase = ask(increase);
-        float max = ask(max);
-        float hold = ask(hold);
+        float increase = ask("increase");
+        float max = ask("max");
+        float hold = ask("hold");
         
         float overflow;
         int maxIndex;
