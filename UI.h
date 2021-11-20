@@ -8,5 +8,5 @@ public:
     void UIStartMenu();
     void UIExitMenu();
     void UIInputQuitMenu();
-    void UIProgram();
+    void UIProgram(std::string filename);
 };
