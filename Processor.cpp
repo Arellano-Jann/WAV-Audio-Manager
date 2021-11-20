@@ -77,9 +77,8 @@
         /////////// fix this. you are doing volum. not freq. dumbass.
         float max = ask("max");
         for (auto &x : sample){// creates scaled echo vector
-            if (x > max){
-                x = max; // it says "remove" so i'm wondering 
-            } // if i should set it to 0 or max 
+            if (x > max) x = max; // it says "remove" so i'm wondering 
+            // if i should set it to 0 or max 
         }
     }
 
