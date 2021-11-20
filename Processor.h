@@ -7,10 +7,10 @@
 
 class Processor{
     // processes a whole vector of samples
-    int scaleMax = 255; // this changes depending on bit depth 2^8 vs 2^16
     std::vector<float> sample; // this works by having a constructor. 
     // the wav is casted as a processor object now.
-    // need to have extra method so that 
+    float maxVal = 1;
+    float minVal = -1;
 public:
     Processor(std::vector<float> sample) : sample(sample){}
     void normalization();

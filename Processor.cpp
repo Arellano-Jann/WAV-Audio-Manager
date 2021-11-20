@@ -1,10 +1,8 @@
 // Name: Jann Arellano
 #include "Processor.h"
 
-//Steps:
-// Double check all methods
-/// make sure it converts between -1 and 1
-// After tests to make sure that it's good, we can now 
+// To Do:
+// After tests to make sure that it's good, we can now refactor
     
     void Processor::normalization(){
         //Algo: The largest sample value in the data is found, and 
@@ -31,15 +29,14 @@
         std::vector<float> echo = sample; //Copies a vector
 
         for (auto i = 0; i < echo.size(); i++){ // creates scaled echo vector
-            echo[i] *= scale; // sets echo to scale
+            echo[i] *= scale; // scales echo
         }
         
         //add echo[i] to sample[i] to calculate total wavelength
         for (auto i = delay; i < echo.size(); i++){
             sample[i] += echo[i-delay]; // adds echo to sample with an offset in echo so echo starts at 0
-            if (sample[i] > 255){ // change this so that it scales with -1 and 1
-                sample[i] = 255;
-            }
+            if (sample[i] > maxVal) 
+                sample[i] = maxVal; // checks if value is above maxVal
         }
         /// do we do checks on both echo and final echo???
         // ^^ what the fuck does this mean. i forgot what this meant. was this talking about the 255 check????
@@ -49,14 +46,12 @@
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
-        ///don't know if ample is correct but we want to change sample here
-
         float scale = ask("scale");
         
         for (auto &x : sample){// creates scaled echo vector
             x *= scale;
-            if (x > scaleMax){ x = scaleMax; } // checks if value is above 255
-            if (x < 0){ x = 0; } // checks if value is below 0
+            if (x > maxVal) x = maxVal;  // checks if value is above maxVal
+            if (x < minVal) x = minVal;
         }
     }
 
@@ -66,9 +61,8 @@
 
         for (auto &x : sample){// creates scaled echo vector
             x *= scale;
-            if (x > scaleMax){ x = scaleMax; } // checks if value is above 255
-                            // scaleMax is in the h file. need to check for -1,1
-            if (x < 0){ x = 0; } // checks if value is below 0
+            if (x > maxVal) x = maxVal;  // checks if value is above maxVal
+            if (x < minVal) x = minVal;
         }
     }
 
@@ -79,7 +73,8 @@
         // Isolate the frequencies and remove the high frequencies. Now add those frequencies back together.
 
         //https://www.reddit.com/r/explainlikeimfive/comments/jm6lm/eli5_how_do_audio_lowpasshighpassetc_filters_work/
-        // fix this. you are doing volum. not freq
+        
+        /////////// fix this. you are doing volum. not freq. dumbass.
         float max = ask("max");
         for (auto &x : sample){// creates scaled echo vector
             if (x > max){
@@ -116,14 +111,14 @@
         // has to be non linear so setup how long compressor can hold
         //https://www.reddit.com/r/explainlikeimfive/comments/1zfmew/eli5_compression_music_making/
         
-        float pass = ask("pass"); // maybe need to overload bc "What is the pass?" 
-                                 // does not make too much sense
-        float increase = ask("increase");
+        float pass = ask("pass threshold");
+        float increase = ask("increase threshold");
         float max = ask("max");
         float hold = ask("hold");
         
         float overflow;
         int maxIndex;
+
         for (int i = 0; i < sample.size(); i++){
             // iterates through sample and finds first instance of anything over max
             if (sample[i] > max){
@@ -137,6 +132,8 @@
             if (sample[maxIndex] > max){ // makes sure it doesn't compress under max
                 overflow = sample[maxIndex] - max;
                 sample[maxIndex] = max + (overflow/pass) * increase; // compresses
+                // increases by this much everytime it passes the max by this much
+                // o/p calcs the pass to scale it correctly
             }
         }
     }
@@ -147,31 +144,28 @@
     // Helper Functions
     
     float Processor::findMax(){ // fix for array sample
-        float max = 0;
+        float max = minVal;
         for (auto x : sample){ // find max in data sample 
-            if (x > max){ max = x; }
+            if (x > max) max = x; 
         } /// find absolute value of max (if this doesn't work)
         return max;
     }
     float Processor::findMin(){
-        float min = 255;
+        float min = maxVal;
         for (auto x : sample){ // find min in data sample 
-            if (x < min){ min = x; }
+            if (x < min) min = x; 
         }
         return min;
     }
 
     float Processor::findScale(float min, float max){
         // find out if max or min is closer to mid
-        float scale = 0;
-        float temp = max - 255; // 255 needs to change depending on the bit depth
-        temp -= temp*-1; // gives absolute value by multiplying by -1
-        if (temp > min){ scale = min; }
-        else { scale = max; }
-        
-        if (scale < 128) // ensures correct scaling to caps
-            scale = 255 - scale; // 255 needs to change
-        return scale /= 255; // finds scaleValue to normalize sample
+
+        max = maxVal/max; // calculates scale for max to maxcap 10/5 = 2
+        min = minVal/min; // assumes min is negative. needs a check
+        if (min < 0) min *= -1; // makes sure that we're not comparing a negative
+        if (min < max) return min;
+        return max;
     }
 
     float Processor::ask(std::string question){ // overload to have a second param?
