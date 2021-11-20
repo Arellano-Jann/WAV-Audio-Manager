@@ -8,12 +8,13 @@
 
 Wav::Wav()
     : file("")
-    , sampleRate(0)
     , rawData(NULL)
     , samples(NULL)
     , header()
 {
 }
+// add Wav constructor with filename param
+
 
 bool Wav::SetFile(const std::string& filename)
 {
@@ -53,10 +54,12 @@ void Wav::FillFloatSamplesFromRawData()
     std::cout << "bit depth : " << header.bitDepth << std::endl;
     std::cout << "bytes per floating point value : " << header.bitDepth / 8 << std::endl;
     std::cout << "max size of a section of bytes this size : " << pow(2, header.bitDepth) / 2;
-    
     for(size_t i = 0; i < header.dataBytes; i+=(header.bitDepth / 8))
-    {
+    {  
+        // rawData needs to read all the BYTES in a section not just the
+        // first one        
         float val = 1.0f * rawData[i] / (pow(2, header.bitDepth) / 2);
+        //different counter not I below
         samples[i] = val;
         std::cout << samples[i] << std::endl;
     }
@@ -84,3 +87,10 @@ Wav::~Wav()
     delete [] rawData;
     delete [] samples;
 }
+
+
+
+// Make getter and setter for float vector samples thing
+// Fix fillfloat function
+// Write a write function to convert the data back 
+// and store into a new file

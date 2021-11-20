@@ -22,7 +22,6 @@ public:
 private:
     void FillFloatSamplesFromRawData();
     std::string file;
-    unsigned int sampleRate;
     char* rawData;
     float* samples;
     WaveHeader header;
