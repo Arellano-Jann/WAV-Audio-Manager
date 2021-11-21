@@ -14,15 +14,19 @@ public:
     bool SetFile(const std::string& filename);
     void AnalyzeFile();
     std::string GetStereo();
-    int GetSampleRate();
-    int GetByteRate();
-    short GetBitsPerSample();
-    short GetBlockAlign();
+    int GetSampleRate(){ return header.sampleRate; }
+    int GetByteRate(){ return header.byteRate; }
+    short GetBitsPerSample(){ return header.bitDepth; }
+    short GetBlockAlign(){ return header.sampleAlignment; }
+    std::vector<float>& GetSamples() { return samples; }\
+
+    // fails if filename not available
+    bool CreateFile(std::string newFileName);
     
 private:
     void FillFloatSamplesFromRawData();
     std::string file;
     char* rawData;
-    float* samples;
+    std::vector<float> samples;
     WaveHeader header;
 };
