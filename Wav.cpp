@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <cassert>
 
 Wav::Wav()
     : file("")
@@ -55,12 +56,29 @@ void Wav::FillFloatSamplesFromRawData()
     //std::cout << "bytes per floating point value : " << header.bitDepth / 8 << std::endl;
     //std::cout << "max size of a section of bytes this size : " << pow(2, header.bitDepth) / 2;
     unsigned int maxPossibleValue = pow(2, header.bitDepth) / 2;
-    for(size_t i = 0; i < header.dataBytes; i+=numBytesPerSample)
-    {  
-        // rawData needs to read all the BYTES in a section not just the
-        // first one        
-        float val = 1.0f * rawData[i] / (maxPossibleValue);
-        samples.push_back(val);
+    if(numBytesPerSample == 1)
+    {
+        for(size_t i = 0; i < header.dataBytes; i++)
+        {    
+            float val = -1.0f + (2.0f / 255.0f) * static_cast<float>(*(reinterpret_cast<unsigned char*>(&rawData[i])));
+            samples.push_back(val);
+        }
+    }
+    else if (numBytesPerSample == 2)
+    {
+        assert(sizeof(short) == 2);
+        for(size_t i = 0; i < header.dataBytes; i+=2)
+        {
+            short sampleValue = 0;
+            *(reinterpret_cast<char*>(&sampleValue)) = rawData[i];
+            *(reinterpret_cast<char*>(&sampleValue) + 1) = rawData[i + 1];            
+            float val = 0.0f + (2.0f / 32768.0f) * static_cast<float>(sampleValue);
+            samples.push_back(val);
+        }
+    }
+    else
+    {
+        assert(false);
     }
 
     // testing code
@@ -89,3 +107,7 @@ Wav::~Wav()
 // Fix fillfloat function 
 // Write a write function to convert the data back 
 // and store into a new file
+
+
+
+
