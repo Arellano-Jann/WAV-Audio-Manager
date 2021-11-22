@@ -1,5 +1,5 @@
 // Created by Alec Redera
-
+#pragma once
 #include <iostream>
 #include <string>
 #include "Wav.h"

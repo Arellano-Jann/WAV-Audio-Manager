@@ -1,5 +1,5 @@
 // Created by Andrew Kalb
-
+#pragma once
 #include "WaveHeader.h"
 #include <iostream>
 #include <string>
