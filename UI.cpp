@@ -29,28 +29,18 @@ void UI::ExitMenu() {
         else {
             ui.Meta(filename);
         }
-*/
+
+}*/
+
+void UI::PrintMeta(Wav wav) {
+    std::cout << wav.GetFileName() << std::endl;
+    std::cout << "---------------" << std::endl;
+    std::cout << wav.GetStereo() << std::endl;
+    std::cout << "Sample Rate: " << wav.GetSampleRate() << std::endl;
+    std::cout << "Bits Per Sample: " << wav.GetBitsPerSample() << std::endl;
 }
 
-void UI::Meta(std::string filename) {
-    if(!w.SetFile(filename))
-    {
-        std::cout << "File doesn't exist or is not a .wav file.";
-    }
-    w.AnalyzeFile();
-
-    //No idea if I did this right. HELP REQUESTED.
-    std::cout << filename << std::endl;
-    std::cout << w.GetStereo();
-    std::cout << w.GetSampleRate();
-    std::cout << w.GetByteRate();
-    std::cout << w.GetBitsPerSample();
-    std::cout << w.GetBlockAlign();
-    //std::cout << w.GetSamples();
-    //GetSamples has some errors I don't know how to fix.
-}
-
-void UI::Processor() {
+void UI::PrintProcessorMenu() {
     std::cout << "This Program Allows You to Edit the Following:" << std::endl;
     std::cout << "- Normalization" << std::endl;
     std::cout << "- Echo" << std::endl;

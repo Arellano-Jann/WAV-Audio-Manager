@@ -12,15 +12,7 @@ public:
     std::string InputFileName();
     void ExitMenu();
     //void InputQuitMenu();
-    void Meta(std::string filename);
-    void Processor();
+    void PrintMeta(Wav wav);
+    void PrintProcessorMenu();
     void RunProcessor();
-
-private:
-    std::string InputVariable;
-    std::string filename;
-    std::string ProcessorName;
-    std::string OutputFileName;
-    Wav w;
-    //Processor p;
 };

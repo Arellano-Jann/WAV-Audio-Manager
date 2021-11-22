@@ -9,13 +9,12 @@
 int main()
 {   
     std::vector<float> examples;
-    examples.push_back(0.45f);
-    examples.push_back(0.23);
-    examples.push_back(-0.45f);
-    examples.push_back(0.35f);
+    examples.push_back(1.45f);
+    examples.push_back(1);
+    examples.push_back(0.0f);
+    examples.push_back(-.99f);
     Processor p(examples);
-    p.gainAdjustment();
-    examples = p.getVec();
+    p.compression();
     for (auto x : p.getVec()){
         std::cout << x << std::endl;
     }
@@ -32,7 +31,8 @@ int main()
         Wav w;
         if(w.SetFile(in))
         {
-            
+            w.AnalyzeFile();
+            ui.PrintMeta(w);
         }
         else
         {

@@ -13,12 +13,13 @@ public:
     // Returns false if the file is invalid
     bool SetFile(const std::string& filename);
     void AnalyzeFile();
+    std::string GetFileName() { return file; }
     std::string GetStereo();
     int GetSampleRate(){ return header.sampleRate; }
     int GetByteRate(){ return header.byteRate; }
     short GetBitsPerSample(){ return header.bitDepth; }
     short GetBlockAlign(){ return header.sampleAlignment; }
-    std::vector<float>& GetSamples() { return samples; }\
+    std::vector<float>& GetSamples() { return samples; }
 
     // fails if filename not available
     bool CreateFile(std::string newFileName);
