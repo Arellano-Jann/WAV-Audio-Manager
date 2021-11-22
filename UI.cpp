@@ -4,7 +4,6 @@
 #include <string>
 #include "UI.h"
 #include "Wav.h"
-#include "WaveHeader.h"
 #include "Processor.h"
 
 std::string InputVariable;
@@ -13,7 +12,6 @@ std::string ProcessorName;
 std::string OutputFileName;
 UI ui;
 Wav w;
-WaveHeader header;
 Processor p;
 
 void UI::UIStartMenu() {
@@ -52,19 +50,13 @@ void UI::UIMeta(std::string filename) {
 
     //No idea if I did this right. HELP REQUESTED.
     std::cout << filename << std::endl;
-    //Not sure if how I'm supposed to output the return on GetStereo.
-    w.GetStereo();
-    w.GetSampleRate();
-    std::cout << header.sampleRate;
-    w.GetByteRate();
-    std::cout << header.byteRate;
-    w.GetBitsPerSample();
-    std::cout << header.bitDepth;
-    w.GetBlockAlign();
-    std::cout << header.sampleAlignment;
-    w.GetSamples();
-    //Samples are inaccessible?
-    
+    std::cout << w.GetStereo();
+    std::cout << w.GetSampleRate();
+    std::cout << w.GetByteRate();
+    std::cout << w.GetBitsPerSample();
+    std::cout << w.GetBlockAlign();
+    //std::cout << w.GetSamples();
+    //GetSamples has some errors I don't know how to fix.
 }
 
 void UI::UIProcessor() {
