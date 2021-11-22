@@ -4,14 +4,23 @@
 #include <string>
 #include "UI.h"
 #include "Wav.h"
+#include "Processor.h"
 
 std::string InputVariable;
 std::string filename;
+std::string ProcessorName;
+std::string OutputFileName;
 UI ui;
+Wav w;
+Processor p;
 
 void UI::UIStartMenu() {
     std::cout << "This Program Can Load and Modify WAV Files." << std::endl;
-    std::cout << "To Begin, Please Enter the Name of a WAV File, or Enter \"Quit\" to Exit the Program." << std::endl;
+    std::cout << "To Begin, ";
+}
+
+void UI::UIInputPrompt() {
+    std::cout << "Please Enter the Name of a WAV File, or Enter \"Quit\" to Exit the Program." << std::endl;
     std::cout << "Enter WAV Filename:" << std::endl;
 }
 
@@ -20,7 +29,7 @@ void UI::UIExitMenu() {
 }
 
 void UI::UIInputQuitMenu() {
-    std::cin >> InputVariable;
+/*    std::cin >> InputVariable;
 
         if (InputVariable == "QUIT" || "Quit" || "quit") {
             ui.UIExitMenu();
@@ -29,15 +38,74 @@ void UI::UIInputQuitMenu() {
         else {
             ui.UIProgram(filename);
         }
+*/
 }
 
-void UI::UIProgram(std::string filename){
-    Wav w;
+void UI::UIMeta(std::string filename) {
     if(!w.SetFile(filename))
     {
         std::cout << "File doesn't exist or is not a .wav file.";
     }
     w.AnalyzeFile();
+
+    //No idea if I did this right. HELP REQUESTED.
+    std::cout << filename << std::endl;
+    std::cout << w.GetStereo();
+    std::cout << w.GetSampleRate();
+    std::cout << w.GetByteRate();
+    std::cout << w.GetBitsPerSample();
+    std::cout << w.GetBlockAlign();
+    //std::cout << w.GetSamples();
+    //GetSamples has some errors I don't know how to fix.
+}
+
+void UI::UIProcessor() {
+    std::cout << "This Program Allows You to Edit the Following:" << std::endl;
+    std::cout << "- Normalization" << std::endl;
+    std::cout << "- Echo" << std::endl;
+    std::cout << "- Gain" << std::endl;
+    std::cout << "- Low Pass Filter" << std::endl;
+    std::cout << "- Compression" << std::endl;
+    std::cout << std::endl;
+    std::cout << "Please Enter the Name of Your Output File,";
+    std::cout << "Then Enter the Name of the Processor Function You Would Like to Use." << std::endl;
+}
+
+void UI::UIRunProcessor() {
+    std::cout << "Enter the Name of Your Output File:" << std::endl;
+
+    std::cin >> OutputFileName;
+
+    std::cout << "Enter the Name of the Processor Function You Would Like to Use:" << std::endl;
+
+    std::cin >> ProcessorName;
+
+    if(ProcessorName == "Normalization" || "NORMALIZATION" || "normalization"){
+        p.normalization();
+        //Save File (OutputFileName?)
+    }
+
+    else if(ProcessorName == "Echo" || "ECHO" || "echo") {
+        p.echo();
+        //Save File (OutputFileName?)
+    }
+
+    else if(ProcessorName == "Gain" || "GAIN" || "gain") {
+        //So... There are two gainAdjustment functions?
+        //Not sure what to do here.
+        p.gainAdjustment();
+        //Save File (OutputFileName?)
+    }
+
+    else if(ProcessorName == "LowPassFilter" || "LOWPASSFILTER" || "lowpassfilter") {
+        p.lowPassFilter();
+        //Save File (OutputFileName?)
+    }
+
+    else if(ProcessorName == "Compression" || "COMPRESSION" || "compression") {
+        p.compression();
+        //Save File (OutputFileName?)
+    }
 }
 
 //Pseudo ~
@@ -59,6 +127,8 @@ Else
   else
     read file metadata // doable. write a function to call the getters in wav.cpp
 (1) display metadata to user // ^^ conjunction with above
+
+//Complete
     present user with processor menu // create a function with some UI for calling my code.
                                     // doesn't matter how you call my code
                                     // you can even just put normalization(). should be fine
