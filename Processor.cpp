@@ -100,7 +100,7 @@
     //     }
     // }
 
-    void Processor::compression(){
+    void Processor::compression(){ // core dumps
         //Algo: For volume over a specified max, it is scaled by a ratio
         // max by "increase".
         // this overloads with int hold because it needs to be non linear

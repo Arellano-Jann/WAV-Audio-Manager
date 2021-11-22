@@ -1,47 +1,38 @@
 // Created by Alec Redera
-
-#include <iostream>
-#include <string>
 #include "UI.h"
-#include "Wav.h"
-#include "Processor.h"
+#include <iostream>
 
-std::string InputVariable;
-std::string filename;
-std::string ProcessorName;
-std::string OutputFileName;
-UI ui;
-Wav w;
-Processor p;
-
-void UI::UIStartMenu() {
+void UI::StartMenu() {
     std::cout << "This Program Can Load and Modify WAV Files." << std::endl;
     std::cout << "To Begin, ";
 }
 
-void UI::UIInputPrompt() {
+std::string UI::InputFileName() {
+    std::string name;
     std::cout << "Please Enter the Name of a WAV File, or Enter \"Quit\" to Exit the Program." << std::endl;
     std::cout << "Enter WAV Filename:" << std::endl;
+    std::cin >> name;
+    return name;
 }
 
-void UI::UIExitMenu() {
+void UI::ExitMenu() {
     std::cout << "Goodbye!" << std::endl;
 }
 
-void UI::UIInputQuitMenu() {
+//void UI::InputQuitMenu() {
 /*    std::cin >> InputVariable;
 
         if (InputVariable == "QUIT" || "Quit" || "quit") {
-            ui.UIExitMenu();
+            ui.ExitMenu();
         }
 
         else {
-            ui.UIProgram(filename);
+            ui.Meta(filename);
         }
 */
 }
 
-void UI::UIMeta(std::string filename) {
+void UI::Meta(std::string filename) {
     if(!w.SetFile(filename))
     {
         std::cout << "File doesn't exist or is not a .wav file.";
@@ -59,7 +50,7 @@ void UI::UIMeta(std::string filename) {
     //GetSamples has some errors I don't know how to fix.
 }
 
-void UI::UIProcessor() {
+void UI::Processor() {
     std::cout << "This Program Allows You to Edit the Following:" << std::endl;
     std::cout << "- Normalization" << std::endl;
     std::cout << "- Echo" << std::endl;
@@ -71,7 +62,7 @@ void UI::UIProcessor() {
     std::cout << "Then Enter the Name of the Processor Function You Would Like to Use." << std::endl;
 }
 
-void UI::UIRunProcessor() {
+void UI::RunProcessor() {
     std::cout << "Enter the Name of Your Output File:" << std::endl;
 
     std::cin >> OutputFileName;

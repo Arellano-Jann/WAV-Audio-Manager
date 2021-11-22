@@ -12,7 +12,8 @@ class Processor{
     float maxVal = 1;
     float minVal = -1;
 public:
-    Processor(std::vector<float> sample) : sample(sample){}
+    Processor(std::vector<float> samples) : sample(samples){}
+    std::vector<float> getVec() { return sample;}
     void normalization();
     void echo();
     void gainAdjustment();

@@ -6,18 +6,21 @@
 #include "Processor.h"
 
 class UI {
-
 public:
-    void UIStartMenu();
-    void UIInputPrompt();
-    void UIExitMenu();
-    void UIInputQuitMenu();
-    void UIMeta(std::string filename);
-    void UIProcessor();
-    void UIRunProcessor();
+    UI() = default;
+    void StartMenu();
+    std::string InputFileName();
+    void ExitMenu();
+    //void InputQuitMenu();
+    void Meta(std::string filename);
+    void Processor();
+    void RunProcessor();
 
+private:
     std::string InputVariable;
     std::string filename;
     std::string ProcessorName;
     std::string OutputFileName;
+    Wav w;
+    //Processor p;
 };
