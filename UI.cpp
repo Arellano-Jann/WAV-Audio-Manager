@@ -49,8 +49,22 @@ void UI::UIMeta(std::string filename) {
         std::cout << "File doesn't exist or is not a .wav file.";
     }
     w.AnalyzeFile();
+
+    //No idea if I did this right. HELP REQUESTED.
     std::cout << filename << std::endl;
-    //std::cout << Getters? rawData?
+    //Not sure if how I'm supposed to output the return on GetStereo.
+    w.GetStereo();
+    w.GetSampleRate();
+    std::cout << header.sampleRate;
+    w.GetByteRate();
+    std::cout << header.byteRate;
+    w.GetBitsPerSample();
+    std::cout << header.bitDepth;
+    w.GetBlockAlign();
+    std::cout << header.sampleAlignment;
+    w.GetSamples();
+    //Samples are inaccessible?
+    
 }
 
 void UI::UIProcessor() {
