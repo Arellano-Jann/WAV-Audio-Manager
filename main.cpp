@@ -10,8 +10,10 @@ UI ui;
 
 int main()
 {    
+    ui.UIStartMenu();
+
     while(true) {
-        ui.UIStartMenu();
+        ui.UIInputPrompt();
 
         //UI::InputQuitMenu();
         std::cin >> InputVariable;
@@ -22,7 +24,9 @@ int main()
         }
 
         else {
-            ui.UIProgram(InputVariable);
+            ui.UIMeta(InputVariable);
+            ui.UIProcessor();
+            ui.UIRunProcessor();
         };
     }
 return 0;
