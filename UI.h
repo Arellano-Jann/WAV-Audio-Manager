@@ -13,6 +13,6 @@ public:
     void ExitMenu();
     //void InputQuitMenu();
     void PrintMeta(Wav wav);
-    void PrintProcessorMenu();
+    std::string ProcessorMenu();
     void RunProcessor();
 };

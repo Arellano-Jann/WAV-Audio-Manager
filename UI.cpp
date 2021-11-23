@@ -40,16 +40,27 @@ void UI::PrintMeta(Wav wav) {
     std::cout << "Bits Per Sample: " << wav.GetBitsPerSample() << std::endl;
 }
 
-void UI::PrintProcessorMenu() {
+std::string UI::ProcessorMenu() {
     std::cout << "This Program Allows You to Edit the Following:" << std::endl;
-    std::cout << "- Normalization" << std::endl;
-    std::cout << "- Echo" << std::endl;
-    std::cout << "- Gain" << std::endl;
-    std::cout << "- Low Pass Filter" << std::endl;
-    std::cout << "- Compression" << std::endl;
+    std::cout << "(1) Normalization" << std::endl;
+    std::cout << "(2) Echo" << std::endl;
+    std::cout << "(3) Gain" << std::endl;
+    std::cout << "(4) Low Pass Filter" << std::endl;
+    std::cout << "(5) Compression" << std::endl;
     std::cout << std::endl;
-    std::cout << "Please Enter the Name of Your Output File,";
-    std::cout << "Then Enter the Name of the Processor Function You Would Like to Use." << std::endl;
+    std::string selection;
+    do
+    {
+        std::cout << "Enter the Number of the Processor Function You Would Like to Use." << std::endl;
+        std::cout << "Or enter \"save\" to save your progress to a wav file." << std::endl;
+        std::cin >> selection;
+    } while(selection != "1" &&
+          selection != "2" && 
+          selection != "3" &&
+          selection != "4" &&
+          selection != "5" &&
+          tolower(selection) != "save");
+    return selection;
 }
 
 void UI::RunProcessor() {

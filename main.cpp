@@ -20,23 +20,61 @@ int main()
     }
     
     /*UI ui;
-    ui.StartMenu();
-    std::string in = ui.InputFileName();
-    if(tolower(in) == "quit")
+    bool done = false;
+    while(!done)
     {
-        ui.ExitMenu();
-    }
-    else
-    {
-        Wav w;
-        if(w.SetFile(in))
+        ui.StartMenu();
+        std::string in = ui.InputFileName();
+        if(tolower(in) == "quit")
         {
-            w.AnalyzeFile();
-            ui.PrintMeta(w);
+            ui.ExitMenu();
+            done = true;
         }
         else
         {
-            std::cout << "File doesn't exist or is not a .wav file.";
+            Wav w;
+            if(w.SetFile(in))
+            {
+                w.AnalyzeFile();
+                ui.PrintMeta(w);
+                std::string selection;
+                do
+                {
+                    selection = ui.ProcessorMenu();
+                    switch(selection)
+                    {
+                        case "1":
+                        {
+                            break;
+                        }
+                        case "2":
+                        {
+                            break;
+                        }
+                        case "3":
+                        {
+                            break;
+                        }
+                        case "4":
+                        {
+                            break;
+                        }
+                        case "5":
+                        {
+                            break;
+                        }
+                        default:
+                        {
+                            
+                        }
+                    }
+                } while(selection != "save")
+            }
+            else
+            {
+                std::cout << "File doesn't exist or is not a valid .wav file.";
+                // go to start menu
+            }
         }
     }*/
     /*
