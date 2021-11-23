@@ -7,6 +7,112 @@ Read - https://www.cplusplus.com/reference/istream/istream/read/
 
 // PASS CODE
 
+// 11/23
+
+//main.cpp
+#include <iostream>
+#include <string>
+#include "wav.h"
+#include "Processor.h"
+
+
+const std::string testfile = "testing.wav";
+const std::string limitfile = "limit.wav";
+const std::string noisefile = "noise.wav";
+int main() {
+    // Uncomment these lines when ready.
+		
+		int threshold;
+		std::cout << "Hello! Please enter threshold" << std::endl;
+		std::cin >> threshold;
+    
+    Wav wav;
+    wav.readFile(testfile);
+    Processor *processor = new normalization(threshold);
+   	processor->processBuffer(wav.getBuffer(),wav.getBufferSize());
+    wav.writeFile("normalization.wav");
+
+//    Wav wav;
+//    wav.readFile(testfile);
+//    Processor *processor = new limiter(10);
+//   	processor->processBuffer(wav.getBuffer(),wav.getBufferSize());
+//    wav.writeFile("limiter.wav");
+
+
+    return 0;
+}
+
+
+
+// Limiter.cpp
+#include "Limiter.h"
+
+void Limiter::processBuffer(char* buffer, int bufferSize){
+
+	int upperLimit = 128 + (127*.8);
+	int lowerLimit = 128 - (127*.8);
+
+	for(int i=0; i<bufferSize;i++){
+
+		
+		buffer[i] = (buffer[i] > upperLimit)? upperLimit : buffer[i];
+
+		
+		
+		/*if (buffer[i] > upperLimit){
+			buffer[i] = upperLimit;
+		}*/
+
+		buffer[i] =  (buffer[i] < lowerLimit) ? lowerLimit : buffer[i];
+
+   	/*
+		if(buffer[i] < lowerLimit){
+			buffer[i] = lowerLimit;
+		}
+		*/
+
+
+	}
+
+}
+
+// Noisegate.h
+#include "Processor.h"
+
+class NoiseGate: public Processor{
+  int threshold; // is it green squiggling bc of this?
+		public:
+    NoiseGate();
+		NoiseGate::NoiseGate(int newThresHold);
+		void processBuffer(char* buffer, int bufferSize) override; 
+};
+
+// Noisegate.cpp
+
+#include "NoiseGate.h"
+#include <cmath>
+
+
+NoiseGate::NoiseGate(){
+	threshold = 100;
+}
+
+NoiseGate::NoiseGate(int newThresHold) : threshold(newThreshold) {}
+
+void NoiseGate::processBuffer(char* buffer, int bufferSize){
+
+
+	for(int i = 0; i<bufferSize; i++){
+    buffer[i] = ((buffer[i] < (128 + threshold)) && (buffer[i] > (128-threshold)) ? 128 : buffer[i];
+  }
+//this needs #include<cmath> but it works on both at once
+//buffer[i] = (std::abs(buffer[i] - 128) < threshold) ? 128 : buffer[i];
+//pretty sweet
+}
+
+
+
+
 // 11/16
 // Processor Abstract Class
 class Limiter : public Processor{
