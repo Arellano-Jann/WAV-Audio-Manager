@@ -8,17 +8,17 @@ vpath %.h headers
 vpath %.cpp src
 vpath %.o objs
 
-#$(ODIR)/Processor.o: Processor.cpp Processor.h
-#	g++ $(CPPFLAGS) -c $< -o $@
-
-#Wav.o: Wav.cpp Wav.h WaveHeader.h
-#	g++ $(CPPFLAGS) -c $< -o $@
 
 $(ODIR)/%.o: %.cpp $(DEPS)
-	g++ $(CPPFLAGS) -c $< -o $@
+	g++ $(CPPFLAGS) -o $@ -c $<
 
 wavman: $(OBJS)
 	g++ $(CPPFLAGS) -o $@ $^
 
 clean:
 	rm *.o wavman
+
+
+#DEPS = $(wildcard src/*.h)
+#SOURCE = $(wildcard src/*.cpp)
+#OBJS = $(patsubst %.cpp, %.o, $(SOURCE)) # replace these with line 5 a
