@@ -2,9 +2,9 @@
 
 #include <iostream>
 #include <string>
-#include "UI.h"
-#include "Processor.h"
-#include "Wav.h"
+#include "../headers/UI.h"
+#include "../headers/Processor.h"
+#include "../headers/Wav.h"
 
 int main()
 {   
@@ -14,7 +14,7 @@ int main()
     examples.push_back(0.0f);
     examples.push_back(-.99f);
     Processor p(examples);
-    p.compression();
+    // p.compression();
     for (auto x : p.getVec()){
         std::cout << x << std::endl;
     }

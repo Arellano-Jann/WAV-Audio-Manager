@@ -1,6 +1,6 @@
 // Created by Andrew Kalb
 
-#include "Wav.h"
+#include "../headers/Wav.h"
 #include <ios>
 #include <iostream>
 #include <fstream>

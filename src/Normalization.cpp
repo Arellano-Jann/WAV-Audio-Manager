@@ -1,3 +1,5 @@
+#include "../headers/Normalization.h"
+
 void Processor::normalization(){
         //Algo: The largest sample value in the data is found, and 
         //then the data is scaled so that that max value in the data is the maximum possible value. 

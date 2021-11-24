@@ -1,3 +1,5 @@
+#include "../headers/Compressor.h"
+
     // void Processor::compression(){
     //     //Algo: For volume over a specified max, it is scaled by a ratio
     //     // pass:increase. For every units passed, it increases from 

@@ -1,3 +1,5 @@
+#include "../headers/Echo.h"
+
 void Processor::echo(){
         //Algo: Samples are copied, scaled, and 
         //added to later locations in the sample buffer to create an echo effect.
