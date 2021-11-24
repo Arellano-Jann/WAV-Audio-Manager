@@ -37,6 +37,7 @@ int main()
             {
                 w.AnalyzeFile();
                 ui.PrintMeta(w);
+                Processor p(w.getSamples());
                 std::string selection;
                 do
                 {
@@ -45,30 +46,33 @@ int main()
                     {
                         case "1":
                         {
+                            p.normalization();
                             break;
                         }
                         case "2":
                         {
+                            p.echo();
                             break;
                         }
                         case "3":
                         {
+                            p.gain();
                             break;
                         }
                         case "4":
                         {
+                            p.lowpass();
                             break;
                         }
                         case "5":
                         {
+                            p.compression();
                             break;
                         }
-                        default:
-                        {
-                            
-                        }
                     }
-                } while(selection != "save")
+                } while(tolower(selection) != "save")
+                std::string newFileName = ui.OutFileName();
+                
             }
             else
             {

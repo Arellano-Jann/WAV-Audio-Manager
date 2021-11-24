@@ -63,41 +63,11 @@ std::string UI::ProcessorMenu() {
     return selection;
 }
 
-void UI::RunProcessor() {
+std::string UI::OutFileName() {
     std::cout << "Enter the Name of Your Output File:" << std::endl;
-
-    std::cin >> OutputFileName;
-
-    std::cout << "Enter the Name of the Processor Function You Would Like to Use:" << std::endl;
-
-    std::cin >> ProcessorName;
-
-    if(ProcessorName == "Normalization" || "NORMALIZATION" || "normalization"){
-        p.normalization();
-        //Save File (OutputFileName?)
-    }
-
-    else if(ProcessorName == "Echo" || "ECHO" || "echo") {
-        p.echo();
-        //Save File (OutputFileName?)
-    }
-
-    else if(ProcessorName == "Gain" || "GAIN" || "gain") {
-        //So... There are two gainAdjustment functions?
-        //Not sure what to do here.
-        p.gainAdjustment();
-        //Save File (OutputFileName?)
-    }
-
-    else if(ProcessorName == "LowPassFilter" || "LOWPASSFILTER" || "lowpassfilter") {
-        p.lowPassFilter();
-        //Save File (OutputFileName?)
-    }
-
-    else if(ProcessorName == "Compression" || "COMPRESSION" || "compression") {
-        p.compression();
-        //Save File (OutputFileName?)
-    }
+    std::string name;
+    std::cin >> name;
+    return name;
 }
 
 //Pseudo ~
