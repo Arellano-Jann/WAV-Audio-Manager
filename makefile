@@ -21,4 +21,4 @@ clean:
 
 #DEPS = $(wildcard src/*.h)
 #SOURCE = $(wildcard src/*.cpp)
-#OBJS = $(patsubst %.cpp, %.o, $(SOURCE)) # replace these with line 5 a
+#OBJS = $(patsubst %.cpp, %.o, $(SOURCE)) # replace these with line 5 and 6
