@@ -14,5 +14,5 @@ public:
     //void InputQuitMenu();
     void PrintMeta(Wav wav);
     std::string ProcessorMenu();
-    void RunProcessor();
+    std::string OutFileName();
 };
