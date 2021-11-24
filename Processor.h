@@ -14,16 +14,7 @@ class Processor{
 public:
     Processor(std::vector<float> samples) : sample(samples){}
     std::vector<float> getVec() { return sample;}
-    void normalization();
-    void echo();
-    void gainAdjustment();
-    void gainAdjustment(float scale);
-    void lowPassFilter();
-    void compression();
 
     //Helper Functions
-    float findMax();
-    float findMin();
-    float findScale(float min, float max);
     float ask(std::string question);
 };
