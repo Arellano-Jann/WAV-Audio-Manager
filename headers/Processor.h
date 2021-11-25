@@ -14,11 +14,12 @@ class Processor{
 public:
     Processor(std::vector<float> samples) : sample(samples){}
 
-    void setVec(std::vector<float> samples){ sample = samples;}
+    void setSample(std::vector<float> samples){ sample = samples;}
 
-    std::vector<float> getVec() { return sample; }
+    std::vector<float> getSample() { return sample; }
     float getMaxVal() { return maxVal; }
     float getMinVal() { return minVal; }
 
     float ask(std::string question);
+    void checkVals();
 };

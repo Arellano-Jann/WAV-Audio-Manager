@@ -4,7 +4,9 @@
 
 
 class Gain : public Processor{
-    
-    void gainAdjustment();
-    void gainAdjustment(float scale);
+    float scale = 10;
+    void process(float scale);
+public:
+    Gain() = default;
+    Gain(float scale);
 };

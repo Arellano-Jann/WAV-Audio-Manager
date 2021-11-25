@@ -1,26 +1,36 @@
 #include "../headers/Echo.h"
 
-void Echo::echo(){
+    Echo::Echo(float scale, int delay) : scale(scale), delay(delay){
         //Algo: Samples are copied, scaled, and 
         //added to later locations in the sample buffer to create an echo effect.
 
         //Takes in a float scale and int delay. Copies a vector and combines both vectors.
+        scale *= .01;
         if (scale > 1){ scale = 1; }
 
-        std::vector<float> echo = sample; //Copies a vector
+        process(scale, delay); // need to see if it gets it from class members or not
+    }
+    Echo::Echo(){ // why does this say shit about a default ctor
+        process(scale, delay);
+    }
 
-        for (auto i = 0; i < sample.size(); i++){ // creates scaled echo vector
-            echo[i] *= scale; // scales echo
+    void Echo::process(float scale, int delay){
+        setEcho();
+        scaleEcho(scale);
+        calculateFinalEcho(delay);
+        setSample(echo);
+        checkVals();
+    }
+    void Echo::setEcho(){
+        echo = getSample();
+    }
+    void Echo::scaleEcho(float scale){
+        for (auto i = 0; i < getSample().size(); i++){
+            echo[i] *= scale;
         }
-        
+    }
+    void Echo::calculateFinalEcho(int delay){
         //add echo[i] to sample[i] to calculate total wavelength
-        for (auto i = delay; i < sample.size(); i++){
-            sample[i] += echo[i-delay]; // adds echo to sample with an offset in echo so echo starts at 0
-            if (sample[i] > getMaxVal()) 
-                sample[i] = getMaxVal(); // checks if value is above maxVal
-            if (sample[i] < getMinVal()) 
-                sample[i] = getMinVal(); // checks if value is above maxVal
-        }
-        /// do we do checks on both echo and final echo???
-        // ^^ what the fuck does this mean. i forgot what this meant. was this talking about the 255 check????
+        for (auto i = delay; i < echo.size(); i++){
+            echo[i-delay] = echo[i] + getSample()[i]; // adds sample to echo with an offset in echo so echo starts at 0
     }

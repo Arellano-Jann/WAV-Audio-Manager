@@ -15,7 +15,7 @@ int main()
     examples.push_back(-.99f);
     Processor p(examples);
     // p.compression();
-    for (auto x : p.getVec()){
+    for (auto x : p.getSample()){
         std::cout << x << std::endl;
     }
     
