@@ -4,5 +4,8 @@
 
 
 class Echo : public Processor{
-    void echo();
+    Echo(float scale, int delay);
+    setEchoVec();
+    scale();
+
 };

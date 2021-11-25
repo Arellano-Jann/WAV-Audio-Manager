@@ -1,6 +1,6 @@
 #include "../headers/Compressor.h"
 
-    // void Processor::compression(){
+    // void Compressor::compression(){
     //     //Algo: For volume over a specified max, it is scaled by a ratio
     //     // pass:increase. For every units passed, it increases from 
     //     // max by "increase".
@@ -18,7 +18,7 @@
     //     }
     // }
 
-    void Processor::compression(){ // core dumps
+    void Compressor::compression(){ // core dumps
         //Algo: For volume over a specified max, it is scaled by a ratio
         // max by "increase".
         // this overloads with int hold because it needs to be non linear

@@ -1,6 +1,6 @@
 #include "../headers/LowPassFilter.h"
 
-void Processor::lowPassFilter(){
+void LowPassFilter::lowPassFilter(){
         //Algo: Remove components above a certain frequency specified.
         // Isolate the frequencies and remove the high frequencies. Now add those frequencies back together.
 

@@ -13,8 +13,12 @@ class Processor{
     float minVal = -1;
 public:
     Processor(std::vector<float> samples) : sample(samples){}
-    std::vector<float> getVec() { return sample;}
 
-    //Helper Functions
+    void setVec(std::vector<float> samples){ sample = samples;}
+
+    std::vector<float> getVec() { return sample; }
+    float getMaxVal() { return maxVal; }
+    float getMinVal() { return minVal; }
+
     float ask(std::string question);
 };

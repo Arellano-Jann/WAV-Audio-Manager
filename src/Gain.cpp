@@ -1,6 +1,6 @@
 #include "../headers/Gain.h"
 
-void Processor::gainAdjustment(){
+void Gain::gainAdjustment(){
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
@@ -8,18 +8,18 @@ void Processor::gainAdjustment(){
         
         for (auto &x : sample){// creates scaled echo vector
             x *= scale;
-            if (x > maxVal) x = maxVal;  // checks if value is above maxVal
-            if (x < minVal) x = minVal;
+            if (x > getMaxVal()) x = getMaxVal();
+            if (x < getMinVal()) x = getMinVal();
         }
     }
 
-    void Processor::gainAdjustment(float scale){
+    void Gain::gainAdjustment(float scale){
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
 
         for (auto &x : sample){// creates scaled echo vector
             x *= scale;
-            if (x > maxVal) x = maxVal;  // checks if value is above maxVal
-            if (x < minVal) x = minVal;
+            if (x > getMaxVal()) x = getMaxVal();  // checks if value is above maxVal
+            if (x < getMinVal()) x = getMinVal();
         }
     }
