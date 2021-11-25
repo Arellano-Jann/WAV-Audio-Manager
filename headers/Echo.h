@@ -12,6 +12,5 @@ class Echo : public Processor{
     void calculateFinalEcho(int delay);
     void process(float scale, int delay);
 public:
-    Echo(float scale, int delay);
-    Echo() = default;
+    Echo(std::vector<float> samples, float scale, int delay);
 };

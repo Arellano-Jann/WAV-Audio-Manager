@@ -7,6 +7,5 @@ class Gain : public Processor{
     float scale = 10;
     void process(float scale);
 public:
-    Gain() = default;
-    Gain(float scale);
+    Gain(std::vector<float> samples, float scale);
 };
