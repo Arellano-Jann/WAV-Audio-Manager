@@ -1,13 +1,14 @@
 #pragma once
 #define NORMALIZATION_H
-#include "Processor.h"
+#include "Gain.h"
 
 
-class Normalization : public Processor{
+class Normalization : public Gain{
     
     float findMax();
     float findMin();
     float findScale(float min, float max);
+    void process(std::vector<float> samples);
 public:
-    Normalization();
+    Normalization(std::vector<float> samples);
 };
