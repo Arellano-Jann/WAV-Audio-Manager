@@ -15,6 +15,7 @@ int main()
     examples.push_back(-.99f);
     Processor p(examples);
     // p.compression();
+    // test out all classes and see if it does what it needs to do
     for (auto x : p.getSample()){
         std::cout << x << std::endl;
     }

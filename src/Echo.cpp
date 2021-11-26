@@ -2,24 +2,26 @@
 
     Echo::Echo(std::vector<float> samples, float scale, int delay)
         : Processor(samples)
-        , scale{scale}
+        , scale{scale*.01}
         , delay{delay}
         {
         //Algo: Samples are copied, scaled, and 
         //added to later locations in the sample buffer to create an echo effect.
 
         //Takes in a float scale and int delay. Copies a vector and combines both vectors.
-        scale *= .01;
-        if (scale > 1) scale = 1;
         process();
     }
 
     void Echo::process(){
+        checkScale();
         setEcho();
         scaleEcho();
         calculateFinalEcho();
         setSample(echo);
         checkVals();
+    }
+    void Echo::checkScale(){
+        if (scale > 1) scale = 1;
     }
     void Echo::setEcho(){
         echo = getSample();

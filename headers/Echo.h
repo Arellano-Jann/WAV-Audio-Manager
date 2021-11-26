@@ -7,6 +7,7 @@ class Echo : public Processor{
     std::vector<float> echo;
     float scale = 10; 
     int delay = 10;
+    void checkScale();
     void setEcho();
     void scaleEcho();
     void calculateFinalEcho();
