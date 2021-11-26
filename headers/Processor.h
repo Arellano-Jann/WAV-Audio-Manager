@@ -15,11 +15,9 @@ public:
     Processor(std::vector<float> samples) : sample(samples){}
 
     void setSample(std::vector<float> samples){ sample = samples;}
-
     std::vector<float> getSample() { return sample; }
+
     float getMaxVal() { return maxVal; }
     float getMinVal() { return minVal; }
-
-    float ask(std::string question);
     void checkVals();
 };

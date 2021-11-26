@@ -8,9 +8,9 @@ class Echo : public Processor{
     float scale = 10; 
     int delay = 10;
     void setEcho();
-    void scaleEcho(float scale);
-    void calculateFinalEcho(int delay);
-    void process(float scale, int delay);
+    void scaleEcho();
+    void calculateFinalEcho();
+    void process();
 public:
     Echo(std::vector<float> samples, float scale, int delay);
 };

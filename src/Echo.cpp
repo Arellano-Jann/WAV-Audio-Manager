@@ -11,25 +11,25 @@
         //Takes in a float scale and int delay. Copies a vector and combines both vectors.
         scale *= .01;
         if (scale > 1) scale = 1;
-        process(scale, delay); // need to see if it gets it from class members or not
+        process();
     }
 
-    void Echo::process(float scale, int delay){
+    void Echo::process(){
         setEcho();
-        scaleEcho(scale);
-        calculateFinalEcho(delay);
+        scaleEcho();
+        calculateFinalEcho();
         setSample(echo);
         checkVals();
     }
     void Echo::setEcho(){
         echo = getSample();
     }
-    void Echo::scaleEcho(float scale){
+    void Echo::scaleEcho(){
         for (auto i = 0; i < getSample().size(); i++){
             echo[i] *= scale;
         }
     }
-    void Echo::calculateFinalEcho(int delay){
+    void Echo::calculateFinalEcho(){
         //add echo[i] to sample[i] to calculate total wavelength
         for (auto i = delay; i < echo.size(); i++){
             echo[i-delay] = echo[i] + getSample()[i]; // adds sample to echo with an offset in echo so echo starts at 0
