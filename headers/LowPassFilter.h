@@ -4,6 +4,8 @@
 
 
 class LowPassFilter : public Processor{
-    
-    void lowPassFilter();
+    float max;
+    void process();
+public:
+    LowPassFilter(std::vector<float> samples, float max);
 };

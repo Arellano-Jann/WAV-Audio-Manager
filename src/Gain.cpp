@@ -6,14 +6,17 @@
         {
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file
-        process(scale);
+        process();
     }
 
-    void Gain::process(float scale){
+    void Gain::process(){
+        adjustGain();
+        checkVals();
+    }
+    void Gain::adjustGain(){
         for (auto &x : getSample()){ 
-            // might not work since private variable
-            // might need a sample member variabls
+            // might not work since sample is a private variable
+            // might need a sample member variables
             x *= scale;
         }
-        checkVals();
     }
