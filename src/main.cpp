@@ -20,7 +20,7 @@ int main()
     examples.push_back(-.4f);
     // p.compression();
     // test out all classes and see if it does what it needs to do
-    Normalization p(examples);
+    Compressor p(examples, 50, 15);
     for (auto x : p.getSample()){
         std::cout << x << std::endl;
     }

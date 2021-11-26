@@ -2,8 +2,8 @@
 
     Compressor::Compressor(std::vector<float> samples, float ratio, float max)
         : Processor(samples)
-        , max(max)
-        , ratio(ratio)
+        , max(max*.01)
+        , ratio(ratio*.01)
         {
         // core dumps
         //Algo: For volume over a specified max, it is scaled by a ratio
@@ -18,15 +18,17 @@
 
     void Compressor::process(){
         compress();
+        setSample(compressed);
         checkVals();
     }
 
     void Compressor::compress(){
         float overflow;
-        for (auto &x : getSample()){
+        for (auto x : getSample()){
             if (x > max){
                 overflow = x - max;
                 x = max + ratio * overflow;
             }
+            compressed.push_back(x);
         }
     }

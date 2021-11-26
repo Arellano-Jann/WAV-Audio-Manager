@@ -16,7 +16,7 @@
         float max = findMax();
         float min = findMin();
         float scale = findScale(min, max);
-        Gain g(samples, 5);
+        Gain g(samples, scale);
         setSample(g.getGain());
         checkVals();
     }
