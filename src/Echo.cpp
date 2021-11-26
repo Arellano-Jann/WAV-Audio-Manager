@@ -15,7 +15,6 @@
     void Echo::process(){
         checkScale();
         setEcho();
-        scaleEcho();
         calculateFinalEcho();
         setSample(echo);
         checkVals();
@@ -26,14 +25,8 @@
     void Echo::setEcho(){
         echo = getSample();
     }
-    void Echo::scaleEcho(){
-        for (auto i = 0; i < getSample().size(); i++){
-            echo[i] *= scale;
+    void Echo::calculateFinalEcho(){
+        for (int i = echo.size()-1; i >= delay; i--){
+            echo[i] += (echo[i-delay] * scale); 
         }
-    }
-    void Echo::calculateFinalEcho(){ // scuffed needs more thought
-        //add echo[i] to sample[i] to calculate total wavelength
-        for (auto i = delay; i < echo.size(); i++){
-            echo[i-delay] = echo[i] + getSample()[i]; // adds sample to echo with an offset in echo so echo starts at 0
-        }
-    }
+    } // calcs from the back to delay. sets i to scaled delayed element added to itself.
