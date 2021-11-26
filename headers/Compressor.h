@@ -10,4 +10,5 @@ class Compressor : public Processor{
     void process();
 public:
     Compressor(std::vector<float> samples, float ratio, float max);
+    // float max needs to have a conversion bc -1 and 1
 };

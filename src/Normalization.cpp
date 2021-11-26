@@ -1,4 +1,5 @@
 #include "../headers/Normalization.h"
+#include <iostream>
 
     Normalization::Normalization(std::vector<float> samples)
     : Gain(samples, 1)
@@ -15,7 +16,8 @@
         float max = findMax();
         float min = findMin();
         float scale = findScale(min, max);
-        Gain(samples, scale);
+        Gain g(samples, 5);
+        setSample(g.getGain());
         checkVals();
     }
 

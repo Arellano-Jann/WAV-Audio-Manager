@@ -11,12 +11,11 @@
 
     void Gain::process(){
         adjustGain();
+        setSample(gain);
         checkVals();
     }
     void Gain::adjustGain(){
-        for (auto &x : getSample()){ 
-            // might not work since sample is a private variable
-            // might need a sample member variables
-            x *= scale;
+        for (auto x : getSample()){
+            gain.push_back(x *= scale);
         }
     }

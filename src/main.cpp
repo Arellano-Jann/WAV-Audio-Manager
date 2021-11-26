@@ -3,19 +3,24 @@
 #include <iostream>
 #include <string>
 #include "../headers/UI.h"
-#include "../headers/Processor.h"
 #include "../headers/Wav.h"
+#include "../headers/Processor.h"
+#include "../headers/Normalization.h"
+#include "../headers/Gain.h"
+#include "../headers/Echo.h"
+#include "../headers/Compressor.h"
+#include "../headers/LowPassFilter.h"
 
 int main()
 {   
     std::vector<float> examples;
-    examples.push_back(1.45f);
-    examples.push_back(1);
-    examples.push_back(0.0f);
-    examples.push_back(-.99f);
-    Processor p(examples);
+    examples.push_back(.1f);
+    examples.push_back(.2f);
+    examples.push_back(.3f);
+    examples.push_back(-.4f);
     // p.compression();
     // test out all classes and see if it does what it needs to do
+    Normalization p(examples);
     for (auto x : p.getSample()){
         std::cout << x << std::endl;
     }
