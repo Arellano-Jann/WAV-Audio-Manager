@@ -2,7 +2,7 @@
 #include <iostream>
 
     Normalization::Normalization(std::vector<float> samples)
-    : Gain(samples, 1)
+    : Gain(samples, 100)
     {
         //Algo: The largest sample value in the data is found, and 
         //then the data is scaled so that that max value in the data is the maximum possible value. 
@@ -15,7 +15,7 @@
     {
         float max = findMax();
         float min = findMin();
-        float scale = findScale(min, max);
+        float scale = findScale(min, max)*100;
         Gain g(samples, scale);
         setSample(g.getGain());
         checkVals();

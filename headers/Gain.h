@@ -10,5 +10,5 @@ class Gain : public Processor{
     void adjustGain();
 public:
     Gain(std::vector<float> samples, float scale);
-    std::vector<float> getGain(){ return gain; }
+    std::vector<float> getGain() const { return gain; }
 };

@@ -18,12 +18,20 @@ int main()
     examples.push_back(.2f);
     examples.push_back(.3f);
     examples.push_back(-.4f);
-    // p.compression();
-    // test out all classes and see if it does what it needs to do
-    Compressor p(examples, 50, 15);
+    Processor p(examples);
+    p = Echo(examples, 50, 1);
     for (auto x : p.getSample()){
         std::cout << x << std::endl;
     }
+    std::cout << std::endl;
+    p = Normalization(examples);
+    for (auto x : p.getSample()){
+        std::cout << x << std::endl;
+    }
+    // tested to do gain and then normalization one after another
+    // another with echo and then normalization
+    // it doesn't work when two compounding processors are one after another
+    // this is because examples isn't hard changed. will need to fix that?
     
     /*UI ui;
     bool done = false;
