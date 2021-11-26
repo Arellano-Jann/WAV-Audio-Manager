@@ -9,7 +9,7 @@
         //added to later locations in the sample buffer to create an echo effect.
         // calcs from the back to delay. sets i to scaled delayed element added to itself.
 
-        //Takes in a float scale and int delay. Copies a vector and combines both vectors.
+        //Takes in a float scale and int delay. Vector scales itself and adds to itself.
         process();
     }
 
