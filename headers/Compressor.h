@@ -4,5 +4,10 @@
 
 
 class Compressor : public Processor{
-    void compression();
+    float max;
+    float ratio;
+    void compress();
+    void process();
+public:
+    Compressor(std::vector<float> samples, float ratio, float max);
 };
