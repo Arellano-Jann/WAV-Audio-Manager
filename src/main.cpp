@@ -19,7 +19,7 @@ int main()
     examples.push_back(.3f);
     examples.push_back(-.4f);
     Processor p(examples);
-    p = Echo(examples, 50, 1);
+    p = Compressor(examples, 50, 1);
     for (auto x : p.getSample()){
         std::cout << x << std::endl;
     }
