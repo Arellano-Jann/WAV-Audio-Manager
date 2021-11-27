@@ -15,8 +15,8 @@ HDIR = headers
 CDIR = src
 ODIR = objs
 CPPFLAGS = -std=c++11 -w
-DEPS = Processor.h Wav.h WaveHeader.h Compressor.h Echo.h Gain.h LowPassFilter.h Normalization.h # UI.h
-OBJS = $(ODIR)/main.o $(ODIR)/Processor.o $(ODIR)/Wav.o $(ODIR)/Compressor.o $(ODIR)/Echo.o $(ODIR)/Gain.o $(ODIR)/LowPassFilter.o $(ODIR)/Normalization.o # $(ODIR)/UI.o
+DEPS = Processor.h Wav.h WaveHeader.h Compressor.h Echo.h Gain.h LowPassFilter.h Normalization.h UI.h
+OBJS = $(ODIR)/main.o $(ODIR)/Processor.o $(ODIR)/Wav.o $(ODIR)/Compressor.o $(ODIR)/Echo.o $(ODIR)/Gain.o $(ODIR)/LowPassFilter.o $(ODIR)/Normalization.o $(ODIR)/UI.o
 vpath %.h headers
 vpath %.cpp src
 vpath %.o objs
