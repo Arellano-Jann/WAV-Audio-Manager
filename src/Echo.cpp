@@ -3,7 +3,7 @@
     /**
      * @brief Construct a new Echo object
      * This constructor initializes it's parameters into the class's private members using an initializer list.
-     * This constructor calls the Processor classes constructor using samples.
+     * This constructor calls the Processor class's constructor using samples.
      * The constructor calls the private void process() method.
      * 
      * @param samples A vector that will be processed using private methods.
