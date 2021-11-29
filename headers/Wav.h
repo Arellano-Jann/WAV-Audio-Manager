@@ -25,6 +25,12 @@ public:
     bool CreateFile(std::string newFileName);
     
 private:
+    float Convert16BitToFloat(short data);
+    float Convert8BitToFloat(unsigned char data);
+    short ConvertFloatTo16Bit(float sample);
+    unsigned char ConvertFloatTo8Bit(float sample);
+    
+
     void FillFloatSamplesFromRawData();
     std::string file;
     char* rawData;
