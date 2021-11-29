@@ -4,33 +4,44 @@
 
 void UI::StartMenu() {
     std::cout << "This Program Can Load and Modify WAV Files." << std::endl;
-    std::cout << "To Begin, ";
+    std::cout << "To Begin, " << std::endl;
 }
 
-std::string UI::InputFileName() {
+void UI::Input() {
     std::string name;
-    std::cout << "Please Enter the Name of a WAV File, or Enter \"Quit\" to Exit the Program." << std::endl;
+    std::cout << "Please Enter the Name of a WAV File, or Enter \"q\" to Exit the Program." << std::endl;
     std::cout << "Enter WAV Filename:" << std::endl;
     std::cin >> name;
-    return name;
+    setInput(name);
 }
 
 void UI::ExitMenu() {
     std::cout << "Goodbye!" << std::endl;
 }
 
-//void UI::InputQuitMenu() {
-/*    std::cin >> InputVariable;
+void UI::checkInput(){
+  std::string i = lower(getInput());
+  if ((i) == "q"){
+    ExitMenu();
+    exit(0);
+  }
+  
+}
 
-        if (InputVariable == "QUIT" || "Quit" || "quit") {
-            ui.ExitMenu();
+/*
+void UI::InputQuitMenu() {
+    std::cin >> InputVariable;
+
+        if (InputVariable == "q" || "Q") {
+            ExitMenu();
         }
 
         else {
             ui.Meta(filename);
         }
 
-}*/
+}
+*/
 
 void UI::PrintMeta(Wav wav) {
     std::cout << wav.GetFileName() << std::endl;
