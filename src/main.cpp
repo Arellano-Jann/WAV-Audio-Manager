@@ -3,21 +3,35 @@
 #include <iostream>
 #include <string>
 #include "../headers/UI.h"
-#include "../headers/Processor.h"
 #include "../headers/Wav.h"
+#include "../headers/Processor.h"
+#include "../headers/Normalization.h"
+#include "../headers/Gain.h"
+#include "../headers/Echo.h"
+#include "../headers/Compressor.h"
+#include "../headers/LowPassFilter.h"
 
 int main()
 {   
     std::vector<float> examples;
-    examples.push_back(1.45f);
-    examples.push_back(1);
-    examples.push_back(0.0f);
-    examples.push_back(-.99f);
+    examples.push_back(.1f);
+    examples.push_back(.2f);
+    examples.push_back(.3f);
+    examples.push_back(-.4f);
     Processor p(examples);
-    // p.compression();
-    for (auto x : p.getVec()){
+    p = Compressor(examples, 50, 1);
+    for (auto x : p.getSample()){
         std::cout << x << std::endl;
     }
+    std::cout << std::endl;
+    p = Normalization(examples);
+    for (auto x : p.getSample()){
+        std::cout << x << std::endl;
+    }
+    // tested to do gain and then normalization one after another
+    // another with echo and then normalization
+    // it doesn't work when two compounding processors are one after another
+    // this is because examples isn't hard changed. will need to fix that?
     
     /*UI ui;
     bool done = false;

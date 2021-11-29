@@ -59,7 +59,7 @@ std::string UI::ProcessorMenu() {
           selection != "3" &&
           selection != "4" &&
           selection != "5" &&
-          tolower(selection) != "save");
+          lower(selection) != "save");
     return selection;
 }
 
@@ -68,6 +68,10 @@ std::string UI::OutFileName() {
     std::string name;
     std::cin >> name;
     return name;
+}
+
+std::string UI::lower(std::string str){
+    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
 }
 
 //Pseudo ~

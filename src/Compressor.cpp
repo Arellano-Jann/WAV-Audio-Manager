@@ -1,56 +1,50 @@
 #include "../headers/Compressor.h"
 
-    // void Processor::compression(){
-    //     //Algo: For volume over a specified max, it is scaled by a ratio
-    //     // pass:increase. For every units passed, it increases from 
-    //     // max by "increase".
-    //     float pass = ask("pass"); // maybe need to overload bc "What is the pass?" 
-    //                             // does not make too much sense
-    //     float increase = ask("increase");
-    //     float max = ask("max");
-
-    //     float overflow;
-    //     for (auto &x : sample){
-    //         if (x > max){
-    //             overflow = x - max; // overflow = nums past max
-    //             x = max + (pass/overflow) * increase; // compresses
-    //         }
-    //     }
-    // }
-
-    void Processor::compression(){ // core dumps
+    /**
+     * @brief Construct a new Compressor object
+     * This constructor initializes it's parameters into the class's private members using an initializer list.
+     * This constructor calls the Processor class's constructor using samples.
+     * The constructor calls the private void process() method.
+     * 
+     * @param samples A vector that will be processed using private methods.
+     * @param ratio A float (multiplied by .01) used to compress values. The input is a percentage.
+     * @param max A float (multiplied by .01) used to determine the max value before compression. The input is a percentage.
+     */
+    Compressor::Compressor(std::vector<float> samples, float ratio, float max)
+        : Processor(samples)
+        , max(max*.01)
+        , ratio(ratio*.01)
+        {
         //Algo: For volume over a specified max, it is scaled by a ratio
-        // max by "increase".
-        // this overloads with int hold because it needs to be non linear
-        // only compresses for a certain time after first instance 
-        //// schedule office hours so that you know what he means by nonlinear map of input to output
         
-        // has to be non linear so setup how long compressor can hold
         //https://www.reddit.com/r/explainlikeimfive/comments/1zfmew/eli5_compression_music_making/
-        
-        float pass = ask("pass threshold");
-        float increase = ask("increase threshold");
-        float max = ask("max");
-        float hold = ask("hold");
-        
-        float overflow;
-        int maxIndex;
+        process();
+    }
 
-        for (int i = 0; i < sample.size(); i++){
-            // iterates through sample and finds first instance of anything over max
-            if (sample[i] > max){
-                maxIndex = i;
-                break; // breaks loop so maxindex does not change
+    /**
+     * @brief Compresses samples and checks if values are valid.
+     * Calls the void compress() method to compress the passed in vector of samples. After, it saves the new vector by calling the inherited setSample() method from the Processor class. It then checks the values of the saved vector by the inherited checkVals() method from the Processor class.
+     * 
+     */
+    void Compressor::process(){
+        compress();
+        setSample(compressed);
+        checkVals();
+    }
+
+    /**
+     * @brief Compresses samples and puts it into a new vector.
+     *  Iterates through each element in the sample. Then, if the element exceeds the class member max, it compresses the element by the class member ratio. Finally, it adds it to the compressed vector, a class member.
+     * The compression is calculated by adding max to the product of ratio and overflow (max + ratio * overflow). Overflow is calculated by the difference between the current element and max.
+     * 
+     */
+    void Compressor::compress(){
+        float overflow;
+        for (auto x : getSample()){
+            if (x > max){
+                overflow = x - max;
+                x = max + ratio * overflow;
             }
-        }
-        
-        for (maxIndex; maxIndex < (maxIndex+hold); maxIndex++){ 
-            // iterates through first instance through the hold period
-            if (sample[maxIndex] > max){ // makes sure it doesn't compress under max
-                overflow = sample[maxIndex] - max;
-                sample[maxIndex] = max + (overflow/pass) * increase; // compresses
-                // increases by this much everytime it passes the max by this much
-                // o/p calcs the pass to scale it correctly
-            }
+            compressed.push_back(x);
         }
     }

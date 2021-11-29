@@ -50,7 +50,7 @@ void Wav::AnalyzeFile()
 }
 
 
-std::string Wav::GetStereo()
+std::string Wav::GetStereo() const
 {
     std::string numChannels = "Mono";
     if(header.numChannels == 2)
@@ -192,6 +192,15 @@ void Wav::FillFloatSamplesFromRawData()
     }*/
 }
 
+std::string Wav::GetStereo() const
+{
+    std::string numChannels = "Mono";
+    if(header.numChannels == 2)
+    {
+        numChannels = "Stereo";
+    }
+    return numChannels; 
+}
 
 Wav::~Wav()
 {
