@@ -52,14 +52,14 @@ std::string UI::ProcessorMenu() {
     do
     {
         std::cout << "Enter the Number of the Processor Function You Would Like to Use." << std::endl;
-        std::cout << "Or enter \"save\" to save your progress to a wav file." << std::endl;
+        std::cout << "Or enter \"s\" to save your progress to a wav file." << std::endl;
         std::cin >> selection;
     } while(selection != "1" &&
           selection != "2" && 
           selection != "3" &&
           selection != "4" &&
           selection != "5" &&
-          lower(selection) != "save");
+          lower(selection) != "s");
     return selection;
 }
 
