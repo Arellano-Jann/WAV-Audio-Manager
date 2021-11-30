@@ -13,12 +13,18 @@ std::string UI::Input() {
     return name;
 }
 bool UI::checkInput(std::string input){
-  std::string i = lower(input);
-  if ((i) == "q"){
+  //std::string i = lower(input);
+  if (input == "q" || input == "Q"){
     return false; // call exit(0); after in main
   }
   return true; // call setFile after
 }
+
+void UI::InvalidFileName()
+{
+    std::cout << "File does not exist or is not a wav file." << std::endl;
+}
+
 void UI::ExitMenu() {
     std::cout << "Goodbye!" << std::endl;
 }
@@ -84,6 +90,7 @@ std::string UI::OutputFileName() {
     std::cout << "Enter the Name of Your Output File:" << std::endl;
     std::string name;
     std::cin >> name;
+    name += ".wav";
     return name;
 }
 

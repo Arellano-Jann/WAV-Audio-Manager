@@ -32,56 +32,69 @@ int main()
     ui.StartMenu();
     //Getting Filename
     std::string filename = ui.Input();
-    std::cout << filename;
     if (!ui.checkInput(filename)){
         ui.ExitMenu();
-        // exit(0);
+        exit(0);
     }
+    
     //Setting Files
     Wav wav;
-    wav.SetFile(filename); // make this go to start if false
-    wav.AnalyzeFile();
+    if(wav.SetFile(filename))
+    {
+        wav.AnalyzeFile();
 
-    ui.PrintMetaData(wav);
+        ui.PrintMetaData(wav);
 
-    ui.ProcessorMenu();
-    int selection = ui.selectProcessor();
-    
-    // Processing
-    Processor p(wav.GetSamples());
-    switch (selection){
-        float parameterOne;
-        float parameterTwo;
-        case 1: 
-            p = Normalization(wav.GetSamples());
-            break;
-        case 2:
-            ui.askProcessorQuestions(1);
-            std::cin >> parameterOne;
-            ui.askProcessorQuestions(2);
-            std::cin >> parameterTwo;
-            p = Echo(wav.GetSamples(), parameterOne, parameterTwo);
-            break;
-        case 3:
-            ui.askProcessorQuestions(1);
-            std::cin >> parameterOne;
-            p = Gain(wav.GetSamples(), parameterOne);
-            break;
-        case 4:
-            ui.askProcessorQuestions(5);
-            std::cin >> parameterOne;
-            p = LowPassFilter(wav.GetSamples(), parameterOne);
-            break;
-        case 5:
-            ui.askProcessorQuestions(3);
-            std::cin >> parameterOne;
-            ui.askProcessorQuestions(4);
-            std::cin >> parameterTwo;
-            p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
-            break;
+        bool done = false;
+        while(!done)
+        {
+            ui.ProcessorMenu();
+            int selection = ui.selectProcessor();
+            
+            // Processing
+            Processor p(wav.GetSamples());
+            switch (selection){
+                float parameterOne;
+                float parameterTwo;
+                case 1: 
+                    p = Normalization(wav.GetSamples());
+                    break;
+                case 2:
+                    ui.askProcessorQuestions(1);
+                    std::cin >> parameterOne;
+                    ui.askProcessorQuestions(2);
+                    std::cin >> parameterTwo;
+                    p = Echo(wav.GetSamples(), parameterOne, parameterTwo);
+                    break;
+                case 3:
+                    ui.askProcessorQuestions(1);
+                    std::cin >> parameterOne;
+                    p = Gain(wav.GetSamples(), parameterOne);
+                    break;
+                case 4:
+                    ui.askProcessorQuestions(5);
+                    std::cin >> parameterOne;
+                    p = LowPassFilter(wav.GetSamples(), parameterOne);
+                    break;
+                case 5:
+                    ui.askProcessorQuestions(3);
+                    std::cin >> parameterOne;
+                    ui.askProcessorQuestions(4);
+                    std::cin >> parameterTwo;
+                    p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
+                    break;
+                case 6:
+                    std::string output = ui.OutputFileName();
+                    wav.CreateFile(output);
+                    done = true;
+                    break;
+            }
         }
-    std::string output = ui.OutputFileName();
-    wav.CreateFile(output);
+    }
+    else
+    {
+        ui.InvalidFileName();
+    }
     // save file
     // go to start
 

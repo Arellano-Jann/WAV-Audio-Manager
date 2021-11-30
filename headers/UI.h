@@ -46,6 +46,7 @@ public:
     void StartMenu();
     std::string Input();
     bool checkInput(std::string input);
+    void InvalidFileName();
     void ExitMenu();
 
     void PrintMetaData(Wav wav);
