@@ -192,16 +192,6 @@ void Wav::FillFloatSamplesFromRawData()
     }*/
 }
 
-std::string Wav::GetStereo() const
-{
-    std::string numChannels = "Mono";
-    if(header.numChannels == 2)
-    {
-        numChannels = "Stereo";
-    }
-    return numChannels; 
-}
-
 Wav::~Wav()
 {
     delete [] rawData;

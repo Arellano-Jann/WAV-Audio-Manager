@@ -32,6 +32,8 @@ int main()
     // another with echo and then normalization
     // it doesn't work when two compounding processors are one after another
     // this is because examples isn't hard changed. will need to fix that?
+
+    
     
     UI ui;
     bool done = false;
