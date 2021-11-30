@@ -5,15 +5,15 @@
 void UI::StartMenu() {
     output("This Program Can Load and Modify WAV Files.");
 }
-void UI::Input() {
+std::string UI::Input() {
     std::string name;
     std::cout << "Please Enter the Name of a WAV File, or Enter \"q\" to Exit the Program." << std::endl;
     std::cout << "Enter WAV Filename:" << std::endl;
     std::cin >> name;
-    setInput(name);
+    return name;
 }
-bool UI::checkInput(){
-  std::string i = lower(getInput());
+bool UI::checkInput(std::string input){
+  std::string i = lower(input);
   if ((i) == "q"){
     return false; // call exit(0); after in main
   }
@@ -25,6 +25,7 @@ void UI::ExitMenu() {
 
 
 void UI::PrintMetaData(Wav wav) {
+    std::cout << "Metadata Goodness:" << std::endl;
     std::cout << wav.GetFileName() << std::endl;
     std::cout << "---------------" << std::endl;
     std::cout << "Channels: " << wav.GetStereo() << std::endl;
@@ -57,7 +58,7 @@ int UI::selectProcessor(){
     return select;
 }
 void UI::checkProcessor(std::string i){
-    std::string arr[7] = {"0","1","2","3","4","5","6"};
+    std::string arr[6] = {"1","2","3","4","5","6"};
     if (std::end(arr) == std::find(std::begin(arr), std::end(arr), i)){
         std::cout << "Invalid motherfucker." << std::endl;
         selectProcessor();
@@ -65,11 +66,19 @@ void UI::checkProcessor(std::string i){
     }
     //return true;
 }
-void UI::callProcessor(){
-    
-}
 void UI::askProcessorQuestions(int i){
-    
+    switch (i){
+        case 1: output("How much is the scale in percent?");
+            break;
+        case 2: output("What is the delay as a whole number?");
+            break;
+        case 3: output("What is the ratio?");
+            break;
+        case 4: output("What is the max value?");
+            break;
+        case 5: output("What is the max frequency?");
+            break;
+    }
 }
 std::string UI::OutputFileName() {
     std::cout << "Enter the Name of Your Output File:" << std::endl;

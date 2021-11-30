@@ -13,27 +13,85 @@
 
 int main()
 {   
-    std::vector<float> examples;
-    examples.push_back(.1f);
-    examples.push_back(.2f);
-    examples.push_back(.3f);
-    examples.push_back(-.4f);
-    Processor p(examples);
-    p = Compressor(examples, 50, 1);
-    for (auto x : p.getSample()){
-        std::cout << x << std::endl;
+    // std::vector<float> examples;
+    // examples.push_back(.1f);
+    // examples.push_back(.2f);
+    // examples.push_back(.3f);
+    // examples.push_back(-.4f);
+    // Processor p(examples);
+    // p = Compressor(examples, 50, 1);
+    // for (auto x : p.getSample()){
+    //     std::cout << x << std::endl;
+    // }
+    // std::cout << std::endl;
+    // p = Normalization(examples);
+    // for (auto x : p.getSample()){
+    //     std::cout << x << std::endl;
+    // }
+
+    UI::StartMenu();
+    //Getting Filename
+    std::string filename = UI::Input();
+    if (!UI::checkInput(filename)){
+        UI::ExitMenu();
+        exit(0);
     }
-    std::cout << std::endl;
-    p = Normalization(examples);
-    for (auto x : p.getSample()){
-        std::cout << x << std::endl;
-    }
+    //Setting Files
+    Wav wav;
+    wav.SetFile(filename); // make this go to start if false
+    wav.AnalyzeFile();
+
+    UI::PrintMetaData(wav);
+
+    UI::ProcessorMenu();
+    int selection = UI::selectProcessor();
+    
+    // Processing
+    Processor p(wav.GetSamples());
+    switch (selection){
+        float parameterOne;
+        float parameterTwo;
+        case 1: 
+            p = Normalization(wav.GetSamples());
+            break;
+        case 2:
+            UI::askProcessorQuestions(1);
+            std::cin >> parameterOne;
+            UI::askProcessorQuestions(2);
+            std::cin >> parameterTwo;
+            p = Echo(wav.GetSamples(), parameterOne, parameterTwo);
+            break;
+        case 3:
+            UI::askProcessorQuestions(1);
+            std::cin >> parameterOne;
+            p = Gain(wav.GetSamples(), parameterOne);
+            break;
+        case 4:
+            UI::askProcessorQuestions(5);
+            std::cin >> parameterOne;
+            p = LowPassFilter(wav.GetSamples(), parameterOne);
+            break;
+        case 5:
+            UI::askProcessorQuestions(3);
+            std::cin >> parameterOne;
+            UI::askProcessorQuestions(4);
+            std::cin >> parameterTwo;
+            p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
+            break;
+        }
+    std::string output = UI::OutputFileName();
+    wav.CreateFile(output);
+    // save file
+    // go to start
+
+    
+
     // tested to do gain and then normalization one after another
     // another with echo and then normalization
     // it doesn't work when two compounding processors are one after another
     // this is because examples isn't hard changed. will need to fix that?
 
-    
+    /*
     
     UI ui;
     bool done = false;
@@ -100,7 +158,8 @@ int main()
                 // go to start menu
             }
         }
-    }
+    } 
+    */
     /*
     while(true) {
         ui.UIInputPrompt();
