@@ -3,10 +3,8 @@
 #include <iostream>
 
 void UI::StartMenu() {
-    std::cout << "This Program Can Load and Modify WAV Files." << std::endl;
-    std::cout << "To Begin, " << std::endl;
+    output("This Program Can Load and Modify WAV Files.");
 }
-
 void UI::Input() {
     std::string name;
     std::cout << "Please Enter the Name of a WAV File, or Enter \"q\" to Exit the Program." << std::endl;
@@ -14,75 +12,79 @@ void UI::Input() {
     std::cin >> name;
     setInput(name);
 }
-
+bool UI::checkInput(){
+  std::string i = lower(getInput());
+  if ((i) == "q"){
+    return false; // call exit(0); after in main
+  }
+  return true; // call setFile after
+}
 void UI::ExitMenu() {
     std::cout << "Goodbye!" << std::endl;
 }
 
-void UI::checkInput(){
-  std::string i = lower(getInput());
-  if ((i) == "q"){
-    ExitMenu();
-    exit(0);
-  }
-  
-}
 
-/*
-void UI::InputQuitMenu() {
-    std::cin >> InputVariable;
-
-        if (InputVariable == "q" || "Q") {
-            ExitMenu();
-        }
-
-        else {
-            ui.Meta(filename);
-        }
-
-}
-*/
-
-void UI::PrintMeta(Wav wav) {
+void UI::PrintMetaData(Wav wav) {
     std::cout << wav.GetFileName() << std::endl;
     std::cout << "---------------" << std::endl;
-    std::cout << wav.GetStereo() << std::endl;
+    std::cout << "Channels: " << wav.GetStereo() << std::endl;
     std::cout << "Sample Rate: " << wav.GetSampleRate() << std::endl;
-    std::cout << "Bits Per Sample: " << wav.GetBitsPerSample() << std::endl;
+    std::cout << "ByteRate: " << wav.GetByteRate() << std::endl;
+    std::cout << "Bitdepth: " << wav.GetBitsPerSample() << std::endl;
+    std::cout << "Block Align: " << wav.GetBlockAlign() << std::endl;
 }
 
-std::string UI::ProcessorMenu() {
-    std::cout << "This Program Allows You to Edit the Following:" << std::endl;
+
+void UI::ProcessorMenu() {
+    std::cout << "Pick a processor!" << std::endl;
     std::cout << "(1) Normalization" << std::endl;
     std::cout << "(2) Echo" << std::endl;
     std::cout << "(3) Gain" << std::endl;
     std::cout << "(4) Low Pass Filter" << std::endl;
     std::cout << "(5) Compression" << std::endl;
     std::cout << std::endl;
-    std::string selection;
-    do
-    {
-        std::cout << "Enter the Number of the Processor Function You Would Like to Use." << std::endl;
-        std::cout << "Or enter \"save\" to save your progress to a wav file." << std::endl;
-        std::cin >> selection;
-    } while(selection != "1" &&
-          selection != "2" && 
-          selection != "3" &&
-          selection != "4" &&
-          selection != "5" &&
-          lower(selection) != "save");
-    return selection;
 }
-
-std::string UI::OutFileName() {
+int UI::selectProcessor(){
+    std::string selection;
+    std::cout << "Enter the Number of the Processor Function You Would Like to Use." << std::endl;
+    std::cout << "Or enter \"6\" to save your progress to a wav file." << std::endl;
+    std::cin >> selection;
+    checkProcessor(selection); 
+    // since this is recursion it might not work due to making you input the number multiple times
+    // if it doesn't work then try below?
+    // if (!checkProcessor(selection)) selectProcessor();
+    int select = std::stoi(selection);
+    return select;
+}
+void UI::checkProcessor(std::string i){
+    std::string arr[7] = {"0","1","2","3","4","5","6"};
+    if (std::end(arr) == std::find(std::begin(arr), std::end(arr), i)){
+        std::cout << "Invalid motherfucker." << std::endl;
+        selectProcessor();
+        //return false;
+    }
+    //return true;
+}
+void UI::callProcessor(){
+    
+}
+void UI::askProcessorQuestions(int i){
+    
+}
+std::string UI::OutputFileName() {
     std::cout << "Enter the Name of Your Output File:" << std::endl;
     std::string name;
     std::cin >> name;
     return name;
 }
 
+
+// Helper Functions
 std::string UI::lower(std::string str){
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+}
+void UI::output(std::string str){
+    std::cout << str << std::endl;
 }
 
 //Pseudo ~
@@ -107,8 +109,6 @@ Else
 
 //Complete
     present user with processor menu // create a function with some UI for calling my code.
-                                    // doesn't matter how you call my code
-                                    // you can even just put normalization(). should be fine
     If user selects processor option // this running should be it's own function ex: run(normalization()) etc.
       request output filename // the run command would do this and below
       run processor
