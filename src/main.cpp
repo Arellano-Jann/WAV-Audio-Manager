@@ -35,13 +35,14 @@ int main()
 
     
     
-    /*UI ui;
+    UI ui;
     bool done = false;
     while(!done)
     {
         ui.StartMenu();
         std::string in = ui.InputFileName();
-        if(tolower(in) == "quit")
+        std::transform(in.begin(), in.end(), in.begin(), std::tolower);
+        if(in == "quit")
         {
             ui.ExitMenu();
             done = true;
@@ -53,42 +54,45 @@ int main()
             {
                 w.AnalyzeFile();
                 ui.PrintMeta(w);
-                Processor p(w.getSamples());
                 std::string selection;
                 do
                 {
                     selection = ui.ProcessorMenu();
-                    switch(selection)
+                    std::transform(selection.begin(), selection.end(), selection.begin(), std::tolower);
+                    if(selection == "1")
                     {
-                        case "1":
-                        {
-                            p.normalization();
-                            break;
-                        }
-                        case "2":
-                        {
-                            p.echo();
-                            break;
-                        }
-                        case "3":
-                        {
-                            p.gain();
-                            break;
-                        }
-                        case "4":
-                        {
-                            p.lowpass();
-                            break;
-                        }
-                        case "5":
-                        {
-                            p.compression();
-                            break;
-                        }
+                        Normalization n(w.GetSamples());
                     }
-                } while(tolower(selection) != "save")
+                    else if(selection == "2")
+                    {
+                        // get scale, delay
+                        Echo e(w.GetSamples());
+                    }
+                    else if(selection == "3")
+                    {
+                        // get scale
+                        Gain g(w.GetSamples());
+                    }
+                    else if(selection == "4")
+                    {
+                        // get scale
+                        LowPassFilter f(w.GetSamples());
+                    }
+                    else if(selection == "5")
+                    {
+                        // get scale
+                        Compressor c(w.GetSamples());
+                    }
+                } while(selection != "s" && selection != "S");
                 std::string newFileName = ui.OutFileName();
-                
+                if(w.CreateFile(newFileName))
+                {
+                    
+                }
+                else
+                {
+
+                }                
             }
             else
             {
@@ -96,7 +100,7 @@ int main()
                 // go to start menu
             }
         }
-    }*/
+    }
     /*
     while(true) {
         ui.UIInputPrompt();
