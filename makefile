@@ -9,7 +9,7 @@ vpath %.h headers # basically a search function
 vpath %.cpp src
 vpath %.o objs
 DIRS = $(HDIR) $(CDIR) $(ODIR)
-$(shell mkdir -p $(DIRS))
+$(shell mkdir -p $(DIRS)) # makes all directories if it's not there
 
 #replace top of file with this if something is not working
 # need to bug test objs and source
