@@ -28,12 +28,13 @@ int main()
     // for (auto x : p.getSample()){
     //     std::cout << x << std::endl;
     // }
-
-    UI::StartMenu();
+    UI ui;
+    ui.StartMenu();
     //Getting Filename
-    std::string filename = UI::Input();
-    if (!UI::checkInput(filename)){
-        UI::ExitMenu();
+    std::string filename = ui.Input();
+    std::cout << filename;
+    if (!ui.checkInput(filename)){
+        ui.ExitMenu();
         exit(0);
     }
     //Setting Files
@@ -41,10 +42,10 @@ int main()
     wav.SetFile(filename); // make this go to start if false
     wav.AnalyzeFile();
 
-    UI::PrintMetaData(wav);
+    ui.PrintMetaData(wav);
 
-    UI::ProcessorMenu();
-    int selection = UI::selectProcessor();
+    ui.ProcessorMenu();
+    int selection = ui.selectProcessor();
     
     // Processing
     Processor p(wav.GetSamples());
@@ -55,31 +56,31 @@ int main()
             p = Normalization(wav.GetSamples());
             break;
         case 2:
-            UI::askProcessorQuestions(1);
+            ui.askProcessorQuestions(1);
             std::cin >> parameterOne;
-            UI::askProcessorQuestions(2);
+            ui.askProcessorQuestions(2);
             std::cin >> parameterTwo;
             p = Echo(wav.GetSamples(), parameterOne, parameterTwo);
             break;
         case 3:
-            UI::askProcessorQuestions(1);
+            ui.askProcessorQuestions(1);
             std::cin >> parameterOne;
             p = Gain(wav.GetSamples(), parameterOne);
             break;
         case 4:
-            UI::askProcessorQuestions(5);
+            ui.askProcessorQuestions(5);
             std::cin >> parameterOne;
             p = LowPassFilter(wav.GetSamples(), parameterOne);
             break;
         case 5:
-            UI::askProcessorQuestions(3);
+            ui.askProcessorQuestions(3);
             std::cin >> parameterOne;
-            UI::askProcessorQuestions(4);
+            ui.askProcessorQuestions(4);
             std::cin >> parameterTwo;
             p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
             break;
         }
-    std::string output = UI::OutputFileName();
+    std::string output = ui.OutputFileName();
     wav.CreateFile(output);
     // save file
     // go to start
