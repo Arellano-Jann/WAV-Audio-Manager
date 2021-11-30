@@ -35,7 +35,7 @@ int main()
     std::cout << filename;
     if (!ui.checkInput(filename)){
         ui.ExitMenu();
-        exit(0);
+        // exit(0);
     }
     //Setting Files
     Wav wav;
