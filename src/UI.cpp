@@ -35,8 +35,8 @@ void UI::PrintMetaData(Wav wav) {
     std::cout << wav.GetFileName() << std::endl;
     std::cout << "---------------" << std::endl;
     std::cout << "Channels: " << wav.GetStereo() << std::endl;
-    std::cout << "Sample Rate: " << wav.GetSampleRate() << std::endl;
-    std::cout << "ByteRate: " << wav.GetByteRate() << std::endl;
+    std::cout << "Sample Rate: " << wav.GetSampleRate() << std::endl; // need to add "hz" or something
+    std::cout << "Byte Rate: " << wav.GetByteRate() << std::endl;
     std::cout << "Bitdepth: " << wav.GetBitsPerSample() << std::endl;
     std::cout << "Block Align: " << wav.GetBlockAlign() << std::endl;
 }
@@ -78,9 +78,9 @@ void UI::askProcessorQuestions(int i){
             break;
         case 2: output("What is the delay as a whole number?");
             break;
-        case 3: output("What is the ratio?");
+        case 3: output("What is the ratio in terms of percentage?");
             break;
-        case 4: output("What is the max value?");
+        case 4: output("What is the max value in terms of percentage?");
             break;
         case 5: output("What is the max frequency?");
             break;
