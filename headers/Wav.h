@@ -23,6 +23,7 @@ public:
 
     // fails if filename not available
     bool CreateFile(std::string newFileName);
+    void setSamples(std::vector<float> sample){ samples = sample; }
     
 private:
     float Convert16BitToFloat(short data);

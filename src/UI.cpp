@@ -1,6 +1,7 @@
 // Created by Alec Redera
 #include "../headers/UI.h"
 #include <iostream>
+#include <array>
 
 void UI::StartMenu() {
     output("This Program Can Load and Modify WAV Files.");
@@ -56,21 +57,23 @@ int UI::selectProcessor(){
     std::cout << "Enter the Number of the Processor Function You Would Like to Use." << std::endl;
     std::cout << "Or enter \"6\" to save your progress to a wav file." << std::endl;
     std::cin >> selection;
-    checkProcessor(selection); 
+    if (checkProcessor(selection)){
+        int select = std::stoi(selection);
+        return select;
+    } 
     // since this is recursion it might not work due to making you input the number multiple times
-    // if it doesn't work then try below?
-    // if (!checkProcessor(selection)) selectProcessor();
-    int select = std::stoi(selection);
-    return select;
+    // int select = std::stoi(selection);
+    return 6;
 }
-void UI::checkProcessor(std::string i){
-    std::string arr[6] = {"1","2","3","4","5","6"};
+bool UI::checkProcessor(std::string i){
+    // std::string arr[6] = {"1","2","3","4","5","6"};
+    std::array<std::string, 6> arr = {"1","2","3","4","5","6"};
     if (std::end(arr) == std::find(std::begin(arr), std::end(arr), i)){
-        std::cout << "Invalid motherfucker." << std::endl;
-        selectProcessor();
-        //return false;
+        std::cout << "Invalid filename." << std::endl;
+        //selectProcessor();
+        return false;
     }
-    //return true;
+    return true;
 }
 void UI::askProcessorQuestions(int i){
     switch (i){

@@ -53,7 +53,7 @@ public:
 
     void ProcessorMenu();
     int selectProcessor();
-    void checkProcessor(std::string i); // private
+    bool checkProcessor(std::string i); // private
     void askProcessorQuestions(int i);
     std::string OutputFileName();
 };

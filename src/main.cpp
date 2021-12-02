@@ -45,9 +45,9 @@ int main()
 
         ui.PrintMetaData(wav);
 
-        bool done = false;
-        while(!done)
-        {
+        // bool done = false;
+        // while(!done)
+        // {
             ui.ProcessorMenu();
             int selection = ui.selectProcessor();
             
@@ -84,19 +84,21 @@ int main()
                     p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
                     break;
                 case 6:
-                    //std::string output = ui.OutputFileName();
-                    //wav.CreateFile(output);
-                    done = true;
+                    // std::string output = ui.OutputFileName();
+                    // wav.setSamples(p.getSample());
+                    // wav.CreateFile(output);
+                    // done = true;
+    std::cout << "is this where you're breaking 91";
                     break;
-            }
+            // }
         }
     }
     else
     {
-        ui.InvalidFileName();
+        // ui.InvalidFileName();
     }
-    // save file
     // go to start
+    std::cout << "is this where you're breaking 100";
 
     
 
