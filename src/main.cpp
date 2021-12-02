@@ -45,6 +45,7 @@ int main()
         wav.AnalyzeFile();
 
         ui.PrintMetaData(wav);
+    }
 
         // bool done = false;
         // while(!done)
@@ -106,11 +107,10 @@ int main()
     // wav.setSamples(p->getSample());
     // wav.CreateFile(output);
 
-    }
-    else
-    {
-        // ui.InvalidFileName();
-    }
+    // else
+    // {
+    //     ui.InvalidFileName();
+    // }
     // go to start
     // std::cout << "is this where you're breaking 100";
     // std::string output = ui.OutputFileName();
