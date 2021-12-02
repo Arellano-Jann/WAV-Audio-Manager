@@ -40,12 +40,16 @@ int main()
     
     //Setting Files
     Wav wav;
-    if(wav.SetFile(filename))
-    {
-        wav.AnalyzeFile();
+    wav.SetFile(filename);
+    wav.AnalyzeFile();
 
-        ui.PrintMetaData(wav);
-    }
+    ui.PrintMetaData(wav);
+    // if(wav.SetFile(filename))
+    // {
+    //     wav.AnalyzeFile();
+
+    //     ui.PrintMetaData(wav);
+    // }
 
         // bool done = false;
         // while(!done)
