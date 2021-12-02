@@ -57,7 +57,9 @@ int main()
                 float parameterOne;
                 float parameterTwo;
                 case 1: 
+                    std::cout << "is this where you're breaking 60";
                     p = Normalization(wav.GetSamples());
+                    std::cout << "is this where you're breaking 62";
                     break;
                 case 2:
                     ui.askProcessorQuestions(1);
