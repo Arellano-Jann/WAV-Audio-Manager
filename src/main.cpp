@@ -14,21 +14,6 @@
 
 int main()
 {   
-    // std::vector<float> examples;
-    // examples.push_back(.1f);
-    // examples.push_back(.2f);
-    // examples.push_back(.3f);
-    // examples.push_back(-.4f);
-    // Processor p(examples);
-    // p = Compressor(examples, 50, 1);
-    // for (auto x : p.getSample()){
-    //     std::cout << x << std::endl;
-    // }
-    // std::cout << std::endl;
-    // p = Normalization(examples);
-    // for (auto x : p.getSample()){
-    //     std::cout << x << std::endl;
-    // }
     UI ui;
     ui.StartMenu();
     //Getting Filename
@@ -40,8 +25,8 @@ int main()
     
     //Setting Files
     Wav wav;
-    wav.SetFile(filename);
-    wav.AnalyzeFile();
+    wav.SetFile(filename); // def get seg faults here 
+    wav.AnalyzeFile(); // def get seg faults and here 
 
     ui.PrintMetaData(wav);
     // if(wav.SetFile(filename))
@@ -58,57 +43,64 @@ int main()
             int selection = ui.selectProcessor();
             
             // Processing
-            std::shared_ptr<Processor> p{new Processor (wav.GetSamples())};
-            // Processor p(wav.GetSamples());
-            switch (selection){
-                float parameterOne;
-                float parameterTwo;
-                case 1: 
-                    std::cout << "is this where you're breaking 60";
-                    p = std::shared_ptr<Processor> {new Normalization(wav.GetSamples())};
-                    // p = Normalization(wav.GetSamples());
-                    std::cout << "is this where you're breaking 62";
-                    break;
-                case 2:
-                    ui.askProcessorQuestions(1);
-                    std::cin >> parameterOne;
-                    ui.askProcessorQuestions(2);
-                    std::cin >> parameterTwo;
-                    p = std::shared_ptr<Processor> {new Echo(wav.GetSamples(), parameterOne, parameterTwo)};
-                    // p = Echo(wav.GetSamples(), parameterOne, parameterTwo);
-                    break;
-                case 3:
-                    ui.askProcessorQuestions(1);
-                    std::cin >> parameterOne;
-                    p = std::shared_ptr<Processor> {new Gain(wav.GetSamples(), parameterOne)};
-                    // p = Gain(wav.GetSamples(), parameterOne);
-                    break;
-                case 4:
-                    ui.askProcessorQuestions(5);
-                    std::cin >> parameterOne;
-                    p = std::shared_ptr<Processor> {new LowPassFilter(wav.GetSamples(), parameterOne)};
-                    // p = LowPassFilter(wav.GetSamples(), parameterOne);
-                    break;
-                case 5:
-                    ui.askProcessorQuestions(3);
-                    std::cin >> parameterOne;
-                    ui.askProcessorQuestions(4);
-                    std::cin >> parameterTwo;
-                    p = std::shared_ptr<Processor> {new Compressor(wav.GetSamples(), parameterOne, parameterTwo)};
-                    // p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
-                    // wav.setSamples(p->getSample());
-                    break;
-                case 6: // consider putting this outside the switch.
-                    // std::string output = ui.OutputFileName();
-                    // wav.setSamples(p.getSample());
-                    // wav.CreateFile(output);
-                    // done = true;
-    std::cout << "is this where you're breaking 91";
-                    break;
-            // }
-        }
+            // std::shared_ptr<Processor> p{new Processor (wav.GetSamples())};
+            // // Processor p(wav.GetSamples());
+            // std::cout << "is this where you're breaking 60";
+            //         p = std::shared_ptr<Processor> {new Normalization(wav.GetSamples())};
+            //         // p = Normalization(wav.GetSamples());
+            //         std::cout << "is this where you're breaking 62";
+                    
+
+    //         switch (selection){
+    //             float parameterOne;
+    //             float parameterTwo;
+    //             case 1: 
+    //                 std::cout << "is this where you're breaking 60";
+    //                 p = std::shared_ptr<Processor> {new Normalization(wav.GetSamples())};
+    //                 // p = Normalization(wav.GetSamples());
+    //                 std::cout << "is this where you're breaking 62";
+    //                 break;
+    //             case 2:
+    //                 ui.askProcessorQuestions(1);
+    //                 std::cin >> parameterOne;
+    //                 ui.askProcessorQuestions(2);
+    //                 std::cin >> parameterTwo;
+    //                 p = std::shared_ptr<Processor> {new Echo(wav.GetSamples(), parameterOne, parameterTwo)};
+    //                 // p = Echo(wav.GetSamples(), parameterOne, parameterTwo);
+    //                 break;
+    //             case 3:
+    //                 ui.askProcessorQuestions(1);
+    //                 std::cin >> parameterOne;
+    //                 p = std::shared_ptr<Processor> {new Gain(wav.GetSamples(), parameterOne)};
+    //                 // p = Gain(wav.GetSamples(), parameterOne);
+    //                 break;
+    //             case 4:
+    //                 ui.askProcessorQuestions(5);
+    //                 std::cin >> parameterOne;
+    //                 p = std::shared_ptr<Processor> {new LowPassFilter(wav.GetSamples(), parameterOne)};
+    //                 // p = LowPassFilter(wav.GetSamples(), parameterOne);
+    //                 break;
+    //             case 5:
+    //                 ui.askProcessorQuestions(3);
+    //                 std::cin >> parameterOne;
+    //                 ui.askProcessorQuestions(4);
+    //                 std::cin >> parameterTwo;
+    //                 p = std::shared_ptr<Processor> {new Compressor(wav.GetSamples(), parameterOne, parameterTwo)};
+    //                 // p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
+    //                 // wav.setSamples(p->getSample());
+    //                 break;
+    //             case 6: // consider putting this outside the switch.
+    //                 // std::string output = ui.OutputFileName();
+    //                 // wav.setSamples(p.getSample());
+    //                 // wav.CreateFile(output);
+    //                 // done = true;
+    // std::cout << "is this where you're breaking 91";
+    //                 break;
+    //         // }
+    //     }
+
     // std::string output = ui.OutputFileName();
-    // wav.setSamples(p->getSample());
+    // wav.setSamples(p->getSample()); // same as below?
     // wav.CreateFile(output);
 
     // else
@@ -117,7 +109,7 @@ int main()
     // }
     // go to start
     // std::cout << "is this where you're breaking 100";
-    // std::string output = ui.OutputFileName();
+    // std::string output = ui.OutputFileName(); // why is this and 9 lines above the same??
     // wav.setSamples(p.getSample());
     // wav.CreateFile(output);
 
@@ -127,6 +119,23 @@ int main()
     // another with echo and then normalization
     // it doesn't work when two compounding processors are one after another
     // this is because examples isn't hard changed. will need to fix that?
+
+
+    // std::vector<float> examples;
+    // examples.push_back(.1f);
+    // examples.push_back(.2f);
+    // examples.push_back(.3f);
+    // examples.push_back(-.4f);
+    // Processor p(examples);
+    // p = Compressor(examples, 50, 1);
+    // for (auto x : p.getSample()){
+    //     std::cout << x << std::endl;
+    // }
+    // std::cout << std::endl;
+    // p = Normalization(examples);
+    // for (auto x : p.getSample()){
+    //     std::cout << x << std::endl;
+    // }
 
     /*
     
