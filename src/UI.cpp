@@ -66,8 +66,8 @@ int UI::selectProcessor(){
     return 6;
 }
 bool UI::checkProcessor(std::string i){
-    // std::string arr[6] = {"1","2","3","4","5","6"};
-    std::array<std::string, 6> arr = {"1","2","3","4","5","6"};
+    std::string arr[6] = {"1","2","3","4","5","6"};
+    // std::array<std::string, 6> arr = {"1","2","3","4","5","6"};
     if (std::end(arr) == std::find(std::begin(arr), std::end(arr), i)){
         std::cout << "Invalid filename." << std::endl;
         //selectProcessor();
