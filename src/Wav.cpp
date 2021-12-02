@@ -90,7 +90,8 @@ bool Wav::CreateFile(std::string newFileName)
 {
     unsigned int numBytesPerSample = header.bitDepth / 8;
     bool success = true;
-    std::ofstream file(newFileName);
+    
+    std::ofstream file(newFileName, std::ios::binary);
     if(file)
     {
         // different ways to write for stereo/mono/16/8 bit

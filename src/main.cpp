@@ -84,8 +84,8 @@ int main()
                     p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
                     break;
                 case 6:
-                    std::string output = ui.OutputFileName();
-                    wav.CreateFile(output);
+                    //std::string output = ui.OutputFileName();
+                    //wav.CreateFile(output);
                     done = true;
                     break;
             }
