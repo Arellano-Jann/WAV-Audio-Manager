@@ -25,8 +25,8 @@ int main()
     
     //Setting Files
     Wav wav;
-    wav.SetFile(filename); // def get seg faults here 
-    wav.AnalyzeFile(); // def get seg faults and here 
+    // wav.SetFile(filename); // def get seg faults here 
+    // wav.AnalyzeFile(); // def get seg faults and here 
 
     ui.PrintMetaData(wav);
     // if(wav.SetFile(filename))
@@ -43,12 +43,12 @@ int main()
             int selection = ui.selectProcessor();
             
             // Processing
-            // std::shared_ptr<Processor> p{new Processor (wav.GetSamples())};
-            // // Processor p(wav.GetSamples());
-            // std::cout << "is this where you're breaking 60";
-            //         p = std::shared_ptr<Processor> {new Normalization(wav.GetSamples())};
-            //         // p = Normalization(wav.GetSamples());
-            //         std::cout << "is this where you're breaking 62";
+            std::shared_ptr<Processor> p{new Processor (wav.GetSamples())};
+            // Processor p(wav.GetSamples());
+            std::cout << "is this where you're breaking 60";
+                    p = std::shared_ptr<Processor> {new Normalization(wav.GetSamples())};
+                    // p = Normalization(wav.GetSamples());
+                    std::cout << "is this where you're breaking 62";
                     
 
     //         switch (selection){
