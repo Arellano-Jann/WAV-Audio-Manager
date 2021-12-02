@@ -91,8 +91,9 @@ int main()
                     std::cin >> parameterTwo;
                     p = std::shared_ptr<Processor> {new Compressor(wav.GetSamples(), parameterOne, parameterTwo)};
                     // p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
+                    // wav.setSamples(p->getSample());
                     break;
-                case 6:
+                case 6: // consider putting this outside the switch.
                     // std::string output = ui.OutputFileName();
                     // wav.setSamples(p.getSample());
                     // wav.CreateFile(output);
@@ -101,13 +102,20 @@ int main()
                     break;
             // }
         }
+    // std::string output = ui.OutputFileName();
+    // wav.setSamples(p->getSample());
+    // wav.CreateFile(output);
+
     }
     else
     {
         // ui.InvalidFileName();
     }
     // go to start
-    std::cout << "is this where you're breaking 100";
+    // std::cout << "is this where you're breaking 100";
+    // std::string output = ui.OutputFileName();
+    // wav.setSamples(p.getSample());
+    // wav.CreateFile(output);
 
     
 

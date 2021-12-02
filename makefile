@@ -1,7 +1,7 @@
 HDIR = headers # directories/folders
 CDIR = src
 ODIR = objs
-CPPFLAGS = -std=c++11 -w # flags. might not need -w since it doesn't seem to do anything
+CPPFLAGS = -std=c++11 -g # flags. might not need -w since it doesn't seem to do anything
 DEPS = $(wildcard $(HDIR)/*.h)
 SOURCE = $(wildcard $(CDIR)/*.cpp) # essentially equals everything in CDIR that has ending of .cpp
 OBJS = $(patsubst $(CDIR)/%.cpp, $(ODIR)/%.o, $(SOURCE)) # replaces everything in source ending in arg1 with arg2
