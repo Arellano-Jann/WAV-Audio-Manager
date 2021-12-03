@@ -25,7 +25,7 @@ int main()
     
     //Setting Files
     Wav wav;
-    // wav.SetFile(filename); // def get seg faults here 
+    wav.SetFile(filename); // def get seg faults here 
     // wav.AnalyzeFile(); // def get seg faults and here 
 
     ui.PrintMetaData(wav);

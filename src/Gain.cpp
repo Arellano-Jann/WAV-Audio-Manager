@@ -11,7 +11,7 @@
      */
     Gain::Gain(std::vector<float> samples, float scale)
         : Processor(samples)
-        , scale(scale*.01)
+        , scale(scale*.01f)
         {
         //Algo: Samples are multiplied by a scaling factor that raises or lowers 
         //the overall amplitude of the wave file

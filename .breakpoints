@@ -1,0 +1,186 @@
+{
+  "files": {
+    "src/Wav.cpp": [
+      {
+        "id": "bf2539c1-ef69-49af-9663-9b9dde66139f",
+        "line": 20,
+        "version": 1,
+        "index": 272
+      },
+      {
+        "id": "e1dc860a-15d3-43ac-85a6-acfc58461d78",
+        "line": 21,
+        "version": 1,
+        "index": 319
+      },
+      {
+        "id": "6d1df98d-5692-4013-a789-884cfbce0134",
+        "line": 22,
+        "version": 1,
+        "index": 325
+      },
+      {
+        "id": "a977fb92-40f8-4a36-9087-8f6325dc485b",
+        "line": 23,
+        "version": 1,
+        "index": 346
+      },
+      {
+        "id": "4a8f0608-364a-418d-a414-600207ff559b",
+        "line": 24,
+        "version": 1,
+        "index": 401
+      },
+      {
+        "id": "25372239-dc90-454e-8404-58991eec9572",
+        "line": 25,
+        "version": 1,
+        "index": 411
+      },
+      {
+        "id": "935026e9-25ac-4de5-a923-d25ab5f6253e",
+        "line": 26,
+        "version": 1,
+        "index": 421
+      },
+      {
+        "id": "e4ace83d-0603-4816-aa48-b797720dee5e",
+        "line": 27,
+        "version": 1,
+        "index": 456
+      },
+      {
+        "id": "4edc5140-fd91-4c78-a811-b9225e92ade3",
+        "line": 28,
+        "version": 1,
+        "index": 515
+      },
+      {
+        "id": "0f6a8618-7b4c-4e5c-b301-0e4e7c7cc556",
+        "line": 29,
+        "version": 1,
+        "index": 529
+      },
+      {
+        "id": "c66ed775-779a-488b-927d-5a4c301732b5",
+        "line": 30,
+        "version": 1,
+        "index": 558
+      },
+      {
+        "id": "4954750e-726c-44d6-9116-19672d232348",
+        "line": 31,
+        "version": 1,
+        "index": 581
+      },
+      {
+        "id": "66109988-6bc2-42de-9240-b00a2b10cb0d",
+        "line": 32,
+        "version": 1,
+        "index": 602
+      },
+      {
+        "id": "73a21a6a-334a-4822-b0a1-0b11c8b014ac",
+        "line": 33,
+        "version": 1,
+        "index": 608
+      },
+      {
+        "id": "0be4cccd-7043-468e-8405-ff8b0cc9675f",
+        "line": 34,
+        "version": 1,
+        "index": 614
+      },
+      {
+        "id": "87613943-be97-49b9-a70c-7b04a90cb1ed",
+        "line": 35,
+        "version": 1,
+        "index": 629
+      },
+      {
+        "id": "26fc2870-1e05-443c-a87c-c61844aaaa13",
+        "line": 36,
+        "version": 1,
+        "index": 643
+      },
+      {
+        "id": "9414d38e-490c-4cf6-ae3c-84610c2d5d60",
+        "line": 38,
+        "version": 1,
+        "index": 646
+      },
+      {
+        "id": "6d753a64-0703-498d-8d82-8b5c5732c6a4",
+        "line": 39,
+        "version": 1,
+        "index": 670
+      },
+      {
+        "id": "cb4ed4a5-ca91-4ecf-b4a5-c1014834c45d",
+        "line": 40,
+        "version": 1,
+        "index": 676
+      },
+      {
+        "id": "9911a423-bb57-4ef8-a535-76c29cc18f40",
+        "line": 41,
+        "version": 1,
+        "index": 697
+      },
+      {
+        "id": "0ec524a7-8ae5-4fcf-aafe-a9a34c652b50",
+        "line": 42,
+        "version": 1,
+        "index": 748
+      },
+      {
+        "id": "d10a51fb-da84-41ab-bb12-03e3c2be691c",
+        "line": 43,
+        "version": 1,
+        "index": 758
+      },
+      {
+        "id": "7777f209-bac0-463e-bee6-269585cc2c53",
+        "line": 44,
+        "version": 1,
+        "index": 768
+      },
+      {
+        "id": "3e2ca98d-b7a5-40ef-b88b-510ec15e9d6d",
+        "line": 45,
+        "version": 1,
+        "index": 817
+      },
+      {
+        "id": "e97b84dc-ef65-4e37-89a8-b735e8d0e7f4",
+        "line": 46,
+        "version": 1,
+        "index": 863
+      },
+      {
+        "id": "a1e412b6-c127-4270-ad82-898bf3fc4168",
+        "line": 47,
+        "version": 1,
+        "index": 906
+      },
+      {
+        "id": "96c6d8d7-0461-4230-8b39-da21715b78b3",
+        "line": 48,
+        "version": 1,
+        "index": 941
+      },
+      {
+        "id": "eb8a43ed-9a09-4604-8728-1e6c18efa152",
+        "line": 49,
+        "version": 1,
+        "index": 947
+      },
+      {
+        "id": "f1c51cc7-74b5-45ca-84fe-39da6e0ec5c7",
+        "line": 50,
+        "version": 1,
+        "index": 958
+      }
+    ]
+  }
+}

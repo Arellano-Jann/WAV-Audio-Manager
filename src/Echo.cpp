@@ -12,7 +12,7 @@
      */
     Echo::Echo(std::vector<float> samples, float scale, int delay)
         : Processor(samples)
-        , scale{scale*.01}
+        , scale{scale*.01f}
         , delay{delay}
         {
         //Algo: Samples are copied, scaled, and 

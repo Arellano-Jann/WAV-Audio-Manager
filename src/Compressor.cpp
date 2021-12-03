@@ -12,8 +12,8 @@
      */
     Compressor::Compressor(std::vector<float> samples, float ratio, float max)
         : Processor(samples)
-        , max(max*.01)
-        , ratio(ratio*.01)
+        , max(max*.01f)
+        , ratio(ratio*.01f)
         {
         //Algo: For volume over a specified max, it is scaled by a ratio
         
