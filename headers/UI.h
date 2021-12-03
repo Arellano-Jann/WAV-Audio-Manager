@@ -49,7 +49,7 @@ public:
     void InvalidFileName();
     void ExitMenu();
 
-    void PrintMetaData(Wav wav);
+    void PrintMetaData(const Wav& wav);
 
     void ProcessorMenu();
     int selectProcessor();

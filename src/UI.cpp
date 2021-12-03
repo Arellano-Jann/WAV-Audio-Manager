@@ -31,7 +31,7 @@ void UI::ExitMenu() {
 }
 
 
-void UI::PrintMetaData(Wav wav) {
+void UI::PrintMetaData(const Wav& wav) {
     std::cout << "Metadata Goodness:" << std::endl;
     std::cout << wav.GetFileName() << std::endl;
     std::cout << "---------------" << std::endl;
@@ -101,6 +101,7 @@ std::string UI::OutputFileName() {
 // Helper Functions
 std::string UI::lower(std::string str){
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+    return "";
 }
 void UI::output(std::string str){
     std::cout << str << std::endl;
