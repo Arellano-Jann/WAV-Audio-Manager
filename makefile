@@ -30,4 +30,4 @@ wavman: $(OBJS)
 	g++ $(CPPFLAGS) -o $@ $^
 
 clean:
-	rm $(ODIR)/*.o wavman
+	rm $(ODIR)/*.o wavman *.wav
