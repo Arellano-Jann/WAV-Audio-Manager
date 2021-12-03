@@ -127,7 +127,25 @@ int main()
 
     std::string output = ui.OutputFileName();
     // wav.setSamples(p->getSample()); // same as below?
+    for (auto x : wav.GetSamples()){
+                      std::cout << x << " ";
+                      break;
+                    }
+                    std::cout << std::endl;
+                    for (auto x : p->getSample()){
+                      std::cout << x << " ";
+                      break;
+                    }
     wav.CreateFile(output);
+    for (auto x : wav.GetSamples()){
+                      std::cout << x << " ";
+                      break;
+                    }
+                    std::cout << std::endl;
+                    for (auto x : p->getSample()){
+                      std::cout << x << " ";
+                      break;
+                    }
 
     // else
     // {
