@@ -8,7 +8,7 @@
  * It also has three private member variables which are initialized by the constructor.
  * 
  */
-class Echo : public Processor{
+class Echo : public Processor{ // have a third parameter for number of times to process/delay
     std::vector<float> echo;
     float scale = 10; 
     int delay = 10;

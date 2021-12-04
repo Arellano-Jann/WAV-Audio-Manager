@@ -5,7 +5,7 @@
 
 class LowPassFilter : public Processor{
     float max;
-    void process(); // needs logic
+    void process();
 public:
     LowPassFilter(std::vector<float> samples, float max);
 };

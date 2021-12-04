@@ -67,7 +67,6 @@ int main()
                     std::cin >> parameterOne;
                     p = std::shared_ptr<Processor> {new Gain(wav.GetSamples(), parameterOne)};
                     wav.setSamples(p->getSample());
-                    wav.setSamples(p->getSample());
                     break;
                 case 4:
                     ui.askProcessorQuestions(5);
