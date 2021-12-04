@@ -16,7 +16,13 @@ Wav::Wav()
 }
 // add Wav constructor with filename param
 
-
+/**
+ * @brief Attempts to set file member variable and tests if the file is valid to be opened
+ * 
+ * @param filename The name of the file to be opened
+ * @return true if the file opened successfully
+ * @return false if the file couldn't be opened or is an invalid type
+ */
 bool Wav::SetFile(const std::string& filename)
 {
     std::ifstream f;
@@ -35,6 +41,10 @@ bool Wav::SetFile(const std::string& filename)
     return false;
 }
 
+/**
+ * @brief Opens the file, and reads the wave header and data information in
+ * 
+ */
 void Wav::AnalyzeFile()
 {
     std::ifstream f;
@@ -49,7 +59,11 @@ void Wav::AnalyzeFile()
     f.close();
 }
 
-
+/**
+ * @brief Returns what type of numbered channel audio data the wav file is
+ * 
+ * @return std::string Mono or Stereo or Undefined if neither
+ */
 std::string Wav::GetStereo() const
 {
     std::string numChannels = "Undefined";
@@ -64,6 +78,12 @@ std::string Wav::GetStereo() const
     return numChannels; 
 }
 
+/**
+ * @brief Converts raw signed short data to a float sample
+ * 
+ * @param data Raw signed short data
+ * @return float sample converted value
+ */
 float Wav::Convert16BitToFloat(short data)
 {
     // 32768 is the negative maximum value of a 16 bit binary number (signed short)       
@@ -71,6 +91,12 @@ float Wav::Convert16BitToFloat(short data)
     return val;
 }
 
+/**
+ * @brief Converts raw unsigned char data to a float sample
+ * 
+ * @param data Raw unsigned char data
+ * @return float sample converted value
+ */
 float Wav::Convert8BitToFloat(unsigned char data)
 {
     // 255 is the maximum value of a 8 bit number (unsigned char)
@@ -78,6 +104,12 @@ float Wav::Convert8BitToFloat(unsigned char data)
     return val;
 }
 
+/**
+ * @brief Converts 
+ * 
+ * @param sample 
+ * @return short 
+ */
 short Wav::ConvertFloatTo16Bit(float sample)
 {
     short data = sample / (1.0f/32768.0f);
