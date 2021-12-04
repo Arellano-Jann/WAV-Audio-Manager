@@ -115,13 +115,15 @@ bool Wav::CreateFile(std::string newFileName)
             {
                 if(header.numChannels == 1 || header.numChannels == 2) // Stereo 16 bit
                 {
+                    int count = 0;
                     for(size_t i = 0; i < header.dataBytes; i+= 2)
                     {
-                        short data = ConvertFloatTo16Bit(samples[i]);
+                        short data = ConvertFloatTo16Bit(samples[count]);
                         unsigned char lsb = *(reinterpret_cast<unsigned char*>(&data));
                         unsigned char msb = *(reinterpret_cast<unsigned char*>(&data) + 1);
                         rawData[i] = lsb;
                         rawData[i + 1] = msb;
+                        count++;
                     }
                 }
                 /*else // Mono 16 bit
