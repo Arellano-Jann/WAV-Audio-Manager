@@ -50,6 +50,7 @@ int main()
             switch (selection){
                 float parameterOne;
                 float parameterTwo;
+                float parameterThree;
                 case 1: 
                     p = std::shared_ptr<Processor> {new Normalization(wav.GetSamples())};
                     wav.setSamples(p->getSample());
@@ -59,7 +60,9 @@ int main()
                     std::cin >> parameterOne;
                     ui.askProcessorQuestions(2);
                     std::cin >> parameterTwo;
-                    p = std::shared_ptr<Processor> {new Echo(wav.GetSamples(), parameterOne, parameterTwo)};
+                    ui.askProcessorQuestions(6);
+                    std::cin >> parameterThree;
+                    p = std::shared_ptr<Processor> {new Echo(wav.GetSamples(), parameterOne, parameterTwo, parameterThree)};
                     wav.setSamples(p->getSample());
                     break;
                 case 3:
@@ -90,11 +93,6 @@ int main()
                     break;
             }
         }
-
-        // std::string output = ui.OutputFileName();
-        // wav.setSamples(p->getSample()); // same as below?
-        // wav.CreateFile(output);
-
     }
     else
     {

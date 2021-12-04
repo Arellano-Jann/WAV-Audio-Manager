@@ -11,11 +11,12 @@
 class Echo : public Processor{ // have a third parameter for number of times to process/delay
     std::vector<float> echo;
     float scale = 10; 
-    int delay = 10;
+    int delay = 10000;
+    int repeat = 1;
     void checkScale();
     void setEcho();
     void calculateFinalEcho();
     void process();
 public:
-    Echo(std::vector<float> samples, float scale, int delay);
+    Echo(std::vector<float> samples, float scale, int delay, int repeat);
 };

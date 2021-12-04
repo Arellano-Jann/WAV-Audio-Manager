@@ -4,8 +4,12 @@
 
 
 class LowPassFilter : public Processor{
-    float max;
+    std::vector<float> lpf;
+    int destruction;
+    float scale = 1.0;
     void process();
+    void destroyHighFreq();
+    void setLowPassFilter();
 public:
-    LowPassFilter(std::vector<float> samples, float max);
+    LowPassFilter(std::vector<float> samples, int destruction);
 };

@@ -10,10 +10,11 @@
      * @param scale A float (multiplied by .01) that will be used to scale the echos volume. The input is a percentage.
      * @param delay An int that will be used to delay the sound of the echo by number of elements.
      */
-    Echo::Echo(std::vector<float> samples, float scale, int delay)
+    Echo::Echo(std::vector<float> samples, float scale, int delay, int repeat)
         : Processor(samples)
         , scale{scale*.01f}
         , delay{delay}
+        , repeat{repeat}
         {
         //Algo: Samples are copied, scaled, and 
         //added to later locations in the sample buffer to create an echo effect.
@@ -58,7 +59,9 @@
      * 
      */
     void Echo::calculateFinalEcho(){
-        for (int i = echo.size()-1; i >= delay; i--){
-            echo[i] += (echo[i-delay] * scale); 
+        for (int r = 0; r < repeat; r++){
+            for (int i = echo.size()-1; i >= delay; i--){
+                echo[i] += (echo[i-delay] * scale); 
+            }    
         }
     }

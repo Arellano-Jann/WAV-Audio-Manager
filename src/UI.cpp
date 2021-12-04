@@ -87,7 +87,9 @@ void UI::askProcessorQuestions(int i){
             break;
         case 4: output("What is the max value in terms of percentage?");
             break;
-        case 5: output("What is the max frequency?");
+        case 5: output("How much do you want to destroy this frequency??!");
+            break;
+        case 6: output("How much do you want to hear the echo repeat?");
             break;
     }
 }

@@ -8,6 +8,7 @@
 
 class UI {
     void output(std::string str);
+    bool checkProcessor(std::string i);
 
 public:
     
@@ -22,7 +23,6 @@ public:
 
     void ProcessorMenu();
     int selectProcessor();
-    bool checkProcessor(std::string i); // private
     void askProcessorQuestions(int i);
     std::string OutputFileName();
 };
