@@ -7,6 +7,10 @@
 #include <cmath>
 #include <cassert>
 
+/**
+ * @brief Construct a new Wav:: Wav object and initializes member variables
+ * 
+ */
 Wav::Wav()
     : file("")
     , rawData(NULL)
@@ -129,11 +133,11 @@ unsigned char Wav::ConvertFloatTo8Bit(float sample)
 }
 
 /**
- * @brief 
+ * @brief Attempts to create a file with the data stored in this wav object
  * 
- * @param newFileName 
- * @return true 
- * @return false 
+ * @param newFileName The new file name to store the data in
+ * @return true if the file could successfully be created 
+ * @return false if the file could not be created
  */
 bool Wav::CreateFile(std::string newFileName)
 {
@@ -171,17 +175,6 @@ bool Wav::CreateFile(std::string newFileName)
                         count++;
                     }
                 }
-                /*else // Mono 16 bit
-                {
-                    for(size_t i = 0; i < header.dataBytes; i+= 2)
-                    {
-                        short data = ConvertFloatTo16Bit(samples[i]);
-                        unsigned char lsb = *(reinterpret_cast<unsigned char*>(&data));
-                        unsigned char msb = *(reinterpret_cast<unsigned char*>(&data) + 1);
-                        rawData[i] = lsb; 
-                        rawData[i + 1] = msb;// TODO: change to 8 bit, 16 wont fit
-                    }
-                }*/
             }
             else
             {
@@ -202,6 +195,10 @@ bool Wav::CreateFile(std::string newFileName)
     return success;
 }
 
+/**
+ * @brief Fills the float samples member variable vector from the raw data read from the wav file
+ * 
+ */
 void Wav::FillFloatSamplesFromRawData()
 {
     //std::cout << "bit depth : " << header.bitDepth << std::endl;
@@ -239,14 +236,12 @@ void Wav::FillFloatSamplesFromRawData()
     {
         assert(false);
     }
-
-    // testing code
-    /*for(std::vector<float>::iterator it = samples.begin(); it != samples.end(); it++)
-    {
-        std::cout << *it << std::endl;
-    }*/
 }
 
+/**
+ * @brief Destroy the Wav:: Wav object
+ * 
+ */
 Wav::~Wav()
 {
     delete [] rawData;
