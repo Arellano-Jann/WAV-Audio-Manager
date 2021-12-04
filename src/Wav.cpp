@@ -52,8 +52,12 @@ void Wav::AnalyzeFile()
 
 std::string Wav::GetStereo() const
 {
-    std::string numChannels = "Mono";
-    if(header.numChannels == 2)
+    std::string numChannels = "Undefined";
+    if(header.numChannels == 1)
+    {
+        numChannels = "Mono";
+    }
+    else if(header.numChannels == 2)
     {
         numChannels = "Stereo";
     }
@@ -96,6 +100,7 @@ bool Wav::CreateFile(std::string newFileName)
     {
         // different ways to write for stereo/mono/16/8 bit
         file.write((char*) &header, sizeof(header));
+        std::cout << header.numChannels << std::endl;
         if(header.numChannels == 1 || header.numChannels == 2)
         {
             if(numBytesPerSample == 1)
@@ -137,7 +142,7 @@ bool Wav::CreateFile(std::string newFileName)
         {
             assert(false);
         }
-        file.write(rawData, sizeof(rawData));
+        file.write(rawData, header.dataBytes);
     }
     else
     {

@@ -25,25 +25,21 @@ int main()
     
     //Setting Files
     Wav wav;
-    wav.SetFile(filename); // def get seg faults here 
-    wav.AnalyzeFile(); // def get seg faults and here 
+    if(wav.SetFile("../wav/" + filename))
+    { // def get seg faults here 
+        wav.AnalyzeFile(); // def get seg faults and here 
 
-    ui.PrintMetaData(wav);
-    // if(wav.SetFile(filename))
-    // {
-    //     wav.AnalyzeFile();
+        ui.PrintMetaData(wav);
 
-    //     ui.PrintMetaData(wav);
-    // }
-
-        // bool done = false;
-        // while(!done)
-        // {
+        bool done = false;
+        std::shared_ptr<Processor> p{new Processor (wav.GetSamples())};
+        while(!done)
+        {
             ui.ProcessorMenu();
             int selection = ui.selectProcessor();
             
             // Processing
-            std::shared_ptr<Processor> p{new Processor (wav.GetSamples())};
+
             // // Processor p(wav.GetSamples());
             // // std::cout << "is this where you're breaking 60";
                     // p = std::shared_ptr<Processor> {new Normalization(wav.GetSamples())};
@@ -84,19 +80,19 @@ int main()
                     ui.askProcessorQuestions(1);
                     std::cin >> parameterOne;
                     for (auto x : p->getSample()){
-                      std::cout << x << " ";
-                      break;
+                    std::cout << x << " ";
+                    break;
                     }
                     p = std::shared_ptr<Processor> {new Gain(wav.GetSamples(), parameterOne)};
                     wav.setSamples(p->getSample());
                     for (auto x : wav.GetSamples()){
-                      std::cout << x << " ";
-                      break;
+                    std::cout << x << " ";
+                    break;
                     }
                     std::cout << std::endl;
                     for (auto x : p->getSample()){
-                      std::cout << x << " ";
-                      break;
+                    std::cout << x << " ";
+                    break;
                     }
                     // p = Gain(wav.GetSamples(), parameterOne);
                     break;
@@ -116,41 +112,40 @@ int main()
                     // wav.setSamples(p->getSample());
                     break;
                 case 6: // consider putting this outside the switch.
-                    // std::string output = ui.OutputFileName();
-                    // wav.setSamples(p.getSample());
-                    // wav.CreateFile(output);
-                    // done = true;
-    std::cout << "is this where you're breaking 91";
+                    std::string output = ui.OutputFileName();
+                    wav.setSamples(p->getSample());
+                    wav.CreateFile(output);
+                    done = true;
                     break;
-            // }
+            }
         }
 
-    std::string output = ui.OutputFileName();
-    // wav.setSamples(p->getSample()); // same as below?
-    for (auto x : wav.GetSamples()){
-                      std::cout << x << " ";
-                      break;
-                    }
-                    std::cout << std::endl;
-                    for (auto x : p->getSample()){
-                      std::cout << x << " ";
-                      break;
-                    }
-    wav.CreateFile(output);
-    for (auto x : wav.GetSamples()){
-                      std::cout << x << " ";
-                      break;
-                    }
-                    std::cout << std::endl;
-                    for (auto x : p->getSample()){
-                      std::cout << x << " ";
-                      break;
-                    }
-
-    // else
-    // {
-    //     ui.InvalidFileName();
-    // }
+        std::string output = ui.OutputFileName();
+        // wav.setSamples(p->getSample()); // same as below?
+        for (auto x : wav.GetSamples()){
+                        std::cout << x << " ";
+                        break;
+                        }
+                        std::cout << std::endl;
+                        for (auto x : p->getSample()){
+                        std::cout << x << " ";
+                        break;
+                        }
+        wav.CreateFile(output);
+        for (auto x : wav.GetSamples()){
+                        std::cout << x << " ";
+                        break;
+                        }
+                        std::cout << std::endl;
+                        for (auto x : p->getSample()){
+                        std::cout << x << " ";
+                        break;
+                        }
+    }
+    else
+    {
+         ui.InvalidFileName();
+    }
     // go to start
     // std::cout << "is this where you're breaking 100";
     // std::string output = ui.OutputFileName(); // why is this and 9 lines above the same??
