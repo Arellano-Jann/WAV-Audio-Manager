@@ -1,4 +1,5 @@
 // Created by Alec Redera
+#include <boost/algorithm/string.hpp>
 #include "../headers/UI.h"
 #include <iostream>
 #include <array>
@@ -11,7 +12,9 @@ std::string UI::Input() {
     std::cout << "Please Enter the Name of a WAV File, or Enter \"q\" to Exit the Program." << std::endl;
     std::cout << "Enter WAV Filename:" << std::endl;
     std::cin >> name;
-    return name;
+    if (boost::algorithm::contains(name, ".wav")) return name;
+    return name + ".wav";
+    
 }
 bool UI::checkInput(std::string input){
   //std::string i = lower(input);
