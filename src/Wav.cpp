@@ -113,7 +113,7 @@ bool Wav::CreateFile(std::string newFileName)
             }
             else if(numBytesPerSample == 2)
             {
-                if(header.numChannels == 2)
+                if(header.numChannels == 1 || header.numChannels == 2) // Stereo 16 bit
                 {
                     for(size_t i = 0; i < header.dataBytes; i+= 2)
                     {
@@ -124,14 +124,17 @@ bool Wav::CreateFile(std::string newFileName)
                         rawData[i + 1] = msb;
                     }
                 }
-                else
+                /*else // Mono 16 bit
                 {
-                    for(size_t i = 0; i < header.dataBytes; i++)
+                    for(size_t i = 0; i < header.dataBytes; i+= 2)
                     {
                         short data = ConvertFloatTo16Bit(samples[i]);
-                        rawData[i] = data; // TODO: change to 8 bit, 16 wont fit
+                        unsigned char lsb = *(reinterpret_cast<unsigned char*>(&data));
+                        unsigned char msb = *(reinterpret_cast<unsigned char*>(&data) + 1);
+                        rawData[i] = lsb; 
+                        rawData[i + 1] = msb;// TODO: change to 8 bit, 16 wont fit
                     }
-                }
+                }*/
             }
             else
             {

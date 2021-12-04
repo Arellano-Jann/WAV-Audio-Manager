@@ -1,4 +1,4 @@
-This is a (Basic/Challenge) Level Project.
+This is a Challenge Level Project.
 
 Made By Jann Arellano, Andrew Kalb, and Alec Redera.
 
@@ -16,7 +16,7 @@ UML:
 (I, Alec, shall take care of this)
 
 Issues:
-(List Here, along with Missing Functionalities)
+Listening to the .wav file
 
 Challenges:
 HUGE FREAKING BUG
@@ -24,4 +24,5 @@ HUGE FREAKING BUG
 
 Application Building:
 Use MakeFile
-(Any Other Instructions? List Here)
+make
+./wavman
