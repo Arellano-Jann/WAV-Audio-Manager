@@ -52,7 +52,7 @@ int main()
                 float parameterTwo;
                 case 1: 
                     p = std::shared_ptr<Processor> {new Normalization(wav.GetSamples())};
-                    // p = Normalization(wav.GetSamples());
+                    wav.setSamples(p->getSample());
                     break;
                 case 2:
                     ui.askProcessorQuestions(1);
@@ -60,20 +60,20 @@ int main()
                     ui.askProcessorQuestions(2);
                     std::cin >> parameterTwo;
                     p = std::shared_ptr<Processor> {new Echo(wav.GetSamples(), parameterOne, parameterTwo)};
-                    // p = Echo(wav.GetSamples(), parameterOne, parameterTwo);
+                    wav.setSamples(p->getSample());
                     break;
                 case 3:
                     ui.askProcessorQuestions(1);
                     std::cin >> parameterOne;
                     p = std::shared_ptr<Processor> {new Gain(wav.GetSamples(), parameterOne)};
                     wav.setSamples(p->getSample());
-                    // p = Gain(wav.GetSamples(), parameterOne);
+                    wav.setSamples(p->getSample());
                     break;
                 case 4:
                     ui.askProcessorQuestions(5);
                     std::cin >> parameterOne;
                     p = std::shared_ptr<Processor> {new LowPassFilter(wav.GetSamples(), parameterOne)};
-                    // p = LowPassFilter(wav.GetSamples(), parameterOne);
+                    wav.setSamples(p->getSample());
                     break;
                 case 5:
                     ui.askProcessorQuestions(3);
@@ -81,8 +81,7 @@ int main()
                     ui.askProcessorQuestions(4);
                     std::cin >> parameterTwo;
                     p = std::shared_ptr<Processor> {new Compressor(wav.GetSamples(), parameterOne, parameterTwo)};
-                    // p = Compressor(wav.GetSamples(), parameterOne, parameterTwo);
-                    // wav.setSamples(p->getSample());
+                    wav.setSamples(p->getSample());
                     break;
                 case 6: // consider putting this outside the switch.
                     std::string output = ui.OutputFileName();

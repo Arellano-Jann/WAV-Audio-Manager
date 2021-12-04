@@ -105,10 +105,10 @@ float Wav::Convert8BitToFloat(unsigned char data)
 }
 
 /**
- * @brief Converts 
+ * @brief Converts a float sample back to raw short data
  * 
- * @param sample 
- * @return short 
+ * @param sample Float sample value
+ * @return short converted back raw short data
  */
 short Wav::ConvertFloatTo16Bit(float sample)
 {
@@ -116,12 +116,25 @@ short Wav::ConvertFloatTo16Bit(float sample)
     return data;
 }
 
+/**
+ * @brief Converts a float sample back to unsigned char data
+ * 
+ * @param sample Float sample value
+ * @return unsigned char converted back raw unsigned char data
+ */
 unsigned char Wav::ConvertFloatTo8Bit(float sample)
 {
     unsigned char data = (sample + 1.0f)/(2.0f / 255.0f);
     return data;
 }
 
+/**
+ * @brief 
+ * 
+ * @param newFileName 
+ * @return true 
+ * @return false 
+ */
 bool Wav::CreateFile(std::string newFileName)
 {
     unsigned int numBytesPerSample = header.bitDepth / 8;
@@ -145,7 +158,7 @@ bool Wav::CreateFile(std::string newFileName)
             }
             else if(numBytesPerSample == 2)
             {
-                if(header.numChannels == 1 || header.numChannels == 2) // Stereo 16 bit
+                if(header.numChannels == 1 || header.numChannels == 2) // 16 bit STEREO AND MONO
                 {
                     int count = 0;
                     for(size_t i = 0; i < header.dataBytes; i+= 2)
