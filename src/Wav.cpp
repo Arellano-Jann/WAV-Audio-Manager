@@ -174,12 +174,11 @@ void Wav::FillFloatSamplesFromRawData()
         // 16 bit
         else if (numBytesPerSample == 2)
         {
-            assert(sizeof(short) == 2);
-            for(size_t i = 0; i < header.dataBytes; i+=(3 - header.numChannels))
+            for(size_t i = 0; i < header.dataBytes; i+=2)
             {
                 short sampleValue = 0;
                 *(reinterpret_cast<char*>(&sampleValue)) = rawData[i];
-                *(reinterpret_cast<char*>(&sampleValue) + 1) = rawData[i + header.numChannels]; // ah yes, direct memory manipulation
+                *(reinterpret_cast<char*>(&sampleValue) + 1) = rawData[i + 1]; // ah yes, direct memory manipulation
                 float val = Convert16BitToFloat(sampleValue);
                 samples.push_back(val);
             }
