@@ -115,13 +115,13 @@ bool Wav::CreateFile(std::string newFileName)
             {
                 if(header.numChannels == 2)
                 {
-                    for(size_t i = 0; i < header.dataBytes; i++)
+                    for(size_t i = 0; i < header.dataBytes; i+= 2)
                     {
                         short data = ConvertFloatTo16Bit(samples[i]);
                         unsigned char lsb = *(reinterpret_cast<unsigned char*>(&data));
                         unsigned char msb = *(reinterpret_cast<unsigned char*>(&data) + 1);
                         rawData[i] = lsb;
-                        rawData[i + 2] = msb;
+                        rawData[i + 1] = msb;
                     }
                 }
                 else
@@ -129,7 +129,7 @@ bool Wav::CreateFile(std::string newFileName)
                     for(size_t i = 0; i < header.dataBytes; i++)
                     {
                         short data = ConvertFloatTo16Bit(samples[i]);
-                        rawData[i] = data;
+                        rawData[i] = data; // TODO: change to 8 bit, 16 wont fit
                     }
                 }
             }
