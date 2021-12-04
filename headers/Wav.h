@@ -19,7 +19,7 @@ public:
     int GetByteRate() const { return header.byteRate; }
     short GetBitsPerSample() const { return header.bitDepth; }
     short GetBlockAlign() const { return header.sampleAlignment; }
-    std::vector<float>& GetSamples() { return samples; }
+    const std::vector<float>& GetSamples() const { return samples; }
 
     // fails if filename not available
     bool CreateFile(std::string newFileName);

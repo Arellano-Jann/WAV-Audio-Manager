@@ -21,7 +21,7 @@ class Processor{
     float maxVal = 1;
     float minVal = -1;
 public:
-    Processor(std::vector<float> &samples) : sample(samples){}
+    Processor(std::vector<float> const &samples) : sample(samples){}
 
     void setSample(std::vector<float> samples){ sample = samples;}
     std::vector<float> getSample() const { return sample; }
