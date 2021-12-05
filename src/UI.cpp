@@ -3,9 +3,18 @@
 #include <iostream>
 #include <array>
 
+/**
+ * @brief Outputs the start menu text message to the console
+ * 
+ */
 void UI::StartMenu() {
     output("This Program Can Load and Modify WAV Files.");
 }
+/**
+ * @brief Retrieves a filename from the user to attempt to open
+ * 
+ * @return std::string the filename entered by the user
+ */
 std::string UI::Input() {
     std::string name;
     std::cout << "Please Enter the Name of a WAV File, or Enter \"q\" to Exit the Program." << std::endl;
@@ -15,6 +24,13 @@ std::string UI::Input() {
     return name + ".wav";
     
 }
+/**
+ * @brief Checks the input from the user to see if they want to continue using the program
+ * 
+ * @param input user input
+ * @return true if the input from the user suggests they want to continue using the program
+ * @return false if the user tries to quit the program
+ */
 bool UI::checkInput(std::string input){
   //std::string i = lower(input);
   if (input == "q" || input == "Q"){
@@ -23,16 +39,28 @@ bool UI::checkInput(std::string input){
   return true; // call setFile after
 }
 
+/**
+ * @brief Outputs the error message in case of and invalid filename
+ * 
+ */
 void UI::InvalidFileName()
 {
     std::cout << "File does not exist or is not a wav file." << std::endl;
 }
 
+/**
+ * @brief Outputs the exit message to the console
+ * 
+ */
 void UI::ExitMenu() {
     std::cout << "Goodbye!" << std::endl;
 }
 
-
+/**
+ * @brief Prints relevant wav header meta data information to the console
+ * 
+ * @param wav a reference to the wav file to fetch meta data from
+ */
 void UI::PrintMetaData(const Wav& wav) {
     std::cout << "Metadata Goodness:" << std::endl;
     std::cout << wav.GetFileName() << std::endl;
@@ -44,7 +72,10 @@ void UI::PrintMetaData(const Wav& wav) {
     std::cout << "Block Align: " << wav.GetBlockAlign() << std::endl;
 }
 
-
+/**
+ * @brief Outputs the Processor Menu to the console
+ * 
+ */
 void UI::ProcessorMenu() {
     std::cout << "Pick a processor!" << std::endl;
     std::cout << "(1) Normalization" << std::endl;
@@ -54,6 +85,12 @@ void UI::ProcessorMenu() {
     std::cout << "(5) Compression" << std::endl;
     std::cout << std::endl;
 }
+
+/**
+ * @brief Requests a selection of a function to apply to a wav file from the user
+ * 
+ * @return int the number associated with the function selected by the user
+ */
 int UI::selectProcessor(){
     std::string selection;
     std::cout << "Enter the Number of the Processor Function You Would Like to Use." << std::endl;
@@ -67,6 +104,14 @@ int UI::selectProcessor(){
     // int select = std::stoi(selection);
     return 6;
 }
+
+/**
+ * @brief Checks the previously selected input from the user to confirm it is a valid processor selection
+ * 
+ * @param i previous processor selection input (1-6)
+ * @return true if the selected input is valid (between 1-6)
+ * @return false if the selected input was invalid (not between 1-6)
+ */
 bool UI::checkProcessor(std::string i){
     std::string arr[6] = {"1","2","3","4","5","6"};
     // std::array<std::string, 6> arr = {"1","2","3","4","5","6"};
@@ -77,6 +122,12 @@ bool UI::checkProcessor(std::string i){
     }
     return true;
 }
+
+/**
+ * @brief Outputs a certain question to the user based on the processor they previously selected
+ * 
+ * @param i the number associated with the processor the user previously selected
+ */
 void UI::askProcessorQuestions(int i){
     switch (i){
         case 1: output("How much is the scale in percent?");
@@ -93,6 +144,12 @@ void UI::askProcessorQuestions(int i){
             break;
     }
 }
+
+/**
+ * @brief Requests the name of the file the new wav data should be written to
+ * 
+ * @return std::string the complete output filename (includes .wav extension)
+ */
 std::string UI::OutputFileName() {
     std::cout << "Enter the Name of Your Output File:" << std::endl;
     std::string name;
