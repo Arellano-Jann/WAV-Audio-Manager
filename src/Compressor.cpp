@@ -1,4 +1,4 @@
-#include "../headers/Compression.h"
+#include "../headers/Compressor.h"
 
     /**
      * @brief Construct a new Compressor object

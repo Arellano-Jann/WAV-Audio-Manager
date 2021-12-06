@@ -1,7 +1,7 @@
-\hypertarget{Compression_8h}{}\doxysection{headers/\+Compression.h File Reference}
-\label{Compression_8h}\index{headers/Compression.h@{headers/Compression.h}}
+\hypertarget{Compressor_8h}{}\doxysection{headers/\+Compressor.h File Reference}
+\label{Compressor_8h}\index{headers/Compressor.h@{headers/Compressor.h}}
 {\ttfamily \#include \char`\"{}Processor.\+h\char`\"{}}\newline
-Include dependency graph for Compression.\+h\+:
+Include dependency graph for Compressor.\+h\+:
 % FIG 0
 This graph shows which files directly or indirectly include this file\+:
 % FIG 1
@@ -13,14 +13,14 @@ class \mbox{\hyperlink{classCompressor}{Compressor}}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{Compression_8h_a89dbaa70771561e80d50f2665da0fb64}{C\+O\+M\+P\+R\+E\+S\+S\+I\+O\+N\+\_\+H}}
+\#define \mbox{\hyperlink{Compressor_8h_a656e717e448c18cfde0c5e5cdbee13ce}{C\+O\+M\+P\+R\+E\+S\+S\+O\+R\+\_\+H}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{Compression_8h_a89dbaa70771561e80d50f2665da0fb64}\label{Compression_8h_a89dbaa70771561e80d50f2665da0fb64}} 
-\index{Compression.h@{Compression.h}!COMPRESSION\_H@{COMPRESSION\_H}}
-\index{COMPRESSION\_H@{COMPRESSION\_H}!Compression.h@{Compression.h}}
-\doxysubsubsection{\texorpdfstring{COMPRESSION\_H}{COMPRESSION\_H}}
-{\footnotesize\ttfamily \#define C\+O\+M\+P\+R\+E\+S\+S\+I\+O\+N\+\_\+H}
+\mbox{\Hypertarget{Compressor_8h_a656e717e448c18cfde0c5e5cdbee13ce}\label{Compressor_8h_a656e717e448c18cfde0c5e5cdbee13ce}} 
+\index{Compressor.h@{Compressor.h}!COMPRESSOR\_H@{COMPRESSOR\_H}}
+\index{COMPRESSOR\_H@{COMPRESSOR\_H}!Compressor.h@{Compressor.h}}
+\doxysubsubsection{\texorpdfstring{COMPRESSOR\_H}{COMPRESSOR\_H}}
+{\footnotesize\ttfamily \#define C\+O\+M\+P\+R\+E\+S\+S\+O\+R\+\_\+H}
 

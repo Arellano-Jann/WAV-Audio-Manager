@@ -1,7 +1,6 @@
 # The Wave File Processor
 
-## Challenge Level Project
--------
+## **Challenge Level Project**
 
 **Jann Arellano:**
 
