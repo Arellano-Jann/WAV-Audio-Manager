@@ -1,0 +1,144 @@
+\href{https://unr.canvaslms.com/courses/71183/assignments/923861}{\texttt{ https\+://unr.\+canvaslms.\+com/courses/71183/assignments/923861}}\hypertarget{md_AssignmentInstructions_autotoc_md1}{}\doxysection{C\+S 202 Semester Project, F21}\label{md_AssignmentInstructions_autotoc_md1}
+The semester project is a group project. It counts for four programming assignments. As noted below, if a group successfully completes the challenge level, a grade of 120\% is possible.\hypertarget{md_AssignmentInstructions_autotoc_md2}{}\doxysubsection{Overview}\label{md_AssignmentInstructions_autotoc_md2}
+This project is designed to provide experience in
+
+
+\begin{DoxyItemize}
+\item working with binary files and pre-\/defined file formats
+\item manipulating data in arrays in a variety of formats
+\item developing a terminal-\/based user interface
+\item using inheritance, abstract classes and interfaces, and composition
+\item developing a modular design using good design and development principles
+\end{DoxyItemize}\hypertarget{md_AssignmentInstructions_autotoc_md3}{}\doxysubsection{Project Levels}\label{md_AssignmentInstructions_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Base Level\+: All groups must attempt the base level project, which consists of building the application as described here with a console user interface.
+\item Challenge Level\+: A group can make a maximum of 120 by adding a graphical user interface using the Qt framework.
+\end{DoxyItemize}\hypertarget{md_AssignmentInstructions_autotoc_md4}{}\doxysubsection{Project Description}\label{md_AssignmentInstructions_autotoc_md4}
+In this project, you will create an application that can load audio data from {\ttfamily wav} files, manipulate the data to add common audio effects such as echo and compression and save the files for later playback.\hypertarget{md_AssignmentInstructions_autotoc_md5}{}\doxysubsubsection{Background}\label{md_AssignmentInstructions_autotoc_md5}
+Digital audio files consist of thousands of {\itshape samples}. A sample is a measurement of the amplitude of the signal coming from a microphone or electronic instrument at an instant in time. The process of turning the sampled value into a binary number is called {\itshape quantization}. The process is referred to as {\itshape pulse code modulation}.\hypertarget{md_AssignmentInstructions_autotoc_md6}{}\doxyparagraph{Sample Rates}\label{md_AssignmentInstructions_autotoc_md6}
+Modern digital audio systems typically record 44,100 or 48,000 samples per second per channel, so a stereo recording collects 88,200 or 176,400 samples, respectively, for every second of audio recorded. The sample rate directly affects the system frequency response.\hypertarget{md_AssignmentInstructions_autotoc_md7}{}\doxyparagraph{Quantization (bit depth)}\label{md_AssignmentInstructions_autotoc_md7}
+The number of bits used to store a sample determines the accuracy of the sample. The higher number of bits used, the more accurate and less noisy the samples. Typical sample formats are 8, 16, 24, and 32 bits. We will be using wav files that are either 8 or 16 bits, and either mono or stereo.
+
+For more information, see \href{https://www.izotope.com/en/learn/digital-audio-basics-sample-rate-and-bit-depth.html}{\texttt{ https\+://www.\+izotope.\+com/en/learn/digital-\/audio-\/basics-\/sample-\/rate-\/and-\/bit-\/depth.\+html (Links to an external site.)}}\hypertarget{md_AssignmentInstructions_autotoc_md8}{}\doxyparagraph{File Formats and Compression}\label{md_AssignmentInstructions_autotoc_md8}
+Audio files are binary rather than text. The data can be compressed (not zip!) in order to reduce the file size or they can contain uncompressed sample values. Compressed formats include mp3 and A\+AC. We will be working with uncompressed files in the {\ttfamily wav} file format. The format for a {\ttfamily wav} file can be found here\+: \href{http://soundfile.sapp.org/doc/WaveFormat/}{\texttt{ http\+://soundfile.\+sapp.\+org/doc/\+Wave\+Format/ (Links to an external site.)}}
+
+Handling binary wav files is explained here\+: \href{https://www.youtube.com/watch?v=7uQjw5PY63s}{\texttt{ https\+://www.\+youtube.\+com/watch?v=7u\+Qjw5\+P\+Y63s (Links to an external site.)}} \href{https://www.youtube.com/watch?v=7uQjw5PY63s}{\texttt{ }}\hypertarget{md_AssignmentInstructions_autotoc_md9}{}\doxysubsection{Basic Level Requirements}\label{md_AssignmentInstructions_autotoc_md9}
+The basic level application presents the user with a console interface.\hypertarget{md_AssignmentInstructions_autotoc_md10}{}\doxysubsubsection{Program Flow}\label{md_AssignmentInstructions_autotoc_md10}
+The following pseudo-\/code shows the required application flow for the base level console version\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Start: Present start menu  }
+\DoxyCodeLine{If user selects quit, exit program  }
+\DoxyCodeLine{Else  }
+\DoxyCodeLine{  Request filename from user  }
+\DoxyCodeLine{  Open file specified by filename  }
+\DoxyCodeLine{  If file does not exist or file is not wav file  }
+\DoxyCodeLine{      display error message and goto start  }
+\DoxyCodeLine{  else  }
+\DoxyCodeLine{      read file metadata  }
+\DoxyCodeLine{      (1) display metadata to user  }
+\DoxyCodeLine{      present user with processor menu  }
+\DoxyCodeLine{      If user selects processor option  }
+\DoxyCodeLine{        request output filename  }
+\DoxyCodeLine{        run processor  }
+\DoxyCodeLine{        save file  }
+\DoxyCodeLine{        goto Start }
+\end{DoxyCode}
+
+
+{\bfseries{Start Menu}}
+
+The base start should allow the user to enter the name of a wav file or exit the application.
+
+{\bfseries{File Metadata}}
+
+The data to be displayed in step (1)\+:
+
+
+\begin{DoxyItemize}
+\item filename
+\item sample rate
+\item bits per sample
+\item stereo or mono
+\end{DoxyItemize}\hypertarget{md_AssignmentInstructions_autotoc_md11}{}\doxysubsubsection{Required Processors}\label{md_AssignmentInstructions_autotoc_md11}
+The following are the processes to be implemented
+
+
+\begin{DoxyItemize}
+\item normalization
+\begin{DoxyItemize}
+\item Algorithm\+: The largest sample value in the data is found, and then the data is scaled so that that value is the maximum possible value. This maximizes the amplitude of the final waveform.
+\item Example for floating-\/point data
+\begin{DoxyItemize}
+\item Original data\+: n = \{0,0.\+2,0.\+4,0,-\/0.\+3\}
+\item Largest absolute value\+: 0.\+4, so scaling value s = 1/0.\+4 = 2.\+5
+\item Scaled result\+: n\+\_\+scaled = \{0, 0.\+5,1,0,-\/0.\+75\}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item echo
+\begin{DoxyItemize}
+\item Algorithm\+: Samples are copied, scaled, and added to later locations in the sample buffer to create an echo effect.
+\end{DoxyItemize}
+\item gain adjustment
+\begin{DoxyItemize}
+\item Algorithm\+: Samples are multiplied by a scaling factor that raises or lowers the overall amplitude of the wave file
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_AssignmentInstructions_autotoc_md12}{}\doxysubsection{Challenge Level Requirements}\label{md_AssignmentInstructions_autotoc_md12}
+For the challenge level, you will build a graphical user interface (G\+UI) using the Qt Framework (\href{https://www.qt.io/}{\texttt{ https\+://www.\+qt.\+io/ (Links to an external site.)}}). This framework gives you the ability to build and distribute a cross-\/platform desktop or mobile application using C++ as the development language. The framework is free for open source and academic work and can be downloaded from the link above. The framework is very popular, so you will find many examples and tutorials online.\hypertarget{md_AssignmentInstructions_autotoc_md13}{}\doxysubsubsection{Program Flow}\label{md_AssignmentInstructions_autotoc_md13}
+The basic flow for the G\+UI version is the same as the console, but of course adapted for a G\+UI application flow with menus, etc.\hypertarget{md_AssignmentInstructions_autotoc_md14}{}\doxysubsubsection{Required Processors}\label{md_AssignmentInstructions_autotoc_md14}
+The challenge-\/level application includes all the processors from the basic level. In addition, it must include the following processors\+:
+
+
+\begin{DoxyItemize}
+\item low-\/pass filter
+\begin{DoxyItemize}
+\item Remove high frequency components from the signal
+\end{DoxyItemize}
+\item compression / limiting
+\begin{DoxyItemize}
+\item The dynamic range of the signal is compressed using a non-\/linear map of input to output. This is commonly used to limit loud peaks in the sound, and gives an overall impression of higher volume.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_AssignmentInstructions_autotoc_md15}{}\doxysubsection{Architectural Requirements (\+Basic and Challenge)}\label{md_AssignmentInstructions_autotoc_md15}
+The system design is to be modular to facilitate dividing up the development work, and more importantly, to aid in testing and expansion of the application\textquotesingle{}s capabilities. The required modules are
+
+
+\begin{DoxyItemize}
+\item File management\+: manages reading and writing of files in the required formats
+\item User interaction\+: manages the console user interaction. In the case of the challenge version using Qt, the module should provide a single point of entry to the processors, etc.
+\item Processing\+: management of sample buffers, application of processors, etc. Each module will consist of one or more classes that are access through one or more interfaces.
+\end{DoxyItemize}
+
+As needed, you can add more modules.\hypertarget{md_AssignmentInstructions_autotoc_md16}{}\doxysubsubsection{Documentation}\label{md_AssignmentInstructions_autotoc_md16}
+All header files and functions must be documented using the Doxygen Javadoc format. The R\+E\+A\+D\+ME page should include
+
+
+\begin{DoxyItemize}
+\item A line saying whether this is a basic or challenge level project
+\item The full names of each team member
+\item The contribution of each team member
+\item A U\+ML diagram showing the basic design
+\item A section detailing issues, including any functionality that is missing
+\item A section detailing the challenges that you encountered in the project
+\item Instructions for building the application if anything is required beyond~{\itshape make}
+\end{DoxyItemize}
+
+The Doxygen files should be generated into a folder called~{\itshape docs.}\hypertarget{md_AssignmentInstructions_autotoc_md17}{}\doxysubsection{Grading}\label{md_AssignmentInstructions_autotoc_md17}
+This project will be graded using standard grading with partial credit. There will not be an opportunity for redo, as this project is due toward the end of the semester and there will not be time for redo and grading.
+
+Grading will be based on
+
+
+\begin{DoxyItemize}
+\item use of Git
+\item correct use of C++ features such as templates, inheritance, interfaces, exceptions, and composition
+\item correctness of the implementation of the required processes
+\item runtime stability
+\end{DoxyItemize}
+
+See the rubric for details.\hypertarget{md_AssignmentInstructions_autotoc_md18}{}\doxysubsection{What to Turn In}\label{md_AssignmentInstructions_autotoc_md18}
+
+\begin{DoxyItemize}
+\item All source code must be managed in Github, and the repository U\+RL turned in to Web\+Campus. Include the team member names and your group number in the submission. 
+\end{DoxyItemize}
