@@ -18,7 +18,7 @@
 #include "../headers/Normalization.h"
 #include "../headers/Gain.h"
 #include "../headers/Echo.h"
-#include "../headers/Compressor.h"
+#include "../headers/Compression.h"
 #include "../headers/LowPassFilter.h"
 
 int main()

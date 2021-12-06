@@ -1,5 +1,5 @@
 #pragma once
-#define COMPRESSOR_H
+#define COMPRESSION_H
 #include "Processor.h"
 
 /**
