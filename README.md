@@ -24,19 +24,19 @@
 
 ![https://cdn.discordapp.com/attachments/903063902697439242/916590326704136192/Screen_Shot_2021-12-03_at_11.22.11_PM.png](https://cdn.discordapp.com/attachments/903063902697439242/916590326704136192/Screen_Shot_2021-12-03_at_11.22.11_PM.png)
 
-**Issues**
+**Current Issues**
 
 ---------
 
-- Low Pass Filter doesn’t work with the method described in the hints. It only creates a delay. Fourier Transform would work but I am too “not good at math” to know how to code that.
+- Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. I, Jann, would imagine that coding a fourier's transform would work and separating the high frequencies though.
 
-**Challenges**
+**Past Challenges**
 
 ----------------
 
-- Many segmentation faults that were caused by PrintMetaData() taking in a copy of the Wav object instead of a reference causing two deletions of the sample array.
-- Creating a really advanced makefile made me read half of the GNU Make documentation to have a really cool makefile. Implicit rules don’t work with my makefile but I’m satisfied that it looks cool.
-- Putting .cpp and .h files in a directory made for a challenge when creating the makefile.
+- Many segmentation faults was caused by our PrintMetaData() method taking in a copy of the Wav object instead of a reference causing two deletions of the sample array.
+- Creating a really advanced makefile made me, Jann, read half of the GNU Make documentation to have a really cool makefile. Though, implicit rules don’t work with the makefile sadly.
+- Putting .cpp and .h files in a directory/folder made for a challenge when creating the makefile.
 
 **Application Building**
 
