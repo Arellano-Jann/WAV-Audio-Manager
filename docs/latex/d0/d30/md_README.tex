@@ -1,0 +1,106 @@
+\hypertarget{md_README_autotoc_md1}{}\doxysection{$<$strong$>$\+Challenge Level Project$<$/strong$>$}\label{md_README_autotoc_md1}
+{\bfseries{Jann Arellano\+:}}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classProcessor}{Processor}}
+\item Doxygen
+\end{DoxyItemize}
+
+{\bfseries{Andrew Kalb\+:}}
+
+
+\begin{DoxyItemize}
+\item Wav/\+File IO
+\item Debugging
+\end{DoxyItemize}
+
+{\bfseries{Alec Redera\+:}}
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classUI}{UI}}
+\item Documentation
+\end{DoxyItemize}
+
+{\bfseries{U\+ML Diagram}}
+
+\DoxyHorRuler{0}
+
+
+
+
+{\bfseries{Issues}}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Low Pass Filter doesn’t work with the method described in the hints. It only creates a delay. Fourier Transform would work but I am too “not good at math” to know how to code that.
+\end{DoxyItemize}
+
+{\bfseries{Challenges}}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Many segmentation faults that were caused by Print\+Meta\+Data() taking in a copy of the \mbox{\hyperlink{classWav}{Wav}} object instead of a reference causing two deletions of the sample array.
+\item Creating a really advanced makefile made me read half of the G\+NU Make documentation to have a really cool makefile. Implicit rules don’t work with my makefile but I’m satisfied that it looks cool.
+\item Putting .cpp and .h files in a directory made for a challenge when creating the makefile.
+\end{DoxyItemize}
+
+{\bfseries{Application Building}}
+
+\DoxyHorRuler{0}
+
+
+{\ttfamily make} builds the program and the necessary directories
+
+{\ttfamily make clean} cleans the root folder of the .exe and .wav files. It also cleans the objs directory of all .o files.
+
+{\bfseries{How To Use This Application}}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Build Application
+\item Enter “./wavman” in Your Terminal to Run the Application
+\item Enter the Name of the .wav File You Wish to Edit
+\begin{DoxyItemize}
+\item OR Type “q” to Exit the Program
+\end{DoxyItemize}
+\item The Application will Display the File’s Metadata, and Ask You to Choose a Processing Method to Apply to Your .wav File
+\item Enter a Number Based on Which \mbox{\hyperlink{classProcessor}{Processor}} You Would Like to Use
+\begin{DoxyItemize}
+\item (1) \mbox{\hyperlink{classNormalization}{Normalization}}\+:
+\begin{DoxyItemize}
+\item This Processing Method Will Maximize the Amplitude of Your File
+\item This Processing Method Will Automatically Apply to Your File and Return You to the “\+Choose a Processing Method” Page
+\end{DoxyItemize}
+\item (2) \mbox{\hyperlink{classEcho}{Echo}}\+:
+\begin{DoxyItemize}
+\item This Processing Method Will Create an \mbox{\hyperlink{classEcho}{Echo}} Effect from Your File
+\item This Processing Method Will Ask You to Enter a Percentage to Scale the Echo’s Volume, then it Will Ask You to Enter a Delay Value by Number of Samples, and Return You to the “\+Choose a Processing Method” Page
+\end{DoxyItemize}
+\item (3) \mbox{\hyperlink{classGain}{Gain}}
+\begin{DoxyItemize}
+\item This Processing Method Will Raise or Lower the Overall Amplitude of Your File
+\item This Processing Method Will Ask You to Enter a Percentage to Scale the Overall Amplitude, and Return You to the “\+Choose a Processing Method” Page
+\end{DoxyItemize}
+\item (4) Low-\/\+Pass Filter
+\begin{DoxyItemize}
+\item This Processing Method Does Not Work Properly
+\item Avoid Using This Processing Method
+\end{DoxyItemize}
+\item (5) Compression
+\begin{DoxyItemize}
+\item This Processing Method Will Scale the Volume of Your .wav File by a Ratio Based on a Maximum Threshold
+\item This Processing Method Will Ask You to Enter a Ratio that Will Scale Aspects of Your File that Exceed the Maximum Threshold, then it Will Ask You to Set a Maximum Threshold 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}

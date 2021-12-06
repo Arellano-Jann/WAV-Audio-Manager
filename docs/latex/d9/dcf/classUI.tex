@@ -1,0 +1,188 @@
+\hypertarget{classUI}{}\doxysection{UI Class Reference}
+\label{classUI}\index{UI@{UI}}
+
+
+A \mbox{\hyperlink{classUI}{UI}} class Includes many functions that outputs text related to the wav class and checks if inputs are valid.  
+
+
+
+
+{\ttfamily \#include $<$U\+I.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUI_a3cd5131e957f45588b448c5c55ed0adf}{UI}} ()=default
+\item 
+void \mbox{\hyperlink{classUI_aa444cac4c01595bdafbeb1d8870b3948}{Start\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Outputs the start menu text message to the console. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classUI_a9386f8fd2831b1c4e3c75c1bdbe7dd8c}{Input}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves a filename from the user andd appends \char`\"{}.\+wav\char`\"{} if it\textquotesingle{}s not already there. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUI_a81e54c22892df22c6b67a10e4d0e58e6}{check\+Input}} (std\+::string input)
+\begin{DoxyCompactList}\small\item\em Checks the input from the user to see if they are quitting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a8f4736f8a5097a1f234678ac85544b28}{Invalid\+File\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Outputs the error message in case of an invalid filename. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a1786d7794f0952a10f7b9b7111749a2e}{Exit\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Outputs the exit message to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_ac52cc1b0ed2a2c645d7aa0ea24f1f252}{Print\+Meta\+Data}} (const \mbox{\hyperlink{classWav}{Wav}} \&wav)
+\begin{DoxyCompactList}\small\item\em Prints relevant metadata to the console The metadata is retrieved from the wav object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a40d1a4c2d41cba63d539c15bfd94ffa4}{Processor\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Outputs the \mbox{\hyperlink{classProcessor}{Processor}} Menu to the console. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUI_a9fdabe2375b821ec8b6d7c1d840d7a59}{select\+Processor}} ()
+\begin{DoxyCompactList}\small\item\em Requests an integer selection from the user to select a processor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a4176748952c89cab31deebcb6cf48322}{ask\+Processor\+Questions}} (int i)
+\begin{DoxyCompactList}\small\item\em Outputs questions to the user. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classUI_ad5a96cf0e114c4dac4a4d7958dd98c4a}{Output\+File\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Requests the name of the file the new wav data should be written to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{classUI}{UI}} class Includes many functions that outputs text related to the wav class and checks if inputs are valid. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUI_a3cd5131e957f45588b448c5c55ed0adf}\label{classUI_a3cd5131e957f45588b448c5c55ed0adf}} 
+\index{UI@{UI}!UI@{UI}}
+\index{UI@{UI}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{UI()}{UI()}}
+{\footnotesize\ttfamily U\+I\+::\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUI_a4176748952c89cab31deebcb6cf48322}\label{classUI_a4176748952c89cab31deebcb6cf48322}} 
+\index{UI@{UI}!askProcessorQuestions@{askProcessorQuestions}}
+\index{askProcessorQuestions@{askProcessorQuestions}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{askProcessorQuestions()}{askProcessorQuestions()}}
+{\footnotesize\ttfamily void U\+I\+::ask\+Processor\+Questions (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Outputs questions to the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & a picker for the questions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUI_a81e54c22892df22c6b67a10e4d0e58e6}\label{classUI_a81e54c22892df22c6b67a10e4d0e58e6}} 
+\index{UI@{UI}!checkInput@{checkInput}}
+\index{checkInput@{checkInput}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{checkInput()}{checkInput()}}
+{\footnotesize\ttfamily bool U\+I\+::check\+Input (\begin{DoxyParamCaption}\item[{std\+::string}]{input }\end{DoxyParamCaption})}
+
+
+
+Checks the input from the user to see if they are quitting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & user input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true user inputs a filename 
+
+false user inputs \char`\"{}q\char`\"{} or \char`\"{}\+Q\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUI_a1786d7794f0952a10f7b9b7111749a2e}\label{classUI_a1786d7794f0952a10f7b9b7111749a2e}} 
+\index{UI@{UI}!ExitMenu@{ExitMenu}}
+\index{ExitMenu@{ExitMenu}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{ExitMenu()}{ExitMenu()}}
+{\footnotesize\ttfamily void U\+I\+::\+Exit\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Outputs the exit message to the console. 
+
+\mbox{\Hypertarget{classUI_a9386f8fd2831b1c4e3c75c1bdbe7dd8c}\label{classUI_a9386f8fd2831b1c4e3c75c1bdbe7dd8c}} 
+\index{UI@{UI}!Input@{Input}}
+\index{Input@{Input}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{Input()}{Input()}}
+{\footnotesize\ttfamily std\+::string U\+I\+::\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves a filename from the user andd appends \char`\"{}.\+wav\char`\"{} if it\textquotesingle{}s not already there. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string the filename entered by the user 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUI_a8f4736f8a5097a1f234678ac85544b28}\label{classUI_a8f4736f8a5097a1f234678ac85544b28}} 
+\index{UI@{UI}!InvalidFileName@{InvalidFileName}}
+\index{InvalidFileName@{InvalidFileName}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{InvalidFileName()}{InvalidFileName()}}
+{\footnotesize\ttfamily void U\+I\+::\+Invalid\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Outputs the error message in case of an invalid filename. 
+
+\mbox{\Hypertarget{classUI_ad5a96cf0e114c4dac4a4d7958dd98c4a}\label{classUI_ad5a96cf0e114c4dac4a4d7958dd98c4a}} 
+\index{UI@{UI}!OutputFileName@{OutputFileName}}
+\index{OutputFileName@{OutputFileName}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{OutputFileName()}{OutputFileName()}}
+{\footnotesize\ttfamily std\+::string U\+I\+::\+Output\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Requests the name of the file the new wav data should be written to. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string the complete output filename (includes .wav extension) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUI_ac52cc1b0ed2a2c645d7aa0ea24f1f252}\label{classUI_ac52cc1b0ed2a2c645d7aa0ea24f1f252}} 
+\index{UI@{UI}!PrintMetaData@{PrintMetaData}}
+\index{PrintMetaData@{PrintMetaData}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{PrintMetaData()}{PrintMetaData()}}
+{\footnotesize\ttfamily void U\+I\+::\+Print\+Meta\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classWav}{Wav}} \&}]{wav }\end{DoxyParamCaption})}
+
+
+
+Prints relevant metadata to the console The metadata is retrieved from the wav object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wav} & a reference to the wav file to fetch the metadata \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUI_a40d1a4c2d41cba63d539c15bfd94ffa4}\label{classUI_a40d1a4c2d41cba63d539c15bfd94ffa4}} 
+\index{UI@{UI}!ProcessorMenu@{ProcessorMenu}}
+\index{ProcessorMenu@{ProcessorMenu}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{ProcessorMenu()}{ProcessorMenu()}}
+{\footnotesize\ttfamily void U\+I\+::\+Processor\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Outputs the \mbox{\hyperlink{classProcessor}{Processor}} Menu to the console. 
+
+\mbox{\Hypertarget{classUI_a9fdabe2375b821ec8b6d7c1d840d7a59}\label{classUI_a9fdabe2375b821ec8b6d7c1d840d7a59}} 
+\index{UI@{UI}!selectProcessor@{selectProcessor}}
+\index{selectProcessor@{selectProcessor}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{selectProcessor()}{selectProcessor()}}
+{\footnotesize\ttfamily int U\+I\+::select\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Requests an integer selection from the user to select a processor. 
+
+\begin{DoxyReturn}{Returns}
+int a number associated with a processor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUI_aa444cac4c01595bdafbeb1d8870b3948}\label{classUI_aa444cac4c01595bdafbeb1d8870b3948}} 
+\index{UI@{UI}!StartMenu@{StartMenu}}
+\index{StartMenu@{StartMenu}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{StartMenu()}{StartMenu()}}
+{\footnotesize\ttfamily void U\+I\+::\+Start\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Outputs the start menu text message to the console. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{UI_8h}{U\+I.\+h}}\item 
+src/\mbox{\hyperlink{UI_8cpp}{U\+I.\+cpp}}\end{DoxyCompactItemize}

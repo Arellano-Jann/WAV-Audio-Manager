@@ -1,0 +1,53 @@
+\hypertarget{classNormalization}{}\doxysection{Normalization Class Reference}
+\label{classNormalization}\index{Normalization@{Normalization}}
+
+
+A sound normalization class that inherits from the \mbox{\hyperlink{classGain}{Gain}} class This class has a public constructor that calls private processing methods. It also has no private member variables which are initialized by the constructor.  
+
+
+
+
+{\ttfamily \#include $<$Normalization.\+h$>$}
+
+
+
+Inheritance diagram for Normalization\+:
+% FIG 0
+
+
+Collaboration diagram for Normalization\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNormalization_a4066139d5047a93f83a99ecbb3d58d1d}{Normalization}} (std\+::vector$<$ float $>$ samples)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classCompressor}{Compressor}} object This constructor calls the \mbox{\hyperlink{classGain}{Gain}} class\textquotesingle{}s constructor using samples and 100, a float. The constructor calls the private void process() method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A sound normalization class that inherits from the \mbox{\hyperlink{classGain}{Gain}} class This class has a public constructor that calls private processing methods. It also has no private member variables which are initialized by the constructor. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNormalization_a4066139d5047a93f83a99ecbb3d58d1d}\label{classNormalization_a4066139d5047a93f83a99ecbb3d58d1d}} 
+\index{Normalization@{Normalization}!Normalization@{Normalization}}
+\index{Normalization@{Normalization}!Normalization@{Normalization}}
+\doxysubsubsection{\texorpdfstring{Normalization()}{Normalization()}}
+{\footnotesize\ttfamily Normalization\+::\+Normalization (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{samples }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classCompressor}{Compressor}} object This constructor calls the \mbox{\hyperlink{classGain}{Gain}} class\textquotesingle{}s constructor using samples and 100, a float. The constructor calls the private void process() method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em samples} & A vector that will be processed using private methods. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{Normalization_8h}{Normalization.\+h}}\item 
+src/\mbox{\hyperlink{Normalization_8cpp}{Normalization.\+cpp}}\end{DoxyCompactItemize}

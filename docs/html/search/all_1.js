@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['wav_2dmanipulation_1',['WAV-Manipulation',['../d8/dca/md_AssignmentInstructions.html',1,'']]]
+  ['bitdepth_3',['bitDepth',['../d0/d2f/structWaveHeader.html#a7aff376aa97a9d32082910b730794e58',1,'WaveHeader']]],
+  ['byterate_4',['byteRate',['../d0/d2f/structWaveHeader.html#a90309dfaade8159db0f5cb05cd3ed756',1,'WaveHeader']]]
 ];

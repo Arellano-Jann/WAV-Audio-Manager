@@ -1,0 +1,87 @@
+\hypertarget{classProcessor}{}\doxysection{Processor Class Reference}
+\label{classProcessor}\index{Processor@{Processor}}
+
+
+A \mbox{\hyperlink{classProcessor}{Processor}} parent class This class has a public constructor that initializes the sample. It also has two other private member variables which are the highest and lowest possible values in the sample. The class has a setter for the sample private member. The class has getters for both the max\+Val and min\+Val private members. The class has a validation method to check if the values in sample are valid.  
+
+
+
+
+{\ttfamily \#include $<$Processor.\+h$>$}
+
+
+
+Inheritance diagram for Processor\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProcessor_a8d704f769bf0582b54e94516e912d836}{Processor}} (std\+::vector$<$ float $>$ const \&samples)
+\item 
+void \mbox{\hyperlink{classProcessor_a43fa3f54897273ee6405d5c33404fe04}{set\+Sample}} (std\+::vector$<$ float $>$ samples)
+\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classProcessor_af4b79da95964b3894b4d46b9c2d6a3c4}{get\+Sample}} () const
+\item 
+float \mbox{\hyperlink{classProcessor_a7647cb0f392f7cad6bd59dbbd75b36ad}{get\+Max\+Val}} () const
+\item 
+float \mbox{\hyperlink{classProcessor_a556a29a85ea854ce51c06042a91bdbcf}{get\+Min\+Val}} () const
+\item 
+void \mbox{\hyperlink{classProcessor_a6b239ea764d8d913bf0962a779012314}{check\+Vals}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the values in sample are valid Iterates through sample and sets the element to the max possible value if it exceeds the max possible value. It sets the element to the least possible value if it is below the least possible value. The element is set to the max possible value by the \mbox{\hyperlink{classProcessor_a7647cb0f392f7cad6bd59dbbd75b36ad}{get\+Max\+Val()}} method. The element is set to the least possible value by the \mbox{\hyperlink{classProcessor_a556a29a85ea854ce51c06042a91bdbcf}{get\+Min\+Val()}} method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{classProcessor}{Processor}} parent class This class has a public constructor that initializes the sample. It also has two other private member variables which are the highest and lowest possible values in the sample. The class has a setter for the sample private member. The class has getters for both the max\+Val and min\+Val private members. The class has a validation method to check if the values in sample are valid. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classProcessor_a8d704f769bf0582b54e94516e912d836}\label{classProcessor_a8d704f769bf0582b54e94516e912d836}} 
+\index{Processor@{Processor}!Processor@{Processor}}
+\index{Processor@{Processor}!Processor@{Processor}}
+\doxysubsubsection{\texorpdfstring{Processor()}{Processor()}}
+{\footnotesize\ttfamily Processor\+::\+Processor (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ const \&}]{samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProcessor_a6b239ea764d8d913bf0962a779012314}\label{classProcessor_a6b239ea764d8d913bf0962a779012314}} 
+\index{Processor@{Processor}!checkVals@{checkVals}}
+\index{checkVals@{checkVals}!Processor@{Processor}}
+\doxysubsubsection{\texorpdfstring{checkVals()}{checkVals()}}
+{\footnotesize\ttfamily void Processor\+::check\+Vals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the values in sample are valid Iterates through sample and sets the element to the max possible value if it exceeds the max possible value. It sets the element to the least possible value if it is below the least possible value. The element is set to the max possible value by the \mbox{\hyperlink{classProcessor_a7647cb0f392f7cad6bd59dbbd75b36ad}{get\+Max\+Val()}} method. The element is set to the least possible value by the \mbox{\hyperlink{classProcessor_a556a29a85ea854ce51c06042a91bdbcf}{get\+Min\+Val()}} method. 
+
+\mbox{\Hypertarget{classProcessor_a7647cb0f392f7cad6bd59dbbd75b36ad}\label{classProcessor_a7647cb0f392f7cad6bd59dbbd75b36ad}} 
+\index{Processor@{Processor}!getMaxVal@{getMaxVal}}
+\index{getMaxVal@{getMaxVal}!Processor@{Processor}}
+\doxysubsubsection{\texorpdfstring{getMaxVal()}{getMaxVal()}}
+{\footnotesize\ttfamily float Processor\+::get\+Max\+Val (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classProcessor_a556a29a85ea854ce51c06042a91bdbcf}\label{classProcessor_a556a29a85ea854ce51c06042a91bdbcf}} 
+\index{Processor@{Processor}!getMinVal@{getMinVal}}
+\index{getMinVal@{getMinVal}!Processor@{Processor}}
+\doxysubsubsection{\texorpdfstring{getMinVal()}{getMinVal()}}
+{\footnotesize\ttfamily float Processor\+::get\+Min\+Val (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classProcessor_af4b79da95964b3894b4d46b9c2d6a3c4}\label{classProcessor_af4b79da95964b3894b4d46b9c2d6a3c4}} 
+\index{Processor@{Processor}!getSample@{getSample}}
+\index{getSample@{getSample}!Processor@{Processor}}
+\doxysubsubsection{\texorpdfstring{getSample()}{getSample()}}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Processor\+::get\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classProcessor_a43fa3f54897273ee6405d5c33404fe04}\label{classProcessor_a43fa3f54897273ee6405d5c33404fe04}} 
+\index{Processor@{Processor}!setSample@{setSample}}
+\index{setSample@{setSample}!Processor@{Processor}}
+\doxysubsubsection{\texorpdfstring{setSample()}{setSample()}}
+{\footnotesize\ttfamily void Processor\+::set\+Sample (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{Processor_8h}{Processor.\+h}}\item 
+src/\mbox{\hyperlink{Processor_8cpp}{Processor.\+cpp}}\end{DoxyCompactItemize}
