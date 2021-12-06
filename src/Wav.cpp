@@ -149,7 +149,7 @@ bool Wav::CreateFile(std::string newFileName)
     {
         // different ways to write for stereo/mono/16/8 bit
         file.write((char*) &header, sizeof(header));
-        std::cout << header.numChannels << std::endl;
+        //std::cout << header.numChannels << std::endl;
         if(header.numChannels == 1 || header.numChannels == 2)
         {
             if(numBytesPerSample == 1)
