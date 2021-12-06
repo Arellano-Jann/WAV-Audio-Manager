@@ -1,5 +1,5 @@
 HDIR = headers # directories/folders
-CDIR = src
+CDIR = src # test
 ODIR = objs
 CPPFLAGS = -std=c++11 -g # flags
 DEPS = $(wildcard $(HDIR)/*.h)
