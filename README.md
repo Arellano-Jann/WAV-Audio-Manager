@@ -16,13 +16,13 @@
 
 - UI
 - Documentation
-- QC
+- Quality Checker
 
 **UML Diagram**
 
 -------
 
-![https://imgur.com/a/CwPYZCO](https://i.imgur.com/xMNeFSg.png)
+![https://cdn.discordapp.com/attachments/903063902697439242/916590326704136192/Screen_Shot_2021-12-03_at_11.22.11_PM.png](https://cdn.discordapp.com/attachments/903063902697439242/916590326704136192/Screen_Shot_2021-12-03_at_11.22.11_PM.png)
 
 **Issues**
 
