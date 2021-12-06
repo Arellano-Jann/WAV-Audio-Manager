@@ -5,8 +5,26 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief A Wav class
+ * This class has a public constructor and destructor.
+ * It also has four private member variables which is the sound data, file name and WaveHeader.
+ * The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa.
+ * 
+ */
 class Wav
 {
+    float Convert16BitToFloat(short data);
+    float Convert8BitToFloat(unsigned char data);
+    short ConvertFloatTo16Bit(float sample);
+    unsigned char ConvertFloatTo8Bit(float sample);
+    
+
+    void FillFloatSamplesFromRawData();
+    std::string file;
+    char* rawData;
+    std::vector<float> samples;
+    WaveHeader header;
 public:
     Wav();
     ~Wav();
@@ -60,16 +78,4 @@ public:
      */
     void setSamples(std::vector<float> sample){ samples = sample; }
     
-private:
-    float Convert16BitToFloat(short data);
-    float Convert8BitToFloat(unsigned char data);
-    short ConvertFloatTo16Bit(float sample);
-    unsigned char ConvertFloatTo8Bit(float sample);
-    
-
-    void FillFloatSamplesFromRawData();
-    std::string file;
-    char* rawData;
-    std::vector<float> samples;
-    WaveHeader header;
 };

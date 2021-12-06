@@ -11,7 +11,7 @@ void UI::StartMenu() {
     output("This Program Can Load and Modify WAV Files.");
 }
 /**
- * @brief Retrieves a filename from the user to attempt to open
+ * @brief Retrieves a filename from the user andd appends ".wav" if it's not already there.
  * 
  * @return std::string the filename entered by the user
  */
@@ -25,11 +25,11 @@ std::string UI::Input() {
     
 }
 /**
- * @brief Checks the input from the user to see if they want to continue using the program
+ * @brief Checks the input from the user to see if they are quitting
  * 
  * @param input user input
- * @return true if the input from the user suggests they want to continue using the program
- * @return false if the user tries to quit the program
+ * @return true user inputs a filename
+ * @return false user inputs "q" or "Q"
  */
 bool UI::checkInput(std::string input){
   //std::string i = lower(input);
@@ -40,7 +40,7 @@ bool UI::checkInput(std::string input){
 }
 
 /**
- * @brief Outputs the error message in case of and invalid filename
+ * @brief Outputs the error message in case of an invalid filename
  * 
  */
 void UI::InvalidFileName()
@@ -57,18 +57,18 @@ void UI::ExitMenu() {
 }
 
 /**
- * @brief Prints relevant wav header meta data information to the console
- * 
- * @param wav a reference to the wav file to fetch meta data from
+ * @brief Prints relevant metadata to the console
+ * The metadata is retrieved from the wav object.
+ * @param wav a reference to the wav file to fetch the metadata
  */
 void UI::PrintMetaData(const Wav& wav) {
     std::cout << "Metadata Goodness:" << std::endl;
     std::cout << wav.GetFileName() << std::endl;
     std::cout << "---------------" << std::endl;
     std::cout << "Channels: " << wav.GetStereo() << std::endl;
-    std::cout << "Sample Rate: " << wav.GetSampleRate() << std::endl; // need to add "hz" or something
-    std::cout << "Byte Rate: " << wav.GetByteRate() << std::endl;
-    std::cout << "Bitdepth: " << wav.GetBitsPerSample() << std::endl;
+    std::cout << "Sample Rate: " << wav.GetSampleRate() << "hz" << std::endl;
+    std::cout << "Byte Rate: " << wav.GetByteRate() << "bytes" << std::endl;
+    std::cout << "Bitdepth: " << wav.GetBitsPerSample() << "bits" << std::endl;
     std::cout << "Block Align: " << wav.GetBlockAlign() << std::endl;
 }
 
@@ -87,9 +87,9 @@ void UI::ProcessorMenu() {
 }
 
 /**
- * @brief Requests a selection of a function to apply to a wav file from the user
+ * @brief Requests an integer selection from the user to select a processor.
  * 
- * @return int the number associated with the function selected by the user
+ * @return int a number associated with a processor
  */
 int UI::selectProcessor(){
     std::string selection;
@@ -99,9 +99,7 @@ int UI::selectProcessor(){
     if (checkProcessor(selection)){
         int select = std::stoi(selection);
         return select;
-    } 
-    // since this is recursion it might not work due to making you input the number multiple times
-    // int select = std::stoi(selection);
+    }
     return 6;
 }
 
@@ -116,17 +114,16 @@ bool UI::checkProcessor(std::string i){
     std::string arr[6] = {"1","2","3","4","5","6"};
     // std::array<std::string, 6> arr = {"1","2","3","4","5","6"};
     if (std::end(arr) == std::find(std::begin(arr), std::end(arr), i)){
-        std::cout << "Invalid filename." << std::endl;
-        //selectProcessor();
+        std::cout << "You entered this wrong! Unfortunately. I'm going to tell you to save and leave for not following directions." << std::endl;
         return false;
     }
     return true;
 }
 
 /**
- * @brief Outputs a certain question to the user based on the processor they previously selected
+ * @brief Outputs questions to the user
  * 
- * @param i the number associated with the processor the user previously selected
+ * @param i a picker for the questions
  */
 void UI::askProcessorQuestions(int i){
     switch (i){
@@ -160,35 +157,11 @@ std::string UI::OutputFileName() {
 
 
 // Helper Functions
+/**
+ * @brief Easier std::cout but in a function
+ * 
+ * @param str String outputted in the terminal
+ */
 void UI::output(std::string str){
     std::cout << str << std::endl;
 }
-
-//Pseudo ~
-/*
-// So what i kinda want you to do is separate all of these functions into
-// different functions. like how start menu and exit has it's own function
-// i will be marking what you can put in a function below
-
-//Complete
-Start: Present start menu
-If user selects quit, exit program
-Else
-  Request filename from user
-  Open file specified by filename
-  If file does not exist or file is not wav file
-    display error message and goto start
-
-//Incomplete
-  else
-    read file metadata // doable. write a function to call the getters in wav.cpp
-(1) display metadata to user // ^^ conjunction with above
-
-//Complete
-    present user with processor menu // create a function with some UI for calling my code.
-    If user selects processor option // this running should be it's own function ex: run(normalization()) etc.
-      request output filename // the run command would do this and below
-      run processor
-      save file // can't do this yet. just comment where this would go
-      goto Start // doable
-*/

@@ -6,6 +6,12 @@
 #include "Wav.h"
 #include "Processor.h"
 
+/**
+ * 
+ * @brief A UI class
+ * Includes many functions that outputs text related to the wav class and checks if inputs are valid.
+ * 
+ */
 class UI {
     void output(std::string str);
     bool checkProcessor(std::string i);
