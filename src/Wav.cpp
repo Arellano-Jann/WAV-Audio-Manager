@@ -18,7 +18,6 @@ Wav::Wav()
     , header()
 {
 }
-// add Wav constructor with filename param
 
 /**
  * @brief Attempts to set file member variable and tests if the file is valid to be opened
@@ -33,7 +32,7 @@ bool Wav::SetFile(const std::string& filename)
     f.open(filename, std::ios::binary | std::ios::in);
     if(f)
     {
-        // change to check to RIFF
+        // check RIFF? 
         if(filename.substr(filename.size() - 4) == ".wav")
         {
             file = filename;
@@ -147,11 +146,10 @@ bool Wav::CreateFile(std::string newFileName)
     std::ofstream file(newFileName, std::ios::binary);
     if(file)
     {
-        // different ways to write for stereo/mono/16/8 bit
         file.write((char*) &header, sizeof(header));
-        //std::cout << header.numChannels << std::endl;
         if(header.numChannels == 1 || header.numChannels == 2)
         {
+            // 8 bit mono
             if(numBytesPerSample == 1)
             {
                 for(size_t i = 0; i < header.dataBytes; i++)
@@ -162,7 +160,8 @@ bool Wav::CreateFile(std::string newFileName)
             }
             else if(numBytesPerSample == 2)
             {
-                if(header.numChannels == 1 || header.numChannels == 2) // 16 bit STEREO AND MONO
+                // 16 bit stereo and mono
+                if(header.numChannels == 1 || header.numChannels == 2)
                 {
                     int count = 0;
                     for(size_t i = 0; i < header.dataBytes; i+= 2)
@@ -201,9 +200,7 @@ bool Wav::CreateFile(std::string newFileName)
  */
 void Wav::FillFloatSamplesFromRawData()
 {
-    //std::cout << "bit depth : " << header.bitDepth << std::endl;
     unsigned int numBytesPerSample = header.bitDepth / 8;
-    //std::cout << "bytes per floating point value : " << header.bitDepth / 8 << std::endl;
     if(header.numChannels == 1 || header.numChannels == 2)
     {
         // 8 bit

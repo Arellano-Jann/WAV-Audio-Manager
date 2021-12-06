@@ -28,6 +28,7 @@ class Wav
 public:
     Wav();
     ~Wav();
+    
     // Returns false if the file is invalid
     bool SetFile(const std::string& filename);
     void AnalyzeFile();
