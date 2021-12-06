@@ -3,7 +3,7 @@
 
 
 \begin{DoxyItemize}
-\item Processor
+\item \mbox{\hyperlink{classProcessor}{Processor}}
 \item Doxygen
 \end{DoxyItemize}
 
@@ -19,7 +19,7 @@
 
 
 \begin{DoxyItemize}
-\item UI
+\item \mbox{\hyperlink{classUI}{UI}}
 \item Documentation
 \end{DoxyItemize}
 
@@ -47,7 +47,7 @@
 
 
 \begin{DoxyItemize}
-\item Many segmentation faults that were caused by Print\+Meta\+Data() taking in a copy of the Wav object instead of a reference causing two deletions of the sample array.
+\item Many segmentation faults that were caused by Print\+Meta\+Data() taking in a copy of the \mbox{\hyperlink{classWav}{Wav}} object instead of a reference causing two deletions of the sample array.
 \item Creating a really advanced makefile made me read half of the G\+NU Make documentation to have a really cool makefile. Implicit rules don’t work with my makefile but I’m satisfied that it looks cool.
 \item Putting .cpp and .h files in a directory made for a challenge when creating the makefile.
 \end{DoxyItemize}
@@ -75,19 +75,19 @@
 \item OR Type “q” to Exit the Program
 \end{DoxyItemize}
 \item The Application will Display the File’s Metadata, and Ask You to Choose a Processing Method to Apply to Your .wav File
-\item Enter a Number Based on Which Processor You Would Like to Use
+\item Enter a Number Based on Which \mbox{\hyperlink{classProcessor}{Processor}} You Would Like to Use
 \begin{DoxyItemize}
-\item (1) Normalization\+:
+\item (1) \mbox{\hyperlink{classNormalization}{Normalization}}\+:
 \begin{DoxyItemize}
 \item This Processing Method Will Maximize the Amplitude of Your File
 \item This Processing Method Will Automatically Apply to Your File and Return You to the “\+Choose a Processing Method” Page
 \end{DoxyItemize}
-\item (2) Echo\+:
+\item (2) \mbox{\hyperlink{classEcho}{Echo}}\+:
 \begin{DoxyItemize}
-\item This Processing Method Will Create an Echo Effect from Your File
+\item This Processing Method Will Create an \mbox{\hyperlink{classEcho}{Echo}} Effect from Your File
 \item This Processing Method Will Ask You to Enter a Percentage to Scale the Echo’s Volume, then it Will Ask You to Enter a Delay Value by Number of Samples, and Return You to the “\+Choose a Processing Method” Page
 \end{DoxyItemize}
-\item (3) Gain
+\item (3) \mbox{\hyperlink{classGain}{Gain}}
 \begin{DoxyItemize}
 \item This Processing Method Will Raise or Lower the Overall Amplitude of Your File
 \item This Processing Method Will Ask You to Enter a Percentage to Scale the Overall Amplitude, and Return You to the “\+Choose a Processing Method” Page

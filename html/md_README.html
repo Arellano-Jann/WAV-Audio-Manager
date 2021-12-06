@@ -62,14 +62,14 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">The Wave File Processor </div>  </div>
+<div class="title">The Wave File <a class="el" href="classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md20"></a>
 &lt;strong&gt;Challenge Level Project&lt;/strong&gt;</h1>
 <p><b>Jann Arellano:</b></p>
 <ul>
-<li>Processor</li>
+<li><a class="el" href="classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a></li>
 <li>Doxygen</li>
 </ul>
 <p><b>Andrew Kalb:</b></p>
@@ -79,7 +79,7 @@ $(function() {
 </ul>
 <p><b>Alec Redera:</b></p>
 <ul>
-<li>UI</li>
+<li><a class="el" href="classUI.html" title="A UI class Includes many functions that outputs text related to the wav class and checks if inputs ar...">UI</a></li>
 <li>Documentation</li>
 </ul>
 <p><b>UML Diagram</b></p>
@@ -93,7 +93,7 @@ $(function() {
 <p><b>Challenges</b></p>
 <hr  />
 <ul>
-<li>Many segmentation faults that were caused by PrintMetaData() taking in a copy of the Wav object instead of a reference causing two deletions of the sample array.</li>
+<li>Many segmentation faults that were caused by PrintMetaData() taking in a copy of the <a class="el" href="classWav.html" title="A Wav class This class has a public constructor and destructor. It also has four private member varia...">Wav</a> object instead of a reference causing two deletions of the sample array.</li>
 <li>Creating a really advanced makefile made me read half of the GNU Make documentation to have a really cool makefile. Implicit rules don’t work with my makefile but I’m satisfied that it looks cool.</li>
 <li>Putting .cpp and .h files in a directory made for a challenge when creating the makefile.</li>
 </ul>
@@ -111,18 +111,18 @@ $(function() {
 </ul>
 </li>
 <li>The Application will Display the File’s Metadata, and Ask You to Choose a Processing Method to Apply to Your .wav File</li>
-<li>Enter a Number Based on Which Processor You Would Like to Use<ul>
-<li>(1) Normalization:<ul>
+<li>Enter a Number Based on Which <a class="el" href="classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a> You Would Like to Use<ul>
+<li>(1) <a class="el" href="classNormalization.html" title="A sound normalization class that inherits from the Gain class This class has a public constructor tha...">Normalization</a>:<ul>
 <li>This Processing Method Will Maximize the Amplitude of Your File</li>
 <li>This Processing Method Will Automatically Apply to Your File and Return You to the “Choose a Processing Method” Page</li>
 </ul>
 </li>
-<li>(2) Echo:<ul>
-<li>This Processing Method Will Create an Echo Effect from Your File</li>
+<li>(2) <a class="el" href="classEcho.html" title="A sound echoing class that inherits from the Processor class This class has a public constructor that...">Echo</a>:<ul>
+<li>This Processing Method Will Create an <a class="el" href="classEcho.html" title="A sound echoing class that inherits from the Processor class This class has a public constructor that...">Echo</a> Effect from Your File</li>
 <li>This Processing Method Will Ask You to Enter a Percentage to Scale the Echo’s Volume, then it Will Ask You to Enter a Delay Value by Number of Samples, and Return You to the “Choose a Processing Method” Page</li>
 </ul>
 </li>
-<li>(3) Gain<ul>
+<li>(3) <a class="el" href="classGain.html" title="A gain class that inherits from the Processor class This class has a public constructor that calls pr...">Gain</a><ul>
 <li>This Processing Method Will Raise or Lower the Overall Amplitude of Your File</li>
 <li>This Processing Method Will Ask You to Enter a Percentage to Scale the Overall Amplitude, and Return You to the “Choose a Processing Method” Page</li>
 </ul>

@@ -1,0 +1,59 @@
+\hypertarget{classProcessor}{}\doxysection{Processor Class Reference}
+\label{classProcessor}\index{Processor@{Processor}}
+
+
+A \mbox{\hyperlink{classProcessor}{Processor}} parent class This class has a public constructor that initializes the sample. It also has two other private member variables which are the highest and lowest possible values in the sample. The class has a setter for the sample private member. The class has getters for both the max\+Val and min\+Val private members. The class has a validation method to check if the values in sample are valid.  
+
+
+
+
+{\ttfamily \#include $<$Processor.\+h$>$}
+
+
+
+Inheritance diagram for Processor\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProcessor_a8d704f769bf0582b54e94516e912d836}\label{classProcessor_a8d704f769bf0582b54e94516e912d836}} 
+{\bfseries Processor} (std\+::vector$<$ float $>$ const \&samples)
+\item 
+\mbox{\Hypertarget{classProcessor_a43fa3f54897273ee6405d5c33404fe04}\label{classProcessor_a43fa3f54897273ee6405d5c33404fe04}} 
+void {\bfseries set\+Sample} (std\+::vector$<$ float $>$ samples)
+\item 
+\mbox{\Hypertarget{classProcessor_af4b79da95964b3894b4d46b9c2d6a3c4}\label{classProcessor_af4b79da95964b3894b4d46b9c2d6a3c4}} 
+std\+::vector$<$ float $>$ {\bfseries get\+Sample} () const
+\item 
+\mbox{\Hypertarget{classProcessor_a7647cb0f392f7cad6bd59dbbd75b36ad}\label{classProcessor_a7647cb0f392f7cad6bd59dbbd75b36ad}} 
+float {\bfseries get\+Max\+Val} () const
+\item 
+\mbox{\Hypertarget{classProcessor_a556a29a85ea854ce51c06042a91bdbcf}\label{classProcessor_a556a29a85ea854ce51c06042a91bdbcf}} 
+float {\bfseries get\+Min\+Val} () const
+\item 
+void \mbox{\hyperlink{classProcessor_a6b239ea764d8d913bf0962a779012314}{check\+Vals}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the values in sample are valid Iterates through sample and sets the element to the max possible value if it exceeds the max possible value. It sets the element to the least possible value if it is below the least possible value. The element is set to the max possible value by the get\+Max\+Val() method. The element is set to the least possible value by the get\+Min\+Val() method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{classProcessor}{Processor}} parent class This class has a public constructor that initializes the sample. It also has two other private member variables which are the highest and lowest possible values in the sample. The class has a setter for the sample private member. The class has getters for both the max\+Val and min\+Val private members. The class has a validation method to check if the values in sample are valid. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProcessor_a6b239ea764d8d913bf0962a779012314}\label{classProcessor_a6b239ea764d8d913bf0962a779012314}} 
+\index{Processor@{Processor}!checkVals@{checkVals}}
+\index{checkVals@{checkVals}!Processor@{Processor}}
+\doxysubsubsection{\texorpdfstring{checkVals()}{checkVals()}}
+{\footnotesize\ttfamily void Processor\+::check\+Vals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the values in sample are valid Iterates through sample and sets the element to the max possible value if it exceeds the max possible value. It sets the element to the least possible value if it is below the least possible value. The element is set to the max possible value by the get\+Max\+Val() method. The element is set to the least possible value by the get\+Min\+Val() method. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/Processor.\+h\item 
+src/Processor.\+cpp\end{DoxyCompactItemize}
