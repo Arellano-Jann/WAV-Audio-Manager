@@ -16,6 +16,7 @@
 
 - UI
 - Documentation
+- QC
 
 **UML Diagram**
 
