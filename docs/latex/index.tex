@@ -21,7 +21,7 @@
 \begin{DoxyItemize}
 \item \mbox{\hyperlink{classUI}{UI}}
 \item Documentation
-\item QC
+\item Quality Checker
 \end{DoxyItemize}
 
 {\bfseries{U\+ML Diagram}}
@@ -31,26 +31,26 @@
 
 
 
-{\bfseries{Issues}}
+{\bfseries{Current Issues}}
 
 \DoxyHorRuler{0}
 
 
 
 \begin{DoxyItemize}
-\item Low Pass Filter doesn’t work with the method described in the hints. It only creates a delay. Fourier Transform would work but I am too “not good at math” to know how to code that.
+\item Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. I, Jann, would imagine that coding a fourier\textquotesingle{}s transform would work and separating the high frequencies though.
 \end{DoxyItemize}
 
-{\bfseries{Challenges}}
+{\bfseries{Past Challenges}}
 
 \DoxyHorRuler{0}
 
 
 
 \begin{DoxyItemize}
-\item Many segmentation faults that were caused by Print\+Meta\+Data() taking in a copy of the \mbox{\hyperlink{classWav}{Wav}} object instead of a reference causing two deletions of the sample array.
-\item Creating a really advanced makefile made me read half of the G\+NU Make documentation to have a really cool makefile. Implicit rules don’t work with my makefile but I’m satisfied that it looks cool.
-\item Putting .cpp and .h files in a directory made for a challenge when creating the makefile.
+\item Many segmentation faults was caused by our Print\+Meta\+Data() method taking in a copy of the \mbox{\hyperlink{classWav}{Wav}} object instead of a reference causing two deletions of the sample array.
+\item Creating a really advanced makefile made me, Jann, read half of the G\+NU Make documentation to have a really cool makefile. Though, implicit rules don’t work with the makefile sadly.
+\item Putting .cpp and .h files in a directory/folder made for a challenge when creating the makefile.
 \end{DoxyItemize}
 
 {\bfseries{Application Building}}
