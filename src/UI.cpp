@@ -82,7 +82,7 @@ void UI::ProcessorMenu() {
     std::cout << "(2) Echo" << std::endl;
     std::cout << "(3) Gain" << std::endl;
     std::cout << "(4) Low Pass Filter" << std::endl;
-    std::cout << "(5) Compression" << std::endl;
+    std::cout << "(5) Compressor" << std::endl;
     std::cout << std::endl;
 }
 

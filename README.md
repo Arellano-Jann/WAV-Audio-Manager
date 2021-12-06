@@ -68,7 +68,7 @@
   - (4) Low-Pass Filter
     - This Processing Method Does Not Work Properly
     - Avoid Using This Processing Method
-  - (5) Compression
+  - (5) Compressor
     - This Processing Method Will Scale the Volume of Your .wav File by a Ratio Based on a Maximum Threshold
     - This Processing Method Will Ask You to Enter a Ratio that Will Scale Aspects of Your File that Exceed the Maximum Threshold, then it Will Ask You to Set a Maximum Threshold
 
