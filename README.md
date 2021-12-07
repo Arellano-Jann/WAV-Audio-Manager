@@ -28,21 +28,21 @@
 
 ---------
 
-- Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. I, Jann, would imagine that coding a fourier's transform would work and separating the high frequencies though.
+- Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. However, Jann thinks that coding a Fourier's Transform would work, and separate the high frequencies.
 
 **Past Challenges**
 
 ----------------
 
-- Many segmentation faults was caused by our PrintMetaData() method taking in a copy of the Wav object instead of a reference causing two deletions of the sample array.
-- Creating a really advanced makefile made me, Jann, read half of the GNU Make documentation to have a really cool makefile. Though, implicit rules don’t work with the makefile sadly.
+- Many segmentation faults were caused by our PrintMetaData() method taking in a copy of the Wav object instead of a reference, causing two deletions of the sample array.
+- Creating a really advanced makefile made Jann read half of the GNU Make documentation to have a really cool makefile. However, implicit rules don’t work with the makefile sadly.
 - Putting .cpp and .h files in a directory/folder made for a challenge when creating the makefile.
 
 **Application Building**
 
 -----------------------------
 
-`make` builds the program and the necessary directories
+`make` builds the program and the necessary directories.
 
 `make clean` cleans the root folder of the .exe and .wav files. It also cleans the objs directory of all .o files. 
 
@@ -50,26 +50,24 @@
 
 -----------------------------------------
 
-- Build Application
-- Enter “./wavman” in Your Terminal to Run the Application
-- Enter the Name of the .wav File You Wish to Edit
-  - OR Type “q” to Exit the Program
-- The Application will Display the File’s Metadata, and Ask You to Choose a Processing Method to Apply to Your .wav File
-- Enter a Number Based on Which Processor You Would Like to Use
+- Build the Application.
+- Enter “./wavman” in your terminal to run the application.
+- Enter the Name of the .wav file that you wish to edit.
+  - OR Type “q” to Exit the program.
+- The Application will display the file’s Metadata, and ask you to choose a processing method to apply to your .wav file.
+- Enter a Number based on which Processor you would like to use.
   - (1) Normalization:
-    - This Processing Method Will Maximize the Amplitude of Your File
-    - This Processing Method Will Automatically Apply to Your File and Return You to the “Choose a Processing Method” Page
+    - This processing method will Maximize the Amplitude of your file.
+    - This processing method will automatically apply to your file and return you to the “Choose a Processing Method” page.
   - (2) Echo:
-    - This Processing Method Will Create an Echo Effect from Your File
-    - This Processing Method Will Ask You to Enter a Percentage to Scale the Echo’s Volume, then it Will Ask You to Enter a Delay Value by Number of Samples, and Return You to the “Choose a Processing Method” Page
-  - (3) Gain
-    - This Processing Method Will Raise or Lower the Overall Amplitude of Your File
-    - This Processing Method Will Ask You to Enter a Percentage to Scale the Overall Amplitude, and Return You to the “Choose a Processing Method” Page
-  - (4) Low-Pass Filter
-    - This Processing Method Does Not Work Properly
-    - Avoid Using This Processing Method
-  - (5) Compressor
-    - This Processing Method Will Scale the Volume of Your .wav File by a Ratio Based on a Maximum Threshold
-    - This Processing Method Will Ask You to Enter a Ratio that Will Scale Aspects of Your File that Exceed the Maximum Threshold, then it Will Ask You to Set a Maximum Threshold
-
-
+    - This processing method will create an Echo effect from your file.
+    - This processing method will ask you to enter a Percentage to scale the Echo’s Volume, then it will ask you to enter a Delay Value by number of samples, and return you to the “Choose a Processing Method” page.
+  - (3) Gain:
+    - This processing method will raise or lower the Overall Amplitude of your file.
+    - This processing method will ask you to enter a Percentage to scale the Overall Amplitude, and return you to the “Choose a Processing Method” page.
+  - (4) Low-Pass Filter:
+    - This processing method does not currently work.
+    - Avoid using this processing method.
+  - (5) Compression:
+    - This processing method will scale the Volume of your .wav file by a Ratio based on a Maximum Threshold.
+    - This processing method will ask you to enter a Ratio that will scale aspects of your file that exceed the Maximum Threshold, then it will ask you to set a Maximum Threshold.

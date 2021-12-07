@@ -1,7 +1,7 @@
 #include "../headers/Compressor.h"
 
     /**
-     * @brief Construct a new Compressor object
+     * @brief Construct a new Compressor object.
      * This constructor initializes it's parameters into the class's private members using an initializer list.
      * This constructor calls the Processor class's constructor using samples.
      * The constructor calls the private void process() method.
