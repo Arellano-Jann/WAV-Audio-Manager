@@ -23,10 +23,30 @@ class Processor{
 public:
     Processor(std::vector<float> const &samples) : sample(samples){}
 
+    /**
+     * @brief Set the Sample vector
+     * 
+     * @param samples 
+     */
     void setSample(std::vector<float> samples){ sample = samples;}
+    /**
+     * @brief Get the Sample vector
+     * 
+     * @return std::vector<float> 
+     */
     std::vector<float> getSample() const { return sample; }
 
+    /**
+     * @brief Get the max value (floating point) possible
+     * 
+     * @return float 
+     */
     float getMaxVal() const { return maxVal; }
+    /**
+     * @brief Get the min value (floating point) possible
+     * 
+     * @return float 
+     */
     float getMinVal() const { return minVal; }
     void checkVals();
 };
