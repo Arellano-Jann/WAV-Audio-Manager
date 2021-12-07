@@ -34,7 +34,7 @@
 
 ----------------
 
-- Many segmentation faults were caused by our PrintMetaData() method taking in a copy of the Wav object instead of a reference, causing two deletions of the sample array.
+- Many segmentation faults were caused by our PrintMetaData() method taking in a copy of the Wav object instead of a reference, which therefore copied a pointer which was deleted when the function went out of scope, causing a double delete of the sample array later.
 - Creating a really advanced makefile made Jann read half of the GNU Make documentation to have a really cool makefile. However, implicit rules don’t work with the makefile sadly.
 - Putting .cpp and .h files in a directory/folder made for a challenge when creating the makefile.
 
