@@ -35,6 +35,7 @@
 ----------------
 
 - Many segmentation faults were caused by our PrintMetaData() method taking in a copy of the Wav object instead of a reference, which therefore copied a pointer which was deleted when the function went out of scope, causing a double delete of the sample array later.
+- There was some difficulties attempting to convert the raw data from the wav file to usable and proper types (shorts and unsigned chars). I (Andrew) was forced to use some arguably "dangerous" direct memory manipulation to forcefully set two bytes into a short via reinterpret casts and other safer casts.
 - Creating a really advanced makefile made Jann read half of the GNU Make documentation to have a really cool makefile. However, implicit rules don’t work with the makefile sadly.
 - Putting .cpp and .h files in a directory/folder made for a challenge when creating the makefile.
 
