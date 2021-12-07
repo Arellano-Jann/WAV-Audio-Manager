@@ -7,7 +7,7 @@ A sound compressor class that inherits from the \mbox{\hyperlink{classProcessor}
 
 
 
-{\ttfamily \#include $<$Compression.\+h$>$}
+{\ttfamily \#include $<$Compressor.\+h$>$}
 
 
 
@@ -21,9 +21,7 @@ Collaboration diagram for Compressor\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCompressor_a1bfa481c5dfb274abfc078edd4e86102}{Compressor}} (std\+::vector$<$ float $>$ samples, float ratio, float max)
-\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classCompressor}{Compressor}} object This constructor initializes it\textquotesingle{}s parameters into the class\textquotesingle{}s private members using an initializer list. This constructor calls the \mbox{\hyperlink{classProcessor}{Processor}} class\textquotesingle{}s constructor using samples. The constructor calls the private void process() method. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classCompressor_a1bfa481c5dfb274abfc078edd4e86102}{Compressor}} (std\+::vector$<$ float $>$ samples, float ratio, float max)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classCompressor}{Compressor}} object This constructor initializes it\textquotesingle{}s parameters into the class\textquotesingle{}s private members using an initializer list. This constructor calls the \mbox{\hyperlink{classProcessor}{Processor}} class\textquotesingle{}s constructor using samples. The constructor calls the private void process() method. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -35,7 +33,7 @@ A sound compressor class that inherits from the \mbox{\hyperlink{classProcessor}
 \mbox{\Hypertarget{classCompressor_a1bfa481c5dfb274abfc078edd4e86102}\label{classCompressor_a1bfa481c5dfb274abfc078edd4e86102}} 
 \index{Compressor@{Compressor}!Compressor@{Compressor}}
 \index{Compressor@{Compressor}!Compressor@{Compressor}}
-\doxysubsubsection{\texorpdfstring{Compressor()}{Compressor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Compressor()}{Compressor()}}
 {\footnotesize\ttfamily Compressor\+::\+Compressor (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{samples,  }\item[{float}]{ratio,  }\item[{float}]{max }\end{DoxyParamCaption})}
 
 
@@ -51,16 +49,9 @@ Construct a new \mbox{\hyperlink{classCompressor}{Compressor}} object This const
 {\em max} & A float (multiplied by .01) used to determine the max value before compression. The input is a percentage. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classCompressor_a1bfa481c5dfb274abfc078edd4e86102}\label{classCompressor_a1bfa481c5dfb274abfc078edd4e86102}} 
-\index{Compressor@{Compressor}!Compressor@{Compressor}}
-\index{Compressor@{Compressor}!Compressor@{Compressor}}
-\doxysubsubsection{\texorpdfstring{Compressor()}{Compressor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Compressor\+::\+Compressor (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{samples,  }\item[{float}]{ratio,  }\item[{float}]{max }\end{DoxyParamCaption})}
-
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-headers/\mbox{\hyperlink{Compression_8h}{Compression.\+h}}\item 
 headers/\mbox{\hyperlink{Compressor_8h}{Compressor.\+h}}\item 
 src/\mbox{\hyperlink{Compressor_8cpp}{Compressor.\+cpp}}\end{DoxyCompactItemize}
