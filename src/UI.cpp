@@ -21,6 +21,8 @@ std::string UI::Input() {
     std::cout << "Enter WAV Filename:" << std::endl;
     std::cin >> name;
     if (name.find(".wav") != std::string::npos) return name;
+    else if (name.find("q") != std::string::npos) return name;
+    else if (name.find("Q") != std::string::npos) return name;
     return name + ".wav";
     
 }
@@ -33,7 +35,7 @@ std::string UI::Input() {
  */
 bool UI::checkInput(std::string input){
   //std::string i = lower(input);
-  if (input == "q.wav" || input == "Q.wav"){
+  if (input == "q" || input == "Q"){
     return false; // call exit(0); after in main
   }
   return true; // call setFile after
