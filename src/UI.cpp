@@ -33,7 +33,7 @@ std::string UI::Input() {
  */
 bool UI::checkInput(std::string input){
   //std::string i = lower(input);
-  if (input == "q" || input == "Q"){
+  if (input == "q.wav" || input == "Q.wav"){
     return false; // call exit(0); after in main
   }
   return true; // call setFile after
