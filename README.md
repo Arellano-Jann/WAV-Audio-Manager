@@ -29,6 +29,7 @@
 ---------
 
 - Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. However, Jann thinks that coding a Fourier's Transform would work, and separate the high frequencies.
+- The CreateFile function in Wav doesn't work quite properly. The intent was to have the function return false if the filename entered was already the name of a file, but instead it just writes over that filename and essentially always returns true.
 
 **Past Challenges**
 
@@ -36,6 +37,7 @@
 
 - Many segmentation faults were caused by our PrintMetaData() method taking in a copy of the Wav object instead of a reference, which therefore copied a pointer which was deleted when the function went out of scope, causing a double delete of the sample array later.
 - There was some difficulties attempting to convert the raw data from the wav file to usable and proper types (shorts and unsigned chars). I (Andrew) was forced to use some arguably "dangerous" direct memory manipulation to forcefully set two bytes into a short via reinterpret casts and other safer casts.
+- The segmentation faults we experienced during runtime were extremely hard to debug, especially in Visual Studio Code. I (Andrew) have more experience with Visual Studio Community, so throwing all the files into community and then using the debugger I'm familiar with and actually viewing memory and stepping through code made the errors go away much quicker. Debugging in VSC consisted of us commenting out most of our code trying to isolate the problem, but after I moved it into Visual Studio Community, it gave me explicit errors like vector out of range instead of just "segmentation fault", which allowed me to make efficient progress on fixing our code.
 - Creating a really advanced makefile made Jann read half of the GNU Make documentation to have a really cool makefile. However, implicit rules don’t work with the makefile sadly.
 - Putting .cpp and .h files in a directory/folder made for a challenge when creating the makefile.
 
@@ -72,3 +74,5 @@
   - (5) Compression:
     - This processing method will scale the Volume of your .wav file by a Ratio based on a Maximum Threshold.
     - This processing method will ask you to enter a Ratio that will scale aspects of your file that exceed the Maximum Threshold, then it will ask you to set a Maximum Threshold.
+- After the user is done using processor functions on the wav data, to see the input they need to save the file by entering 
+- the number 6, and then entering the name of the file they would like to output to.
