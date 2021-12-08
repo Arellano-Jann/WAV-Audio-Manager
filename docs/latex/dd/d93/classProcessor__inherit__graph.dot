@@ -13,5 +13,5 @@ digraph "Processor"
   Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
   Node5 [label="Normalization",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d6/d51/classNormalization.html",tooltip="A sound normalization class that inherits from the Gain class.  This class has a public constructor t..."];
   Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
-  Node6 [label="LowPassFilter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/d1a/classLowPassFilter.html",tooltip=" "];
+  Node6 [label="LowPassFilter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/d1a/classLowPassFilter.html",tooltip="A LowPassFilter class.  This class doesn't work.  ."];
 }

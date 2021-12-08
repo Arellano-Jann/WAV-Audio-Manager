@@ -5,7 +5,8 @@
 A \mbox{\hyperlink{classWav}{Wav}} class. ~\newline
 This class has a public constructor and destructor. ~\newline
 It also has four private member variables which is the sound data, file name and \mbox{\hyperlink{structWaveHeader}{Wave\+Header}}. ~\newline
-The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa.  
+The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa. ~\newline
+.  
 
 
 
@@ -16,38 +17,52 @@ The class has multiple methods for handling wav files and converting floating po
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav}} ()
-\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object, and initializes member variables. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object, and initializes member variables. ~\newline
+. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classWav_a1510b246ba121b103a60b8e7839af25f}{$\sim$\+Wav}} ()
-\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object. ~\newline
+. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classWav_a67b3062a3f0b9563951a0f25f38c6a3a}{Set\+File}} (const std\+::string \&filename)
-\begin{DoxyCompactList}\small\item\em Attempts to set file member variable and tests if the file is valid to be opened. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Attempts to set file member variable and tests if the file is valid to be opened. ~\newline
+. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWav_acf67b55365c25035f3c96df1938f6708}{Analyze\+File}} ()
-\begin{DoxyCompactList}\small\item\em Opens the file, and reads the \mbox{\hyperlink{structWaveHeader}{Wave\+Header}} and data information in. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Opens the file, and reads the \mbox{\hyperlink{structWaveHeader}{Wave\+Header}} and data information in. ~\newline
+. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classWav_a6cb92af0a60606bbe5f1302d20d680bd}{Get\+File\+Name}} () const
-\begin{DoxyCompactList}\small\item\em Get the File Name associated with this \mbox{\hyperlink{classWav}{Wav}} Object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get the File Name associated with this \mbox{\hyperlink{classWav}{Wav}} Object. ~\newline
+. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classWav_acef103ca027e3c659e9091bdd999d2a8}{Get\+Stereo}} () const
-\begin{DoxyCompactList}\small\item\em Returns what type of numbered channel audio data the wav file is. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns what type of numbered channel audio data the wav file is. ~\newline
+. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classWav_a11491de1704de4935fbcb3298a71a6bb}{Get\+Sample\+Rate}} () const
-\begin{DoxyCompactList}\small\item\em Get the Sample Rate of the wav file associated with this object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get the Sample Rate of the wav file associated with this object. ~\newline
+. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classWav_a1d15955ccc1278db5be75feb0b028811}{Get\+Byte\+Rate}} () const
-\begin{DoxyCompactList}\small\item\em Get the Byte Rate of the wav file associated with this object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get the Byte Rate of the wav file associated with this object. ~\newline
+. \end{DoxyCompactList}\item 
 short \mbox{\hyperlink{classWav_abc10c3170097527959bf77dae2e74122}{Get\+Bits\+Per\+Sample}} () const
-\begin{DoxyCompactList}\small\item\em Get the Bits Per Sample (bitdepth) of the wav data associated with this object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get the Bits Per Sample (bitdepth) of the wav data associated with this object. ~\newline
+. \end{DoxyCompactList}\item 
 short \mbox{\hyperlink{classWav_ab59e7cc4e55ade3f312cfa0136b19cc1}{Get\+Block\+Align}} () const
-\begin{DoxyCompactList}\small\item\em Get the Block Align of the wav data associated with this object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get the Block Align of the wav data associated with this object. ~\newline
+. \end{DoxyCompactList}\item 
 const std\+::vector$<$ float $>$ \& \mbox{\hyperlink{classWav_ab425e105852c1cca4e5e90c0e6545359}{Get\+Samples}} () const
-\begin{DoxyCompactList}\small\item\em Get the vector of samples converted from the raw wav data (this holds float values from -\/1.\+0f to 1.\+0f). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get the vector of samples converted from the raw wav data (this holds float values from -\/1.\+0f to 1.\+0f). ~\newline
+. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classWav_a0d17e2cad80b75c10e143b6fe57b1f5c}{Create\+File}} (std\+::string new\+File\+Name)
-\begin{DoxyCompactList}\small\item\em Attempts to create a file with the data stored in this wav object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Attempts to create a file with the data stored in this wav object. ~\newline
+. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWav_a2e4808c2af18e96ca6cfc1bb769c9a2d}{set\+Samples}} (std\+::vector$<$ float $>$ sample)
-\begin{DoxyCompactList}\small\item\em Sets the samples vector to be converted back into new wav audio data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the samples vector to be converted back into new wav audio data. ~\newline
+. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 A \mbox{\hyperlink{classWav}{Wav}} class. ~\newline
 This class has a public constructor and destructor. ~\newline
 It also has four private member variables which is the sound data, file name and \mbox{\hyperlink{structWaveHeader}{Wave\+Header}}. ~\newline
-The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa. 
+The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa. ~\newline
+. 
 
 
 
@@ -60,7 +75,8 @@ The class has multiple methods for handling wav files and converting floating po
 
 
 
-Constructs a new \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object, and initializes member variables. 
+Constructs a new \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object, and initializes member variables. ~\newline
+. 
 
 \mbox{\Hypertarget{classWav_a1510b246ba121b103a60b8e7839af25f}\label{classWav_a1510b246ba121b103a60b8e7839af25f}} 
 \index{Wav@{Wav}!````~Wav@{$\sim$Wav}}
@@ -70,7 +86,8 @@ Constructs a new \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wa
 
 
 
-Destroys the \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object. 
+Destroys the \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object. ~\newline
+. 
 
 
 
@@ -83,7 +100,8 @@ Destroys the \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+:
 
 
 
-Opens the file, and reads the \mbox{\hyperlink{structWaveHeader}{Wave\+Header}} and data information in. 
+Opens the file, and reads the \mbox{\hyperlink{structWaveHeader}{Wave\+Header}} and data information in. ~\newline
+. 
 
 \mbox{\Hypertarget{classWav_a0d17e2cad80b75c10e143b6fe57b1f5c}\label{classWav_a0d17e2cad80b75c10e143b6fe57b1f5c}} 
 \index{Wav@{Wav}!CreateFile@{CreateFile}}
@@ -93,17 +111,21 @@ Opens the file, and reads the \mbox{\hyperlink{structWaveHeader}{Wave\+Header}} 
 
 
 
-Attempts to create a file with the data stored in this wav object. 
+Attempts to create a file with the data stored in this wav object. ~\newline
+. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em new\+File\+Name} & The new file name to store the data in \\
+{\em new\+File\+Name} & (The new file name to store the data in.) ~\newline
+\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true if the file could successfully be created 
+true (If the file could successfully be created.) ~\newline
 
-false if the file could not be created 
+
+false (If the file could not be created.) ~\newline
+
 \end{DoxyReturn}
 \mbox{\Hypertarget{classWav_abc10c3170097527959bf77dae2e74122}\label{classWav_abc10c3170097527959bf77dae2e74122}} 
 \index{Wav@{Wav}!GetBitsPerSample@{GetBitsPerSample}}
@@ -113,10 +135,11 @@ false if the file could not be created
 
 
 
-Get the Bits Per Sample (bitdepth) of the wav data associated with this object. 
+Get the Bits Per Sample (bitdepth) of the wav data associated with this object. ~\newline
+. 
 
 \begin{DoxyReturn}{Returns}
-short bit depth 
+short bit\+Depth 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classWav_ab59e7cc4e55ade3f312cfa0136b19cc1}\label{classWav_ab59e7cc4e55ade3f312cfa0136b19cc1}} 
 \index{Wav@{Wav}!GetBlockAlign@{GetBlockAlign}}
@@ -126,10 +149,11 @@ short bit depth
 
 
 
-Get the Block Align of the wav data associated with this object. 
+Get the Block Align of the wav data associated with this object. ~\newline
+. 
 
 \begin{DoxyReturn}{Returns}
-short block alignment 
+short sample\+Alignment 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classWav_a1d15955ccc1278db5be75feb0b028811}\label{classWav_a1d15955ccc1278db5be75feb0b028811}} 
 \index{Wav@{Wav}!GetByteRate@{GetByteRate}}
@@ -139,10 +163,11 @@ short block alignment
 
 
 
-Get the Byte Rate of the wav file associated with this object. 
+Get the Byte Rate of the wav file associated with this object. ~\newline
+. 
 
 \begin{DoxyReturn}{Returns}
-int byte rate 
+int byte\+Rate 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classWav_a6cb92af0a60606bbe5f1302d20d680bd}\label{classWav_a6cb92af0a60606bbe5f1302d20d680bd}} 
 \index{Wav@{Wav}!GetFileName@{GetFileName}}
@@ -152,10 +177,11 @@ int byte rate
 
 
 
-Get the File Name associated with this \mbox{\hyperlink{classWav}{Wav}} Object. 
+Get the File Name associated with this \mbox{\hyperlink{classWav}{Wav}} Object. ~\newline
+. 
 
 \begin{DoxyReturn}{Returns}
-std\+::string name of file 
+std\+::string file 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classWav_a11491de1704de4935fbcb3298a71a6bb}\label{classWav_a11491de1704de4935fbcb3298a71a6bb}} 
 \index{Wav@{Wav}!GetSampleRate@{GetSampleRate}}
@@ -165,10 +191,11 @@ std\+::string name of file
 
 
 
-Get the Sample Rate of the wav file associated with this object. 
+Get the Sample Rate of the wav file associated with this object. ~\newline
+. 
 
 \begin{DoxyReturn}{Returns}
-int sample rate 
+int sample\+Rate 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classWav_ab425e105852c1cca4e5e90c0e6545359}\label{classWav_ab425e105852c1cca4e5e90c0e6545359}} 
 \index{Wav@{Wav}!GetSamples@{GetSamples}}
@@ -178,7 +205,8 @@ int sample rate
 
 
 
-Get the vector of samples converted from the raw wav data (this holds float values from -\/1.\+0f to 1.\+0f). 
+Get the vector of samples converted from the raw wav data (this holds float values from -\/1.\+0f to 1.\+0f). ~\newline
+. 
 
 \begin{DoxyReturn}{Returns}
 const std\+::vector$<$float$>$\& samples 
@@ -191,10 +219,12 @@ const std\+::vector$<$float$>$\& samples
 
 
 
-Returns what type of numbered channel audio data the wav file is. 
+Returns what type of numbered channel audio data the wav file is. ~\newline
+. 
 
 \begin{DoxyReturn}{Returns}
-std\+::string Mono or Stereo or Undefined if neither 
+std\+::string (Mono or Stereo, or Undefined if neither.) ~\newline
+
 \end{DoxyReturn}
 \mbox{\Hypertarget{classWav_a67b3062a3f0b9563951a0f25f38c6a3a}\label{classWav_a67b3062a3f0b9563951a0f25f38c6a3a}} 
 \index{Wav@{Wav}!SetFile@{SetFile}}
@@ -204,17 +234,21 @@ std\+::string Mono or Stereo or Undefined if neither
 
 
 
-Attempts to set file member variable and tests if the file is valid to be opened. 
+Attempts to set file member variable and tests if the file is valid to be opened. ~\newline
+. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em filename} & The name of the file to be opened \\
+{\em filename} & (The name of the file to be opened.) ~\newline
+\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true if the file opened successfully 
+true (If the file opened successfully.) ~\newline
 
-false if the file couldn\textquotesingle{}t be opened or is an invalid type 
+
+false (If the file couldn\textquotesingle{}t be opened or is an invalid type.) ~\newline
+
 \end{DoxyReturn}
 \mbox{\Hypertarget{classWav_a2e4808c2af18e96ca6cfc1bb769c9a2d}\label{classWav_a2e4808c2af18e96ca6cfc1bb769c9a2d}} 
 \index{Wav@{Wav}!setSamples@{setSamples}}
@@ -224,11 +258,13 @@ false if the file couldn\textquotesingle{}t be opened or is an invalid type
 
 
 
-Sets the samples vector to be converted back into new wav audio data. 
+Sets the samples vector to be converted back into new wav audio data. ~\newline
+. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em sample} & std\+::vector$<$float$>$ samples that have just been modified \\
+{\em sample} & std\+::vector$<$float$>$ (Samples that have just been modified.) ~\newline
+\\
 \hline
 \end{DoxyParams}
 
