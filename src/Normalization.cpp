@@ -2,8 +2,8 @@
 #include <iostream>
 
     /**
-     * @brief Construct a new Compressor object
-     * This constructor calls the Gain class's constructor using samples and 100, a float.
+     * @brief Constructs a new Compressor object. \n
+     * This constructor calls the Gain class's constructor using samples and 100, a float. \n
      * The constructor calls the private void process() method.
      * 
      * @param samples A vector that will be processed using private methods.
@@ -19,8 +19,15 @@
     }    
 
     /**
-     * @brief Finds the scale to use and calls the gain constructor using samples and the scale.
-     * Finds the minimum and maximum values in samples using the float-return findMin() and findMax() method. It saves both values to a float variable. Next, it then calls the float-return findScale() method using the two newly saved min and maxes. It saves the float returned to a float variable named scale. Then, it calls the Gain constructor using samples and scale thus creating a new scaled vector within the Gain object. After, it saves the new vector by calling the inherited setSample() method from the Processor class and the inherited getGain() method from the Gain class. It then checks the values of the saved vector by the inherited checkVals() method from the Processor class.
+     * @brief Finds the scale to use and calls the gain constructor using samples and the scale. \n
+     * Finds the minimum and maximum values in samples using the float-return findMin() and findMax() method. \n
+     * It saves both values to a float variable. \n
+     * Next, it then calls the float-return findScale() method using the two newly saved min and maxes. \n
+     * It saves the float returned to a float variable named scale. \n
+     * Then, it calls the Gain constructor using samples and scale thus creating a new scaled vector within the Gain object. \n
+     * After, it saves the new vector by calling the inherited setSample() method from the Processor class \n
+     * and the inherited getGain() method from the Gain class. \n
+     * It then checks the values of the saved vector by the inherited checkVals() method from the Processor class.
      * 
      * @param samples 
      */
@@ -34,8 +41,11 @@
     }
 
     /**
-     * @brief Finds the max value in the sample
-     * Sets a float max variable to the lowest possible value in the sample via the inherited method getMinVal(). After, it iterates through the elements in the sample. If an element exceeds the current max value, the element is saved as the new max value. At the end of the iteration, the max value in samples is returned.
+     * @brief Finds the max value in the sample. \n
+     * Sets a float max variable to the lowest possible value in the sample via the inherited method getMinVal(). \n
+     * After, it iterates through the elements in the sample. \n
+     * If an element exceeds the current max value, the element is saved as the new max value. \n
+     * At the end of the iteration, the max value in samples is returned.
      * 
      * @return float the max value in samples
      */
@@ -47,8 +57,11 @@
         return max;
     }
     /**
-     * @brief Finds the min value in the sample
-     * Sets a float min variable to the highest possible value in the sample via the inherited method getMaxVal(). After, it iterates through the elements in the sample. If the min value exceeds the current element, the element is saved as the new min value. At the end of the iteration, the min value in samples is returned.
+     * @brief Finds the min value in the sample. \n
+     * Sets a float min variable to the highest possible value in the sample via the inherited method getMaxVal(). \n
+     * After, it iterates through the elements in the sample. \n
+     * If the min value exceeds the current element, the element is saved as the new min value. \n
+     * At the end of the iteration, the min value in samples is returned.
      * 
      * @return float the min value in samples
      */
@@ -62,8 +75,12 @@
     }
 
     /**
-     * @brief Calculates the scale that would be used for min and max and compares them. It returns the smaller scale.
-     * Calculates the scale for the max via the inherited getMaxVal() method divided by the inputted max. Then, it calculates the scale for the min via the inherited getMinVal() method divided by the inputted min. It then makes sure min is a positive by multiplying it by -1 if it is a negative. This is to ensure that we're comparing positive values. Finally, it returns the lesser of the two calculations.
+     * @brief Calculates the scale that would be used for min and max and compares them. It returns the smaller scale. \n
+     * Calculates the scale for the max via the inherited getMaxVal() method divided by the inputted max. \n
+     * Then, it calculates the scale for the min via the inherited getMinVal() method divided by the inputted min. \n
+     * It then makes sure min is a positive by multiplying it by -1 if it is a negative. \n
+     * This is to ensure that we're comparing positive values. \n
+     * Finally, it returns the lesser of the two calculations.
      * 
      * @param min the minimum possible value
      * @param max the maximum possible value

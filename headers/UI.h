@@ -8,7 +8,7 @@
 
 /**
  * 
- * @brief A UI class.
+ * @brief A UI class. \n
  * Includes many functions that outputs text related to the wav class and checks if inputs are valid.
  * 
  */

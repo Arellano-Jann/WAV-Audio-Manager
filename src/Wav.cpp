@@ -8,7 +8,7 @@
 #include <cassert>
 
 /**
- * @brief Construct a new Wav:: Wav object and initializes member variables
+ * @brief Constructs a new Wav::Wav object, and initializes member variables.
  * 
  */
 Wav::Wav()
@@ -20,7 +20,7 @@ Wav::Wav()
 }
 
 /**
- * @brief Attempts to set file member variable and tests if the file is valid to be opened
+ * @brief Attempts to set file member variable and tests if the file is valid to be opened.
  * 
  * @param filename The name of the file to be opened
  * @return true if the file opened successfully
@@ -45,7 +45,7 @@ bool Wav::SetFile(const std::string& filename)
 }
 
 /**
- * @brief Opens the file, and reads the wave header and data information in
+ * @brief Opens the file, and reads the WaveHeader and data information in.
  * 
  */
 void Wav::AnalyzeFile()
@@ -63,7 +63,7 @@ void Wav::AnalyzeFile()
 }
 
 /**
- * @brief Returns what type of numbered channel audio data the wav file is
+ * @brief Returns what type of numbered channel audio data the wav file is.
  * 
  * @return std::string Mono or Stereo or Undefined if neither
  */
@@ -82,7 +82,7 @@ std::string Wav::GetStereo() const
 }
 
 /**
- * @brief Converts raw signed short data to a float sample
+ * @brief Converts raw signed short data to a float sample.
  * 
  * @param data Raw signed short data
  * @return float sample converted value
@@ -95,7 +95,7 @@ float Wav::Convert16BitToFloat(short data)
 }
 
 /**
- * @brief Converts raw unsigned char data to a float sample
+ * @brief Converts raw unsigned char data to a float sample.
  * 
  * @param data Raw unsigned char data
  * @return float sample converted value
@@ -108,7 +108,7 @@ float Wav::Convert8BitToFloat(unsigned char data)
 }
 
 /**
- * @brief Converts a float sample back to raw short data
+ * @brief Converts a float sample back to raw short data.
  * 
  * @param sample Float sample value
  * @return short converted back raw short data
@@ -120,7 +120,7 @@ short Wav::ConvertFloatTo16Bit(float sample)
 }
 
 /**
- * @brief Converts a float sample back to unsigned char data
+ * @brief Converts a float sample back to unsigned char data.
  * 
  * @param sample Float sample value
  * @return unsigned char converted back raw unsigned char data
@@ -132,7 +132,7 @@ unsigned char Wav::ConvertFloatTo8Bit(float sample)
 }
 
 /**
- * @brief Attempts to create a file with the data stored in this wav object
+ * @brief Attempts to create a file with the data stored in this wav object.
  * 
  * @param newFileName The new file name to store the data in
  * @return true if the file could successfully be created 
@@ -195,7 +195,7 @@ bool Wav::CreateFile(std::string newFileName)
 }
 
 /**
- * @brief Fills the float samples member variable vector from the raw data read from the wav file
+ * @brief Fills the float samples member variable vector from the raw data read from the wav file.
  * 
  */
 void Wav::FillFloatSamplesFromRawData()
@@ -236,7 +236,7 @@ void Wav::FillFloatSamplesFromRawData()
 }
 
 /**
- * @brief Destroy the Wav:: Wav object
+ * @brief Destroys the Wav::Wav object.
  * 
  */
 Wav::~Wav()

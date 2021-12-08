@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author Jann Arellano
+ * @author Jann Arellano, Andrew Kalb, Alec Redera
  * @brief 
  * @version 0.1
  * @date 2021-12-05

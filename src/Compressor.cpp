@@ -1,9 +1,9 @@
 #include "../headers/Compressor.h"
 
     /**
-     * @brief Construct a new Compressor object.
-     * This constructor initializes it's parameters into the class's private members using an initializer list.
-     * This constructor calls the Processor class's constructor using samples.
+     * @brief Constructs a new Compressor object. \n
+     * This constructor initializes it's parameters into the class's private members using an initializer list. \n
+     * This constructor calls the Processor class's constructor using samples. \n
      * The constructor calls the private void process() method.
      * 
      * @param samples A vector that will be processed using private methods.
@@ -22,8 +22,10 @@
     }
 
     /**
-     * @brief Compresses samples and checks if values are valid.
-     * Calls the void compress() method to compress the passed in vector of samples. After, it saves the new vector by calling the inherited setSample() method from the Processor class. It then checks the values of the saved vector by the inherited checkVals() method from the Processor class.
+     * @brief Compresses samples and checks if values are valid. \n
+     * Calls the void compress() method to compress the passed in vector of samples. \n
+     * After, it saves the new vector by calling the inherited setSample() method from the Processor class. \n
+     * It then checks the values of the saved vector by the inherited checkVals() method from the Processor class. \n
      * 
      */
     void Compressor::process(){
@@ -33,9 +35,12 @@
     }
 
     /**
-     * @brief Compresses samples and puts it into a new vector.
-     *  Iterates through each element in the sample. Then, if the element exceeds the class member max, it compresses the element by the class member ratio. Finally, it adds it to the compressed vector, a class member.
-     * The compression is calculated by adding max to the product of ratio and overflow (max + ratio * overflow). Overflow is calculated by the difference between the current element and max.
+     * @brief Compresses samples and puts it into a new vector. \n
+     * Iterates through each element in the sample. \n 
+     * Then, if the element exceeds the class member max, it compresses the element by the class member ratio. \n
+     * Finally, it adds it to the compressed vector, a class member. \n
+     * The compression is calculated by adding max to the product of ratio and overflow (max + ratio * overflow). \n
+     * Overflow is calculated by the difference between the current element and max.
      * 
      */
     void Compressor::compress(){

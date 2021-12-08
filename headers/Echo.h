@@ -3,8 +3,8 @@
 #include "Processor.h"
 
 /**
- * @brief A sound echoing class that inherits from the Processor class.
- * This class has a public constructor that calls private processing methods.
+ * @brief A sound echoing class that inherits from the Processor class. \n
+ * This class has a public constructor that calls private processing methods. \n
  * It also has three private member variables which are initialized by the constructor.
  * 
  */

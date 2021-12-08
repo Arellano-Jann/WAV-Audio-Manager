@@ -6,11 +6,11 @@
 #include <vector>
 
 /**
- * @brief A Processor parent class.
- * This class has a public constructor that initializes the sample.
- * It also has two other private member variables which are the highest and lowest possible values in the sample.
- * The class has a setter for the sample private member.
- * The class has getters for both the maxVal and minVal private members.
+ * @brief A Processor parent class. \n
+ * This class has a public constructor that initializes the sample. \n
+ * It also has two other private member variables which are the highest and lowest possible values in the sample. \n
+ * The class has a setter for the sample private member. \n
+ * The class has getters for both the maxVal and minVal private members. \n
  * The class has a validation method to check if the values in sample are valid.
  * 
  */

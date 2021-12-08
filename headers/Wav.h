@@ -6,9 +6,9 @@
 #include <vector>
 
 /**
- * @brief A Wav class.
- * This class has a public constructor and destructor.
- * It also has four private member variables which is the sound data, file name and WaveHeader.
+ * @brief A Wav class. \n
+ * This class has a public constructor and destructor. \n
+ * It also has four private member variables which is the sound data, file name and WaveHeader. \n
  * The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa.
  * 
  */
