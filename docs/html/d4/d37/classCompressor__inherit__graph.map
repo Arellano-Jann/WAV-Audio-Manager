@@ -1,0 +1,4 @@
+<map id="Compressor" name="Compressor">
+<area shape="rect" id="node1" title="A sound compressor class that inherits from the Processor class. &#160;&#160;This class has a public constructo..." alt="" coords="5,80,105,107"/>
+<area shape="rect" id="node2" href="$db/d9f/classProcessor.html" title="A Processor parent class. &#160;This class has a public constructor that initializes the sample...." alt="" coords="13,5,98,32"/>
+</map>

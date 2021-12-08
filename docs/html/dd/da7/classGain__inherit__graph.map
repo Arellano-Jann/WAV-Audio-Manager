@@ -1,0 +1,5 @@
+<map id="Gain" name="Gain">
+<area shape="rect" id="node1" title="A gain class that inherits from the Processor class. &#160;This class has a public constructor that calls ..." alt="" coords="37,80,89,107"/>
+<area shape="rect" id="node3" href="$d6/d51/classNormalization.html" title="A sound normalization class that inherits from the Gain class. &#160;This class has a public constructor t..." alt="" coords="5,155,120,181"/>
+<area shape="rect" id="node2" href="$db/d9f/classProcessor.html" title="A Processor parent class. &#160;This class has a public constructor that initializes the sample...." alt="" coords="20,5,105,32"/>
+</map>
