@@ -5,7 +5,7 @@
 /**
  * @brief A gain class that inherits from the Processor class. \n
  * This class has a public constructor that calls private processing methods. \n
- * It also has two private member variables which are initialized by the constructor.
+ * It also has two private member variables which are initialized by the constructor. \n
  * 
  */
 class Gain : public Processor{

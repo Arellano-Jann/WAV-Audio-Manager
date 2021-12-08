@@ -5,7 +5,7 @@
 /**
  * @brief A sound normalization class that inherits from the Gain class. \n
  * This class has a public constructor that calls private processing methods. \n
- * It also has no private member variables which are initialized by the constructor.
+ * It also has no private member variables which are initialized by the constructor. \n
  * 
  */
 class Normalization : public Gain{

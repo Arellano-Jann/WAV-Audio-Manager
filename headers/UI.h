@@ -9,7 +9,7 @@
 /**
  * 
  * @brief A UI class. \n
- * Includes many functions that outputs text related to the wav class and checks if inputs are valid.
+ * Includes many functions that outputs text related to the wav class and checks if inputs are valid. \n
  * 
  */
 class UI {

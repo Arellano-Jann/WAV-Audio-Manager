@@ -11,7 +11,7 @@
  * It also has two other private member variables which are the highest and lowest possible values in the sample. \n
  * The class has a setter for the sample private member. \n
  * The class has getters for both the maxVal and minVal private members. \n
- * The class has a validation method to check if the values in sample are valid.
+ * The class has a validation method to check if the values in sample are valid. \n
  * 
  */
 class Processor{
@@ -24,26 +24,26 @@ public:
     Processor(std::vector<float> const &samples) : sample(samples){}
 
     /**
-     * @brief Set the Sample vector.
+     * @brief Set the Sample vector. \n
      * 
-     * @param samples 
+     * @param samples
      */
     void setSample(std::vector<float> samples){ sample = samples;}
     /**
-     * @brief Get the Sample vector.
+     * @brief Get the Sample vector. \n
      * 
      * @return std::vector<float> 
      */
     std::vector<float> getSample() const { return sample; }
 
     /**
-     * @brief Get the max value (floating point) possible.
+     * @brief Get the max value (floating point) possible. \n
      * 
      * @return float 
      */
     float getMaxVal() const { return maxVal; }
     /**
-     * @brief Get the min value (floating point) possible.
+     * @brief Get the min value (floating point) possible. \n
      * 
      * @return float 
      */

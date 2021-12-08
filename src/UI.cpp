@@ -4,16 +4,16 @@
 #include <array>
 
 /**
- * @brief Outputs the start menu text message to the console.
+ * @brief Outputs the start menu text message to the console. \n
  * 
  */
 void UI::StartMenu() {
     output("This Program Can Load and Modify WAV Files.");
 }
 /**
- * @brief Retrieves a filename from the user and appends ".wav" if it's not already there.
+ * @brief Retrieves a filename from the user and appends ".wav" if it's not already there. \n
  * 
- * @return std::string (The filename entered by the user.)
+ * @return std::string (The filename entered by the user.) \n
  */
 std::string UI::Input() {
     std::string name;
@@ -27,11 +27,11 @@ std::string UI::Input() {
     
 }
 /**
- * @brief Checks the input from the user to see if they are quitting.
+ * @brief Checks the input from the user to see if they are quitting. \n
  * 
- * @param input (User input.)
- * @return true (User inputs a filename.)
- * @return false (User inputs "q" or "Q".)
+ * @param input (User input.) \n
+ * @return true (User inputs a filename.) \n
+ * @return false (User inputs "q" or "Q".) \n
  */
 bool UI::checkInput(std::string input){
   //std::string i = lower(input);
@@ -42,7 +42,7 @@ bool UI::checkInput(std::string input){
 }
 
 /**
- * @brief Outputs the error message in case of an invalid filename.
+ * @brief Outputs the error message in case of an invalid filename. \n
  * 
  */
 void UI::InvalidFileName()
@@ -51,7 +51,7 @@ void UI::InvalidFileName()
 }
 
 /**
- * @brief Outputs the exit message to the console.
+ * @brief Outputs the exit message to the console. \n
  * 
  */
 void UI::ExitMenu() {
@@ -60,8 +60,8 @@ void UI::ExitMenu() {
 
 /**
  * @brief Prints relevant metadata to the console. \n
- * The metadata is retrieved from the wav object.
- * @param wav (A reference to the wav file to fetch the metadata.)
+ * The metadata is retrieved from the wav object. \n
+ * @param wav (A reference to the wav file to fetch the metadata.) \n
  */
 void UI::PrintMetaData(const Wav& wav) {
     std::cout << "Metadata Goodness:" << std::endl;
@@ -75,7 +75,7 @@ void UI::PrintMetaData(const Wav& wav) {
 }
 
 /**
- * @brief Outputs the Processor Menu to the console.
+ * @brief Outputs the Processor Menu to the console. \n
  * 
  */
 void UI::ProcessorMenu() {
@@ -89,9 +89,9 @@ void UI::ProcessorMenu() {
 }
 
 /**
- * @brief Requests an integer selection from the user to select a processor.
+ * @brief Requests an integer selection from the user to select a processor. \n
  * 
- * @return int (A number associated with a processor.)
+ * @return int (A number associated with a processor.) \n
  */
 int UI::selectProcessor(){
     std::string selection;
@@ -106,11 +106,11 @@ int UI::selectProcessor(){
 }
 
 /**
- * @brief Checks the previously selected input from the user to confirm it is a valid processor selection.
+ * @brief Checks the previously selected input from the user to confirm it is a valid processor selection. \n
  * 
- * @param i (Previous processor selection input (1-6).)
- * @return true (If the selected input is valid (between 1-6).)
- * @return false (If the selected input was invalid (not between 1-6).)
+ * @param i (Previous processor selection input (1-6).) \n
+ * @return true (If the selected input is valid (between 1-6).) \n
+ * @return false (If the selected input was invalid (not between 1-6).) \n
  */
 bool UI::checkProcessor(std::string i){
     std::string arr[6] = {"1","2","3","4","5","6"};
@@ -123,9 +123,9 @@ bool UI::checkProcessor(std::string i){
 }
 
 /**
- * @brief Outputs questions to the user.
+ * @brief Outputs questions to the user. \n
  * 
- * @param i (A picker for the questions.)
+ * @param i (A picker for the questions.) \n
  */
 void UI::askProcessorQuestions(int i){
     switch (i){
@@ -145,9 +145,9 @@ void UI::askProcessorQuestions(int i){
 }
 
 /**
- * @brief Requests the name of the file the new wav data should be written to.
+ * @brief Requests the name of the file the new wav data should be written to. \n
  * 
- * @return std::string (The complete output filename (includes .wav extension).)
+ * @return std::string (The complete output filename (includes .wav extension).) \n
  */
 std::string UI::OutputFileName() {
     std::cout << "Enter the Name of Your Output File:" << std::endl;
@@ -160,9 +160,9 @@ std::string UI::OutputFileName() {
 
 // Helper Functions
 /**
- * @brief Easier std::cout, but in a function.
+ * @brief Easier std::cout, but in a function. \n
  * 
- * @param str (String outputted in the terminal.)
+ * @param str (String outputted in the terminal.) \n
  */
 void UI::output(std::string str){
     std::cout << str << std::endl;

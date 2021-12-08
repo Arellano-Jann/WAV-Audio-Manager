@@ -4,7 +4,7 @@
 
 /**
  * @brief A LowPassFilter class. \n
- * This class doesn't work.
+ * This class doesn't work. \n
  * 
  */
 class LowPassFilter : public Processor{

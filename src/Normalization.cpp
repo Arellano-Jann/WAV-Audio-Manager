@@ -4,9 +4,9 @@
     /**
      * @brief Constructs a new Compressor object. \n
      * This constructor calls the Gain class's constructor using samples and 100, a float. \n
-     * The constructor calls the private void process() method.
+     * The constructor calls the private void process() method. \n
      * 
-     * @param samples (A vector that will be processed using private methods.)
+     * @param samples (A vector that will be processed using private methods.) \n
      */
     Normalization::Normalization(std::vector<float> samples)
     : Gain(samples, 100)
@@ -27,7 +27,7 @@
      * Then, it calls the Gain constructor using samples and scale thus creating a new scaled vector within the Gain object. \n
      * After, it saves the new vector by calling the inherited setSample() method from the Processor class \n
      * and the inherited getGain() method from the Gain class. \n
-     * It then checks the values of the saved vector by the inherited checkVals() method from the Processor class.
+     * It then checks the values of the saved vector by the inherited checkVals() method from the Processor class. \n
      * 
      * @param samples 
      */
@@ -45,9 +45,9 @@
      * Sets a float max variable to the lowest possible value in the sample via the inherited method getMinVal(). \n
      * After, it iterates through the elements in the sample. \n
      * If an element exceeds the current max value, the element is saved as the new max value. \n
-     * At the end of the iteration, the max value in samples is returned.
+     * At the end of the iteration, the max value in samples is returned. \n
      * 
-     * @return float (The max value in samples.)
+     * @return float (The max value in samples.) \n
      */
     float Normalization::findMax(){
         float max = getMinVal();
@@ -61,9 +61,9 @@
      * Sets a float min variable to the highest possible value in the sample via the inherited method getMaxVal(). \n
      * After, it iterates through the elements in the sample. \n
      * If the min value exceeds the current element, the element is saved as the new min value. \n
-     * At the end of the iteration, the min value in samples is returned.
+     * At the end of the iteration, the min value in samples is returned. \n
      * 
-     * @return float (The min value in samples.)
+     * @return float (The min value in samples.) \n
      */
     float Normalization::findMin(){
         float min = getMaxVal();
@@ -80,11 +80,11 @@
      * Then, it calculates the scale for the min via the inherited getMinVal() method divided by the inputted min. \n
      * It then makes sure min is a positive by multiplying it by -1 if it is a negative. \n
      * This is to ensure that we're comparing positive values. \n
-     * Finally, it returns the lesser of the two calculations.
+     * Finally, it returns the lesser of the two calculations. \n
      * 
-     * @param min (The minimum possible value.)
-     * @param max (the maximum possible value.)
-     * @return float (The lowest scale to get a value from samples to the maximum or minimum possible value.)
+     * @param min (The minimum possible value.) \n
+     * @param max (the maximum possible value.) \n
+     * @return float (The lowest scale to get a value from samples to the maximum or minimum possible value.) \n
      */
     float Normalization::findScale(float min, float max){
         max = getMaxVal()/max;

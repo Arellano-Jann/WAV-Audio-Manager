@@ -6,7 +6,7 @@
      * Iterates through sample and sets the element to the max possible value if it exceeds the max possible value. \n
      * It sets the element to the least possible value if it is below the least possible value. \n
      * The element is set to the max possible value by the getMaxVal() method. \n
-     * The element is set to the least possible value by the getMinVal() method. 
+     * The element is set to the least possible value by the getMinVal() method. \n
      * 
      */
     void Processor::checkVals(){

@@ -6,9 +6,9 @@
      * This constructor calls the Processor class's constructor using samples. \n
      * The constructor calls the private void process() method. \n
      * 
-     * @param samples (A vector that will be processed using private methods.)
-     * @param scale (A float (multiplied by .01) that will be used to scale the echos volume. The input is a percentage.)
-     * @param delay (An int that will be used to delay the sound of the echo by number of elements.)
+     * @param samples (A vector that will be processed using private methods.) \n
+     * @param scale (A float (multiplied by .01) that will be used to scale the echos volume. The input is a percentage.) \n
+     * @param delay (An int that will be used to delay the sound of the echo by number of elements.) \n
      */
     Echo::Echo(std::vector<float> samples, float scale, int delay, int repeat)
         : Processor(samples)
@@ -30,7 +30,7 @@
      * Next, it calls the void setEcho() method to create the echo vector. \n
      * After, it calls the void calculateFinalEcho() method to perform math on the sound, and create an echo effect. \n
      * After, it saves the new vector by calling the inherited setSample() method from the Processor class. \n
-     * It then checks the values of the saved vector by the inherited checkVals() method from the Processor class.
+     * It then checks the values of the saved vector by the inherited checkVals() method from the Processor class. \n
      * 
      */
     void Echo::process(){
@@ -42,7 +42,7 @@
     }
     /**
      * @brief Checks if scale value is valid. \n
-     * Checks if the scale value is more than 1. If it is over 1, it sets it to 1. Otherwise, nothing happens.
+     * Checks if the scale value is more than 1. If it is over 1, it sets it to 1. Otherwise, nothing happens. \n
      * 
      */
     void Echo::checkScale(){
@@ -50,7 +50,7 @@
     }
     /**
      * @brief Sets echo vector. \n
-     * Sets class member echo to the sample via the inherited method getSample().
+     * Sets class member echo to the sample via the inherited method getSample(). \n
      * 
      */
     void Echo::setEcho(){
@@ -61,7 +61,7 @@
      * Iterates from the back of the echo vector to the delay point, both are class members. \n
      * It scales each element specially thus creating an echo effect. \n
      * It scales each element by setting the element to the scaled delayed element added to itself. \n
-     * The scaled delayed element is calculated by the product of the scale and the previous element delay times before the current element.
+     * The scaled delayed element is calculated by the product of the scale and the previous element delay times before the current element. \n
      * 
      */
     void Echo::calculateFinalEcho(){

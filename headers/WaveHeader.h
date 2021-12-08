@@ -2,7 +2,7 @@
 
 /**
  * @brief A WaveHeader struct. \n
- * This struct holds data variables for the Wav class.
+ * This struct holds data variables for the Wav class. \n
  * 
  */
 struct WaveHeader

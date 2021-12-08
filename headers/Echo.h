@@ -5,7 +5,7 @@
 /**
  * @brief A sound echoing class that inherits from the Processor class. \n
  * This class has a public constructor that calls private processing methods. \n
- * It also has three private member variables which are initialized by the constructor.
+ * It also has three private member variables which are initialized by the constructor. \n
  * 
  */
 class Echo : public Processor{ // have a third parameter for number of times to process/delay
