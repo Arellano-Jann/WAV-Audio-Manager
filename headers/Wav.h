@@ -35,32 +35,32 @@ public:
     /**
      * @brief Get the File Name associated with this Wav Object.
      * 
-     * @return std::string name of file
+     * @return std::string file
      */
     std::string GetFileName() const { return file; }
     std::string GetStereo() const;
     /**
      * @brief Get the Sample Rate of the wav file associated with this object.
      * 
-     * @return int sample rate
+     * @return int sampleRate
      */
     int GetSampleRate() const { return header.sampleRate; }
     /**
      * @brief Get the Byte Rate of the wav file associated with this object.
      * 
-     * @return int byte rate
+     * @return int byteRate
      */
     int GetByteRate() const { return header.byteRate; }
     /**
      * @brief Get the Bits Per Sample (bitdepth) of the wav data associated with this object.
      * 
-     * @return short bit depth
+     * @return short bitDepth
      */
     short GetBitsPerSample() const { return header.bitDepth; }
     /**
      * @brief Get the Block Align of the wav data associated with this object.
      * 
-     * @return short block alignment
+     * @return short sampleAlignment
      */
     short GetBlockAlign() const { return header.sampleAlignment; }
     /**
@@ -75,7 +75,7 @@ public:
     /**
      * @brief Sets the samples vector to be converted back into new wav audio data.
      * 
-     * @param sample std::vector<float> samples that have just been modified
+     * @param sample std::vector<float> (Samples that have just been modified.)
      */
     void setSamples(std::vector<float> sample){ samples = sample; }
     

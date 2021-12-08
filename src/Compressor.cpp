@@ -6,9 +6,9 @@
      * This constructor calls the Processor class's constructor using samples. \n
      * The constructor calls the private void process() method.
      * 
-     * @param samples A vector that will be processed using private methods.
-     * @param ratio A float (multiplied by .01) used to compress values. The input is a percentage.
-     * @param max A float (multiplied by .01) used to determine the max value before compression. The input is a percentage.
+     * @param samples (A vector that will be processed using private methods.)
+     * @param ratio (A float (multiplied by .01) used to compress values. The input is a percentage.)
+     * @param max (A float (multiplied by .01) used to determine the max value before compression. The input is a percentage.)
      */
     Compressor::Compressor(std::vector<float> samples, float ratio, float max)
         : Processor(samples)
@@ -25,7 +25,7 @@
      * @brief Compresses samples and checks if values are valid. \n
      * Calls the void compress() method to compress the passed in vector of samples. \n
      * After, it saves the new vector by calling the inherited setSample() method from the Processor class. \n
-     * It then checks the values of the saved vector by the inherited checkVals() method from the Processor class. \n
+     * It then checks the values of the saved vector by the inherited checkVals() method from the Processor class.
      * 
      */
     void Compressor::process(){

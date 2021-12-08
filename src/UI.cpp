@@ -13,7 +13,7 @@ void UI::StartMenu() {
 /**
  * @brief Retrieves a filename from the user and appends ".wav" if it's not already there.
  * 
- * @return std::string the filename entered by the user
+ * @return std::string (The filename entered by the user.)
  */
 std::string UI::Input() {
     std::string name;
@@ -29,9 +29,9 @@ std::string UI::Input() {
 /**
  * @brief Checks the input from the user to see if they are quitting.
  * 
- * @param input user input
- * @return true user inputs a filename
- * @return false user inputs "q" or "Q"
+ * @param input (User input.)
+ * @return true (User inputs a filename.)
+ * @return false (User inputs "q" or "Q".)
  */
 bool UI::checkInput(std::string input){
   //std::string i = lower(input);
@@ -61,7 +61,7 @@ void UI::ExitMenu() {
 /**
  * @brief Prints relevant metadata to the console. \n
  * The metadata is retrieved from the wav object.
- * @param wav a reference to the wav file to fetch the metadata
+ * @param wav (A reference to the wav file to fetch the metadata.)
  */
 void UI::PrintMetaData(const Wav& wav) {
     std::cout << "Metadata Goodness:" << std::endl;
@@ -91,7 +91,7 @@ void UI::ProcessorMenu() {
 /**
  * @brief Requests an integer selection from the user to select a processor.
  * 
- * @return int a number associated with a processor
+ * @return int (A number associated with a processor.)
  */
 int UI::selectProcessor(){
     std::string selection;
@@ -108,9 +108,9 @@ int UI::selectProcessor(){
 /**
  * @brief Checks the previously selected input from the user to confirm it is a valid processor selection.
  * 
- * @param i previous processor selection input (1-6)
- * @return true if the selected input is valid (between 1-6)
- * @return false if the selected input was invalid (not between 1-6)
+ * @param i (Previous processor selection input (1-6).)
+ * @return true (If the selected input is valid (between 1-6).)
+ * @return false (If the selected input was invalid (not between 1-6).)
  */
 bool UI::checkProcessor(std::string i){
     std::string arr[6] = {"1","2","3","4","5","6"};
@@ -125,7 +125,7 @@ bool UI::checkProcessor(std::string i){
 /**
  * @brief Outputs questions to the user.
  * 
- * @param i a picker for the questions
+ * @param i (A picker for the questions.)
  */
 void UI::askProcessorQuestions(int i){
     switch (i){
@@ -147,7 +147,7 @@ void UI::askProcessorQuestions(int i){
 /**
  * @brief Requests the name of the file the new wav data should be written to.
  * 
- * @return std::string the complete output filename (includes .wav extension)
+ * @return std::string (The complete output filename (includes .wav extension).)
  */
 std::string UI::OutputFileName() {
     std::cout << "Enter the Name of Your Output File:" << std::endl;
@@ -162,7 +162,7 @@ std::string UI::OutputFileName() {
 /**
  * @brief Easier std::cout, but in a function.
  * 
- * @param str String outputted in the terminal
+ * @param str (String outputted in the terminal.)
  */
 void UI::output(std::string str){
     std::cout << str << std::endl;

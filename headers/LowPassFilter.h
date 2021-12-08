@@ -2,7 +2,11 @@
 #define LOWPASSFILTER_H
 #include "Processor.h"
 
-
+/**
+ * @brief A LowPassFilter class. \n
+ * This class doesn't work.
+ * 
+ */
 class LowPassFilter : public Processor{
     std::vector<float> lpf;
     int destruction;

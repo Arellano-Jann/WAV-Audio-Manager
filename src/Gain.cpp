@@ -6,8 +6,8 @@
      * This constructor calls the Processor class's constructor using samples. \n
      * The constructor calls the private void process() method.
      * 
-     * @param samples A vector that will be processed using private methods.
-     * @param scale A float (multiplied by .01) used to scale values. The input is a percentage.
+     * @param samples (A vector that will be processed using private methods.)
+     * @param scale )A float (multiplied by .01) used to scale values. The input is a percentage.)
      */
     Gain::Gain(std::vector<float> samples, float scale)
         : Processor(samples)

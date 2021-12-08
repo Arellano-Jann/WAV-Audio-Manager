@@ -1,5 +1,10 @@
 // Created by Andrew Kalb
 
+/**
+ * @brief A WaveHeader struct. \n
+ * This struct holds data variables for the Wav class.
+ * 
+ */
 struct WaveHeader
 {
     char riffHeader[4];

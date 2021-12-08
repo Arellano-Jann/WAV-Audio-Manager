@@ -6,7 +6,7 @@
      * This constructor calls the Gain class's constructor using samples and 100, a float. \n
      * The constructor calls the private void process() method.
      * 
-     * @param samples A vector that will be processed using private methods.
+     * @param samples (A vector that will be processed using private methods.)
      */
     Normalization::Normalization(std::vector<float> samples)
     : Gain(samples, 100)
@@ -47,7 +47,7 @@
      * If an element exceeds the current max value, the element is saved as the new max value. \n
      * At the end of the iteration, the max value in samples is returned.
      * 
-     * @return float the max value in samples
+     * @return float (The max value in samples.)
      */
     float Normalization::findMax(){
         float max = getMinVal();
@@ -63,7 +63,7 @@
      * If the min value exceeds the current element, the element is saved as the new min value. \n
      * At the end of the iteration, the min value in samples is returned.
      * 
-     * @return float the min value in samples
+     * @return float (The min value in samples.)
      */
     float Normalization::findMin(){
         float min = getMaxVal();
@@ -82,9 +82,9 @@
      * This is to ensure that we're comparing positive values. \n
      * Finally, it returns the lesser of the two calculations.
      * 
-     * @param min the minimum possible value
-     * @param max the maximum possible value
-     * @return float the lowest scale to get a value from samples to the maximum or minimum possible value 
+     * @param min (The minimum possible value.)
+     * @param max (the maximum possible value.)
+     * @return float (The lowest scale to get a value from samples to the maximum or minimum possible value.)
      */
     float Normalization::findScale(float min, float max){
         max = getMaxVal()/max;

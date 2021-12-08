@@ -6,9 +6,9 @@
      * This constructor calls the Processor class's constructor using samples. \n
      * The constructor calls the private void process() method. \n
      * 
-     * @param samples A vector that will be processed using private methods.
-     * @param scale A float (multiplied by .01) that will be used to scale the echos volume. The input is a percentage.
-     * @param delay An int that will be used to delay the sound of the echo by number of elements.
+     * @param samples (A vector that will be processed using private methods.)
+     * @param scale (A float (multiplied by .01) that will be used to scale the echos volume. The input is a percentage.)
+     * @param delay (An int that will be used to delay the sound of the echo by number of elements.)
      */
     Echo::Echo(std::vector<float> samples, float scale, int delay, int repeat)
         : Processor(samples)
