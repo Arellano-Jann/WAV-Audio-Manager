@@ -91,6 +91,7 @@ Challenge Level Project</h1>
 <ul>
 <li>Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. However, Jann thinks that coding a Fourier's Transform would work, and separate the high frequencies.</li>
 <li>The CreateFile function in <a class="el" href="de/dd3/classWav.html" title="A Wav class.  This class has a public constructor and destructor.  It also has four private member va...">Wav</a> doesn't work quite properly. The intent was to have the function return false if the filename entered was already the name of a file, but instead it just writes over that filename and essentially always returns true.</li>
+<li>When generating the docs, having "Challenge Level" at the top where the rubric states it should be generates weird HTML that is not recognized. It says <code>&lt;strong&gt;&lt;/strong&gt;</code> which should not be there given our <a class="el" href="da/ddd/README_8md.html">README.md</a> format. Fixing it seems to be almost impossible other than removing it. That or I (Jann) just haven't found the correct combination of syntax to make it so that it isn't strong anymore.</li>
 </ul>
 <p><b>Past Challenges</b></p>
 <hr  />

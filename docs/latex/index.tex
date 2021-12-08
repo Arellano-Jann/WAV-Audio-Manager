@@ -40,6 +40,7 @@
 \begin{DoxyItemize}
 \item Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. However, Jann thinks that coding a Fourier\textquotesingle{}s Transform would work, and separate the high frequencies.
 \item The Create\+File function in \mbox{\hyperlink{classWav}{Wav}} doesn\textquotesingle{}t work quite properly. The intent was to have the function return false if the filename entered was already the name of a file, but instead it just writes over that filename and essentially always returns true.
+\item When generating the docs, having \char`\"{}\+Challenge Level\char`\"{} at the top where the rubric states it should be generates weird H\+T\+ML that is not recognized. It says {\ttfamily $<$strong$>$$<$/strong$>$} which should not be there given our \mbox{\hyperlink{README_8md}{R\+E\+A\+D\+M\+E.\+md}} format. Fixing it seems to be almost impossible other than removing it. That or I (Jann) just haven\textquotesingle{}t found the correct combination of syntax to make it so that it isn\textquotesingle{}t strong anymore.
 \end{DoxyItemize}
 
 {\bfseries{Past Challenges}}

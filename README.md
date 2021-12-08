@@ -30,6 +30,7 @@
 
 - Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. However, Jann thinks that coding a Fourier's Transform would work, and separate the high frequencies.
 - The CreateFile function in Wav doesn't work quite properly. The intent was to have the function return false if the filename entered was already the name of a file, but instead it just writes over that filename and essentially always returns true.
+- When generating the docs, having "Challenge Level" at the top where the rubric states it should be generates weird HTML that is not recognized. It says `<strong></strong>` which should not be there given our README.md format. Fixing it seems to be almost impossible other than removing it. That or I (Jann) just haven't found the correct combination of syntax to make it so that it isn't strong anymore.
 
 **Past Challenges**
 
