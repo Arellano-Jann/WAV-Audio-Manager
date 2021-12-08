@@ -38,7 +38,8 @@
 
 
 \begin{DoxyItemize}
-\item Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. I, Jann, would imagine that coding a fourier\textquotesingle{}s transform would work and separating the high frequencies though.
+\item Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. However, Jann thinks that coding a Fourier\textquotesingle{}s Transform would work, and separate the high frequencies.
+\item The Create\+File function in \mbox{\hyperlink{classWav}{Wav}} doesn\textquotesingle{}t work quite properly. The intent was to have the function return false if the filename entered was already the name of a file, but instead it just writes over that filename and essentially always returns true.
 \end{DoxyItemize}
 
 {\bfseries{Past Challenges}}
@@ -48,8 +49,10 @@
 
 
 \begin{DoxyItemize}
-\item Many segmentation faults was caused by our Print\+Meta\+Data() method taking in a copy of the \mbox{\hyperlink{classWav}{Wav}} object instead of a reference causing two deletions of the sample array.
-\item Creating a really advanced makefile made me, Jann, read half of the G\+NU Make documentation to have a really cool makefile. Though, implicit rules don’t work with the makefile sadly.
+\item Many segmentation faults were caused by our Print\+Meta\+Data() method taking in a copy of the \mbox{\hyperlink{classWav}{Wav}} object instead of a reference, which therefore copied a pointer which was deleted when the function went out of scope, causing a double delete of the sample array later.
+\item There was some difficulties attempting to convert the raw data from the wav file to usable and proper types (shorts and unsigned chars). I (Andrew) was forced to use some arguably \char`\"{}dangerous\char`\"{} direct memory manipulation to forcefully set two bytes into a short via reinterpret casts and other safer casts.
+\item The segmentation faults we experienced during runtime were extremely hard to debug, especially in Visual Studio Code. I (Andrew) have more experience with Visual Studio Community, so throwing all the files into community and then using the debugger I\textquotesingle{}m familiar with and actually viewing memory and stepping through code made the errors go away much quicker. Debugging in V\+SC consisted of us commenting out most of our code trying to isolate the problem, but after I moved it into Visual Studio Community, it gave me explicit errors like vector out of range instead of just \char`\"{}segmentation fault\char`\"{}, which allowed me to make efficient progress on fixing our code.
+\item Creating a really advanced makefile made Jann read half of the G\+NU Make documentation to have a really cool makefile. However, implicit rules don’t work with the makefile sadly.
 \item Putting .cpp and .h files in a directory/folder made for a challenge when creating the makefile.
 \end{DoxyItemize}
 
@@ -58,7 +61,7 @@
 \DoxyHorRuler{0}
 
 
-{\ttfamily make} builds the program and the necessary directories
+{\ttfamily make} builds the program and the necessary directories.
 
 {\ttfamily make clean} cleans the root folder of the .exe and .wav files. It also cleans the objs directory of all .o files.
 
@@ -69,39 +72,41 @@
 
 
 \begin{DoxyItemize}
-\item Build Application
-\item Enter “./wavman” in Your Terminal to Run the Application
-\item Enter the Name of the .wav File You Wish to Edit
+\item Build the Application.
+\item Enter “./wavman” in your terminal to run the application.
+\item Enter the Name of the .wav file that you wish to edit.
 \begin{DoxyItemize}
-\item OR Type “q” to Exit the Program
+\item OR Type “q” to Exit the program.
 \end{DoxyItemize}
-\item The Application will Display the File’s Metadata, and Ask You to Choose a Processing Method to Apply to Your .wav File
-\item Enter a Number Based on Which \mbox{\hyperlink{classProcessor}{Processor}} You Would Like to Use
+\item The Application will display the file’s Metadata, and ask you to choose a processing method to apply to your .wav file.
+\item Enter a Number based on which \mbox{\hyperlink{classProcessor}{Processor}} you would like to use.
 \begin{DoxyItemize}
 \item (1) \mbox{\hyperlink{classNormalization}{Normalization}}\+:
 \begin{DoxyItemize}
-\item This Processing Method Will Maximize the Amplitude of Your File
-\item This Processing Method Will Automatically Apply to Your File and Return You to the “\+Choose a Processing Method” Page
+\item This processing method will Maximize the Amplitude of your file.
+\item This processing method will automatically apply to your file and return you to the “\+Choose a Processing Method” page.
 \end{DoxyItemize}
 \item (2) \mbox{\hyperlink{classEcho}{Echo}}\+:
 \begin{DoxyItemize}
-\item This Processing Method Will Create an \mbox{\hyperlink{classEcho}{Echo}} Effect from Your File
-\item This Processing Method Will Ask You to Enter a Percentage to Scale the Echo’s Volume, then it Will Ask You to Enter a Delay Value by Number of Samples, and Return You to the “\+Choose a Processing Method” Page
+\item This processing method will create an \mbox{\hyperlink{classEcho}{Echo}} effect from your file.
+\item This processing method will ask you to enter a Percentage to scale the Echo’s Volume, then it will ask you to enter a Delay Value by number of samples, and return you to the “\+Choose a Processing Method” page.
 \end{DoxyItemize}
-\item (3) \mbox{\hyperlink{classGain}{Gain}}
+\item (3) \mbox{\hyperlink{classGain}{Gain}}\+:
 \begin{DoxyItemize}
-\item This Processing Method Will Raise or Lower the Overall Amplitude of Your File
-\item This Processing Method Will Ask You to Enter a Percentage to Scale the Overall Amplitude, and Return You to the “\+Choose a Processing Method” Page
+\item This processing method will raise or lower the Overall Amplitude of your file.
+\item This processing method will ask you to enter a Percentage to scale the Overall Amplitude, and return you to the “\+Choose a Processing Method” page.
 \end{DoxyItemize}
-\item (4) Low-\/\+Pass Filter
+\item (4) Low-\/\+Pass Filter\+:
 \begin{DoxyItemize}
-\item This Processing Method Does Not Work Properly
-\item Avoid Using This Processing Method
+\item This processing method does not currently work.
+\item Avoid using this processing method.
 \end{DoxyItemize}
-\item (5) \mbox{\hyperlink{classCompressor}{Compressor}}
+\item (5) Compression\+:
 \begin{DoxyItemize}
-\item This Processing Method Will Scale the Volume of Your .wav File by a Ratio Based on a Maximum Threshold
-\item This Processing Method Will Ask You to Enter a Ratio that Will Scale Aspects of Your File that Exceed the Maximum Threshold, then it Will Ask You to Set a Maximum Threshold 
+\item This processing method will scale the Volume of your .wav file by a Ratio based on a Maximum Threshold.
+\item This processing method will ask you to enter a Ratio that will scale aspects of your file that exceed the Maximum Threshold, then it will ask you to set a Maximum Threshold.
 \end{DoxyItemize}
 \end{DoxyItemize}
+\item After the user is done using processor functions on the wav data, to see the input they need to save the file by entering
+\item the number 6, and then entering the name of the file they would like to output to. 
 \end{DoxyItemize}

@@ -69,7 +69,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A sound echoing class that inherits from the <a class="el" href="../../db/d9f/classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a> class This class has a public constructor that calls private processing methods. It also has three private member variables which are initialized by the constructor.  
+<p>A sound echoing class that inherits from the <a class="el" href="../../db/d9f/classProcessor.html" title="A Processor parent class.  This class has a public constructor that initializes the sample....">Processor</a> class. <br  />
+This class has a public constructor that calls private processing methods. <br  />
+It also has three private member variables which are initialized by the constructor.  
  <a href="../../dc/dd7/classEcho.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d8/dd9/Echo_8h_source.html">Echo.h</a>&gt;</code></p>
@@ -89,7 +91,11 @@ Collaboration diagram for Echo:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af3019816aabcb2cb55af69a487a77ada"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd7/classEcho.html#af3019816aabcb2cb55af69a487a77ada">Echo</a> (std::vector&lt; float &gt; samples, float scale, int delay, int repeat)</td></tr>
-<tr class="memdesc:af3019816aabcb2cb55af69a487a77ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="../../dc/dd7/classEcho.html" title="A sound echoing class that inherits from the Processor class This class has a public constructor that...">Echo</a> object This constructor initializes it's parameters into the class's private members using an initializer list. This constructor calls the <a class="el" href="../../db/d9f/classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a> class's constructor using samples. The constructor calls the private void process() method.  <a href="../../dc/dd7/classEcho.html#af3019816aabcb2cb55af69a487a77ada">More...</a><br /></td></tr>
+<tr class="memdesc:af3019816aabcb2cb55af69a487a77ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="../../dc/dd7/classEcho.html" title="A sound echoing class that inherits from the Processor class.  This class has a public constructor th...">Echo</a> object. <br  />
+This constructor initializes its parameters into the class's private members using an initializer list. <br  />
+This constructor calls the <a class="el" href="../../db/d9f/classProcessor.html" title="A Processor parent class.  This class has a public constructor that initializes the sample....">Processor</a> class's constructor using samples. <br  />
+The constructor calls the private void process() method. <br  />
+.  <a href="../../dc/dd7/classEcho.html#af3019816aabcb2cb55af69a487a77ada">More...</a><br /></td></tr>
 <tr class="separator:af3019816aabcb2cb55af69a487a77ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classProcessor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classProcessor')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../db/d9f/classProcessor.html">Processor</a></td></tr>
 <tr class="memitem:a8d704f769bf0582b54e94516e912d836 inherit pub_methods_classProcessor"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d9f/classProcessor.html#a8d704f769bf0582b54e94516e912d836">Processor</a> (std::vector&lt; float &gt; const &amp;samples)</td></tr>
@@ -107,11 +113,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a556a29a85ea854ce51c06042a91bdbcf inherit pub_methods_classProcessor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the min value (floating point) possible.  <a href="../../db/d9f/classProcessor.html#a556a29a85ea854ce51c06042a91bdbcf">More...</a><br /></td></tr>
 <tr class="separator:a556a29a85ea854ce51c06042a91bdbcf inherit pub_methods_classProcessor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b239ea764d8d913bf0962a779012314 inherit pub_methods_classProcessor"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d9f/classProcessor.html#a6b239ea764d8d913bf0962a779012314">checkVals</a> ()</td></tr>
-<tr class="memdesc:a6b239ea764d8d913bf0962a779012314 inherit pub_methods_classProcessor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the values in sample are valid Iterates through sample and sets the element to the max possible value if it exceeds the max possible value. It sets the element to the least possible value if it is below the least possible value. The element is set to the max possible value by the <a class="el" href="../../db/d9f/classProcessor.html#a7647cb0f392f7cad6bd59dbbd75b36ad" title="Get the max value (floating point) possible.">getMaxVal()</a> method. The element is set to the least possible value by the <a class="el" href="../../db/d9f/classProcessor.html#a556a29a85ea854ce51c06042a91bdbcf" title="Get the min value (floating point) possible.">getMinVal()</a> method.  <a href="../../db/d9f/classProcessor.html#a6b239ea764d8d913bf0962a779012314">More...</a><br /></td></tr>
+<tr class="memdesc:a6b239ea764d8d913bf0962a779012314 inherit pub_methods_classProcessor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the values in sample are valid. <br  />
+Iterates through sample and sets the element to the max possible value if it exceeds the max possible value. <br  />
+It sets the element to the least possible value if it is below the least possible value. <br  />
+The element is set to the max possible value by the <a class="el" href="../../db/d9f/classProcessor.html#a7647cb0f392f7cad6bd59dbbd75b36ad" title="Get the max value (floating point) possible.">getMaxVal()</a> method. <br  />
+The element is set to the least possible value by the <a class="el" href="../../db/d9f/classProcessor.html#a556a29a85ea854ce51c06042a91bdbcf" title="Get the min value (floating point) possible.">getMinVal()</a> method.  <a href="../../db/d9f/classProcessor.html#a6b239ea764d8d913bf0962a779012314">More...</a><br /></td></tr>
 <tr class="separator:a6b239ea764d8d913bf0962a779012314 inherit pub_methods_classProcessor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A sound echoing class that inherits from the <a class="el" href="../../db/d9f/classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a> class This class has a public constructor that calls private processing methods. It also has three private member variables which are initialized by the constructor. </p>
+<div class="textblock"><p>A sound echoing class that inherits from the <a class="el" href="../../db/d9f/classProcessor.html" title="A Processor parent class.  This class has a public constructor that initializes the sample....">Processor</a> class. <br  />
+This class has a public constructor that calls private processing methods. <br  />
+It also has three private member variables which are initialized by the constructor. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af3019816aabcb2cb55af69a487a77ada"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3019816aabcb2cb55af69a487a77ada">&#9670;&nbsp;</a></span>Echo()</h2>
@@ -151,7 +163,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="../../dc/dd7/classEcho.html" title="A sound echoing class that inherits from the Processor class This class has a public constructor that...">Echo</a> object This constructor initializes it's parameters into the class's private members using an initializer list. This constructor calls the <a class="el" href="../../db/d9f/classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a> class's constructor using samples. The constructor calls the private void process() method. </p>
+<p>Constructs a new <a class="el" href="../../dc/dd7/classEcho.html" title="A sound echoing class that inherits from the Processor class.  This class has a public constructor th...">Echo</a> object. <br  />
+This constructor initializes its parameters into the class's private members using an initializer list. <br  />
+This constructor calls the <a class="el" href="../../db/d9f/classProcessor.html" title="A Processor parent class.  This class has a public constructor that initializes the sample....">Processor</a> class's constructor using samples. <br  />
+The constructor calls the private void process() method. <br  />
+. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">samples</td><td>A vector that will be processed using private methods. </td></tr>

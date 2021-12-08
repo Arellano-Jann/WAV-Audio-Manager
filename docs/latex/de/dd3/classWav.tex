@@ -2,7 +2,10 @@
 \label{classWav}\index{Wav@{Wav}}
 
 
-A \mbox{\hyperlink{classWav}{Wav}} class This class has a public constructor and destructor. It also has four private member variables which is the sound data, file name and \mbox{\hyperlink{structWaveHeader}{Wave\+Header}}. The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa.  
+A \mbox{\hyperlink{classWav}{Wav}} class. ~\newline
+This class has a public constructor and destructor. ~\newline
+It also has four private member variables which is the sound data, file name and \mbox{\hyperlink{structWaveHeader}{Wave\+Header}}. ~\newline
+The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa.  
 
 
 
@@ -13,13 +16,13 @@ A \mbox{\hyperlink{classWav}{Wav}} class This class has a public constructor and
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav}} ()
-\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classWav}{Wav}}\+:\+: \mbox{\hyperlink{classWav}{Wav}} object and initializes member variables. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object, and initializes member variables. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classWav_a1510b246ba121b103a60b8e7839af25f}{$\sim$\+Wav}} ()
-\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classWav}{Wav}}\+:\+: \mbox{\hyperlink{classWav}{Wav}} object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classWav_a67b3062a3f0b9563951a0f25f38c6a3a}{Set\+File}} (const std\+::string \&filename)
 \begin{DoxyCompactList}\small\item\em Attempts to set file member variable and tests if the file is valid to be opened. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWav_acf67b55365c25035f3c96df1938f6708}{Analyze\+File}} ()
-\begin{DoxyCompactList}\small\item\em Opens the file, and reads the wave header and data information in. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Opens the file, and reads the \mbox{\hyperlink{structWaveHeader}{Wave\+Header}} and data information in. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classWav_a6cb92af0a60606bbe5f1302d20d680bd}{Get\+File\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Get the File Name associated with this \mbox{\hyperlink{classWav}{Wav}} Object. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classWav_acef103ca027e3c659e9091bdd999d2a8}{Get\+Stereo}} () const
@@ -33,7 +36,7 @@ short \mbox{\hyperlink{classWav_abc10c3170097527959bf77dae2e74122}{Get\+Bits\+Pe
 short \mbox{\hyperlink{classWav_ab59e7cc4e55ade3f312cfa0136b19cc1}{Get\+Block\+Align}} () const
 \begin{DoxyCompactList}\small\item\em Get the Block Align of the wav data associated with this object. \end{DoxyCompactList}\item 
 const std\+::vector$<$ float $>$ \& \mbox{\hyperlink{classWav_ab425e105852c1cca4e5e90c0e6545359}{Get\+Samples}} () const
-\begin{DoxyCompactList}\small\item\em Get the vector of samples converted from the raw wav data (this holds float values from -\/1.\+0f to 1.\+0f) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get the vector of samples converted from the raw wav data (this holds float values from -\/1.\+0f to 1.\+0f). \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classWav_a0d17e2cad80b75c10e143b6fe57b1f5c}{Create\+File}} (std\+::string new\+File\+Name)
 \begin{DoxyCompactList}\small\item\em Attempts to create a file with the data stored in this wav object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWav_a2e4808c2af18e96ca6cfc1bb769c9a2d}{set\+Samples}} (std\+::vector$<$ float $>$ sample)
@@ -41,7 +44,10 @@ void \mbox{\hyperlink{classWav_a2e4808c2af18e96ca6cfc1bb769c9a2d}{set\+Samples}}
 
 
 \doxysubsection{Detailed Description}
-A \mbox{\hyperlink{classWav}{Wav}} class This class has a public constructor and destructor. It also has four private member variables which is the sound data, file name and \mbox{\hyperlink{structWaveHeader}{Wave\+Header}}. The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa. 
+A \mbox{\hyperlink{classWav}{Wav}} class. ~\newline
+This class has a public constructor and destructor. ~\newline
+It also has four private member variables which is the sound data, file name and \mbox{\hyperlink{structWaveHeader}{Wave\+Header}}. ~\newline
+The class has multiple methods for handling wav files and converting floating points to 8/16 bits and vice versa. 
 
 
 
@@ -54,7 +60,7 @@ A \mbox{\hyperlink{classWav}{Wav}} class This class has a public constructor and
 
 
 
-Construct a new \mbox{\hyperlink{classWav}{Wav}}\+:\+: \mbox{\hyperlink{classWav}{Wav}} object and initializes member variables. 
+Constructs a new \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object, and initializes member variables. 
 
 \mbox{\Hypertarget{classWav_a1510b246ba121b103a60b8e7839af25f}\label{classWav_a1510b246ba121b103a60b8e7839af25f}} 
 \index{Wav@{Wav}!````~Wav@{$\sim$Wav}}
@@ -64,7 +70,7 @@ Construct a new \mbox{\hyperlink{classWav}{Wav}}\+:\+: \mbox{\hyperlink{classWav
 
 
 
-Destroy the \mbox{\hyperlink{classWav}{Wav}}\+:\+: \mbox{\hyperlink{classWav}{Wav}} object. 
+Destroys the \mbox{\hyperlink{classWav_abe9848ac7af353c82a78f00a600c18e6}{Wav\+::\+Wav}} object. 
 
 
 
@@ -77,7 +83,7 @@ Destroy the \mbox{\hyperlink{classWav}{Wav}}\+:\+: \mbox{\hyperlink{classWav}{Wa
 
 
 
-Opens the file, and reads the wave header and data information in. 
+Opens the file, and reads the \mbox{\hyperlink{structWaveHeader}{Wave\+Header}} and data information in. 
 
 \mbox{\Hypertarget{classWav_a0d17e2cad80b75c10e143b6fe57b1f5c}\label{classWav_a0d17e2cad80b75c10e143b6fe57b1f5c}} 
 \index{Wav@{Wav}!CreateFile@{CreateFile}}
@@ -172,7 +178,7 @@ int sample rate
 
 
 
-Get the vector of samples converted from the raw wav data (this holds float values from -\/1.\+0f to 1.\+0f) 
+Get the vector of samples converted from the raw wav data (this holds float values from -\/1.\+0f to 1.\+0f). 
 
 \begin{DoxyReturn}{Returns}
 const std\+::vector$<$float$>$\& samples 

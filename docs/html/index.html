@@ -62,14 +62,14 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">The Wave File <a class="el" href="db/d9f/classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a> </div>  </div>
+<div class="title">The Wave File <a class="el" href="db/d9f/classProcessor.html" title="A Processor parent class.  This class has a public constructor that initializes the sample....">Processor</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md1"></a>
 &lt;strong&gt;Challenge Level Project&lt;/strong&gt;</h1>
 <p><b>Jann Arellano:</b></p>
 <ul>
-<li><a class="el" href="db/d9f/classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a></li>
+<li><a class="el" href="db/d9f/classProcessor.html" title="A Processor parent class.  This class has a public constructor that initializes the sample....">Processor</a></li>
 <li>Doxygen</li>
 </ul>
 <p><b>Andrew Kalb:</b></p>
@@ -79,7 +79,7 @@ $(function() {
 </ul>
 <p><b>Alec Redera:</b></p>
 <ul>
-<li><a class="el" href="d9/dcf/classUI.html" title="A UI class Includes many functions that outputs text related to the wav class and checks if inputs ar...">UI</a></li>
+<li><a class="el" href="d9/dcf/classUI.html" title="A UI class.  Includes many functions that outputs text related to the wav class and checks if inputs ...">UI</a></li>
 <li>Documentation</li>
 <li>Quality Checker</li>
 </ul>
@@ -89,57 +89,62 @@ $(function() {
 <p><b>Current Issues</b></p>
 <hr  />
 <ul>
-<li>Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. I, Jann, would imagine that coding a fourier's transform would work and separating the high frequencies though.</li>
+<li>Low Pass Filter doesn’t work with the method described in the hints/discord. It only creates a delay. However, Jann thinks that coding a Fourier's Transform would work, and separate the high frequencies.</li>
+<li>The CreateFile function in <a class="el" href="de/dd3/classWav.html" title="A Wav class.  This class has a public constructor and destructor.  It also has four private member va...">Wav</a> doesn't work quite properly. The intent was to have the function return false if the filename entered was already the name of a file, but instead it just writes over that filename and essentially always returns true.</li>
 </ul>
 <p><b>Past Challenges</b></p>
 <hr  />
 <ul>
-<li>Many segmentation faults was caused by our PrintMetaData() method taking in a copy of the <a class="el" href="de/dd3/classWav.html" title="A Wav class This class has a public constructor and destructor. It also has four private member varia...">Wav</a> object instead of a reference causing two deletions of the sample array.</li>
-<li>Creating a really advanced makefile made me, Jann, read half of the GNU Make documentation to have a really cool makefile. Though, implicit rules don’t work with the makefile sadly.</li>
+<li>Many segmentation faults were caused by our PrintMetaData() method taking in a copy of the <a class="el" href="de/dd3/classWav.html" title="A Wav class.  This class has a public constructor and destructor.  It also has four private member va...">Wav</a> object instead of a reference, which therefore copied a pointer which was deleted when the function went out of scope, causing a double delete of the sample array later.</li>
+<li>There was some difficulties attempting to convert the raw data from the wav file to usable and proper types (shorts and unsigned chars). I (Andrew) was forced to use some arguably "dangerous" direct memory manipulation to forcefully set two bytes into a short via reinterpret casts and other safer casts.</li>
+<li>The segmentation faults we experienced during runtime were extremely hard to debug, especially in Visual Studio Code. I (Andrew) have more experience with Visual Studio Community, so throwing all the files into community and then using the debugger I'm familiar with and actually viewing memory and stepping through code made the errors go away much quicker. Debugging in VSC consisted of us commenting out most of our code trying to isolate the problem, but after I moved it into Visual Studio Community, it gave me explicit errors like vector out of range instead of just "segmentation fault", which allowed me to make efficient progress on fixing our code.</li>
+<li>Creating a really advanced makefile made Jann read half of the GNU Make documentation to have a really cool makefile. However, implicit rules don’t work with the makefile sadly.</li>
 <li>Putting .cpp and .h files in a directory/folder made for a challenge when creating the makefile.</li>
 </ul>
 <p><b>Application Building</b></p>
 <hr  />
-<p><code>make</code> builds the program and the necessary directories</p>
+<p><code>make</code> builds the program and the necessary directories.</p>
 <p><code>make clean</code> cleans the root folder of the .exe and .wav files. It also cleans the objs directory of all .o files.</p>
 <p><b>How To Use This Application</b></p>
 <hr  />
 <ul>
-<li>Build Application</li>
-<li>Enter “./wavman” in Your Terminal to Run the Application</li>
-<li>Enter the Name of the .wav File You Wish to Edit<ul>
-<li>OR Type “q” to Exit the Program</li>
+<li>Build the Application.</li>
+<li>Enter “./wavman” in your terminal to run the application.</li>
+<li>Enter the Name of the .wav file that you wish to edit.<ul>
+<li>OR Type “q” to Exit the program.</li>
 </ul>
 </li>
-<li>The Application will Display the File’s Metadata, and Ask You to Choose a Processing Method to Apply to Your .wav File</li>
-<li>Enter a Number Based on Which <a class="el" href="db/d9f/classProcessor.html" title="A Processor parent class This class has a public constructor that initializes the sample....">Processor</a> You Would Like to Use<ul>
-<li>(1) <a class="el" href="d6/d51/classNormalization.html" title="A sound normalization class that inherits from the Gain class This class has a public constructor tha...">Normalization</a>:<ul>
-<li>This Processing Method Will Maximize the Amplitude of Your File</li>
-<li>This Processing Method Will Automatically Apply to Your File and Return You to the “Choose a Processing Method” Page</li>
+<li>The Application will display the file’s Metadata, and ask you to choose a processing method to apply to your .wav file.</li>
+<li>Enter a Number based on which <a class="el" href="db/d9f/classProcessor.html" title="A Processor parent class.  This class has a public constructor that initializes the sample....">Processor</a> you would like to use.<ul>
+<li>(1) <a class="el" href="d6/d51/classNormalization.html" title="A sound normalization class that inherits from the Gain class.  This class has a public constructor t...">Normalization</a>:<ul>
+<li>This processing method will Maximize the Amplitude of your file.</li>
+<li>This processing method will automatically apply to your file and return you to the “Choose a Processing Method” page.</li>
 </ul>
 </li>
-<li>(2) <a class="el" href="dc/dd7/classEcho.html" title="A sound echoing class that inherits from the Processor class This class has a public constructor that...">Echo</a>:<ul>
-<li>This Processing Method Will Create an <a class="el" href="dc/dd7/classEcho.html" title="A sound echoing class that inherits from the Processor class This class has a public constructor that...">Echo</a> Effect from Your File</li>
-<li>This Processing Method Will Ask You to Enter a Percentage to Scale the Echo’s Volume, then it Will Ask You to Enter a Delay Value by Number of Samples, and Return You to the “Choose a Processing Method” Page</li>
+<li>(2) <a class="el" href="dc/dd7/classEcho.html" title="A sound echoing class that inherits from the Processor class.  This class has a public constructor th...">Echo</a>:<ul>
+<li>This processing method will create an <a class="el" href="dc/dd7/classEcho.html" title="A sound echoing class that inherits from the Processor class.  This class has a public constructor th...">Echo</a> effect from your file.</li>
+<li>This processing method will ask you to enter a Percentage to scale the Echo’s Volume, then it will ask you to enter a Delay Value by number of samples, and return you to the “Choose a Processing Method” page.</li>
 </ul>
 </li>
-<li>(3) <a class="el" href="d7/d1e/classGain.html" title="A gain class that inherits from the Processor class This class has a public constructor that calls pr...">Gain</a><ul>
-<li>This Processing Method Will Raise or Lower the Overall Amplitude of Your File</li>
-<li>This Processing Method Will Ask You to Enter a Percentage to Scale the Overall Amplitude, and Return You to the “Choose a Processing Method” Page</li>
+<li>(3) <a class="el" href="d7/d1e/classGain.html" title="A gain class that inherits from the Processor class.  This class has a public constructor that calls ...">Gain</a>:<ul>
+<li>This processing method will raise or lower the Overall Amplitude of your file.</li>
+<li>This processing method will ask you to enter a Percentage to scale the Overall Amplitude, and return you to the “Choose a Processing Method” page.</li>
 </ul>
 </li>
-<li>(4) Low-Pass Filter<ul>
-<li>This Processing Method Does Not Work Properly</li>
-<li>Avoid Using This Processing Method</li>
+<li>(4) Low-Pass Filter:<ul>
+<li>This processing method does not currently work.</li>
+<li>Avoid using this processing method.</li>
 </ul>
 </li>
-<li>(5) <a class="el" href="dc/db7/classCompressor.html" title="A sound compressor class that inherits from the Processor class This class has a public constructor t...">Compressor</a><ul>
-<li>This Processing Method Will Scale the Volume of Your .wav File by a Ratio Based on a Maximum Threshold</li>
-<li>This Processing Method Will Ask You to Enter a Ratio that Will Scale Aspects of Your File that Exceed the Maximum Threshold, then it Will Ask You to Set a Maximum Threshold </li>
+<li>(5) Compression:<ul>
+<li>This processing method will scale the Volume of your .wav file by a Ratio based on a Maximum Threshold.</li>
+<li>This processing method will ask you to enter a Ratio that will scale aspects of your file that exceed the Maximum Threshold, then it will ask you to set a Maximum Threshold.</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>After the user is done using processor functions on the wav data, to see the input they need to save the file by entering</li>
+<li>the number 6, and then entering the name of the file they would like to output to. </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
